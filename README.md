@@ -17,5 +17,6 @@
 # Next Steps
 ### Make animation for ListView item
 ### Setup Flavor (dev, stg, dev)
+### Generate KeyStore for Android
 ### Build release APK
 ### Upload to CH Play
