@@ -1,16 +1,14 @@
-# flutter_http_method
+# Avenger Character Profile APP
 
-A new Flutter application.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+### Customize Widget
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+  - Customize Drawer
+  - Customize Progressing Indicator
+  - Customize ListView item
+ 
+### Change Icon, App name for both iOS and Android
+### Change bundle id (for iOs), applicationId (for Android)
+### Apply BLOC Pattern (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
+### Handle async process
