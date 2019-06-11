@@ -178,19 +178,15 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
     ];
     _characterInfoBloc.dispatch(DrawerClickEvent(categories[0].categoryType,
         title: categories[0].title));
-    for (CharacterDetailCategory item in categories) {
-      list.add(
-        AvengerDrawerItem(
-          '${item.title}',
-          index: item.id + 1,
-          categoryType: item.categoryType,
-          drawerItemClickListener: (category) {
-            _characterInfoBloc
-                .dispatch(DrawerClickEvent(category, title: item.title));
-          },
-        ),
-      );
-    }
+    list.addAll(categories
+        .map((item) =>
+        AvengerDrawerItem('${item.title}',
+            index: item.id + 1, categoryType: item.categoryType,
+            drawerItemClickListener: (category) {
+              _characterInfoBloc
+                  .dispatch(DrawerClickEvent(category, title: item.title));
+            }))
+        .toList());
     return list;
   }
 
