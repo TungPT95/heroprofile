@@ -146,7 +146,7 @@ class _CharacterItemState extends State<CharacterItem> {
               child: Material(
                 shape: CircleBorder(
                     side: BorderSide(
-                      color: Colors.white,
+                      color: Colors.yellow[200],
                   width: widget.circleBorderWidth,
                 )),
                 child: InkWell(
