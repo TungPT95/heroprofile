@@ -1,0 +1,15 @@
+import 'package:bloc/bloc.dart';
+
+import 'base_event.dart';
+import 'base_state.dart';
+
+class BaseBloc extends Bloc<BaseEvent, BaseState> {
+  @override
+  // TODO: implement initialState
+  BaseState get initialState => InitialState();
+
+  @override
+  Stream<BaseState> mapEventToState(BaseEvent event) async* {
+    yield DoNothingState();
+  }
+}
