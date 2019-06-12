@@ -44,18 +44,16 @@
   android {
   //...
 		  signingConfigs {
-		  		release {
+		  	release {
 	        		keyAlias keystoreProperties['keyAlias']
 	        		keyPassword keystoreProperties['keyPassword']
 	        		storeFile file(keystoreProperties['storeFile'])
-			       storePassword keystoreProperties['storePassword']
+			       	storePassword keystoreProperties['storePassword']
 	    		}
 	      }
 		  buildTypes {
-		  		release {
-		  		
+		  	release {
 		       		signingConfig signingConfigs.release
-		       	
 		    	}
 		  }
   //...
