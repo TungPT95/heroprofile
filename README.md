@@ -30,7 +30,7 @@
   storePassword=<store_password>
   keyPassword=<keystore_password>
   keyAlias=<alias>
-  storeFile=</Users/<user_name>/<project_directory>/android/app/<keystore_file_name>.jks>
+  storeFile=<keystore_file_name>.jks>
   ```
   - config signin gradle:
   
