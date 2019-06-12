@@ -166,10 +166,9 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
     _characterInfoBloc.dispatch(DrawerClickEvent(categories[0].categoryType,
         title: categories[0].title));
     list.addAll(categories
-        .map((item) =>
-        AvengerDrawerItem('${item.title}',
-            index: item.id + 1, categoryType: item.categoryType,
-            drawerItemClickListener: (category) {
+        .map((item) => AvengerDrawerItem('${item.title}',
+                index: item.id + 1, categoryType: item.categoryType,
+                drawerItemClickListener: (category) {
               _characterInfoBloc
                   .dispatch(DrawerClickEvent(category, title: item.title));
             }))
