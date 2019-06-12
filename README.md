@@ -50,7 +50,7 @@
 	        		storeFile file(keystoreProperties['storeFile'])
 			       storePassword keystoreProperties['storePassword']
 	    		}
-	     }
+	      }
 		  buildTypes {
 		  		release {
 		       	signingConfig signingConfigs.release
