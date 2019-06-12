@@ -13,11 +13,10 @@
 ### Change bundle id (for iOs), applicationId (for Android)
 ### Apply BLOC Pattern (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 ### Handle async process
-
+### Setup Flavor (dev, stg, dev) for Android
 
 # Next Steps
 ### Make animation for ListView item
-### Setup Flavor (dev, stg, dev) for Android
 ### Generate KeyStore for Android
 ### Build release APK
 ### Upload to CH Play
