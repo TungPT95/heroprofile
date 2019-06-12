@@ -4,6 +4,7 @@ import 'package:avenger_information/blocs/character_list/character_list_bloc.dar
 import 'package:avenger_information/blocs/character_list/character_list_state.dart';
 import 'package:avenger_information/models/character.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
+import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/character_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,9 +28,13 @@ class _HomePageState extends State<HomePage>
   AnimationController controller;
   Animation<double> _animation;
   AvengerProgressIndicator _avengerProgressIndicator;
-  final double _expandedHeight = 210;
+  double _expandedHeight = 210;
 
   CharacterListBloc _characterListBloc;
+
+  String get _appBarTitle => widget.title;
+
+  String get _appBarBg => widget.appBarBg;
 
   @override
   void initState() {
@@ -64,28 +69,9 @@ class _HomePageState extends State<HomePage>
 
         return CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
-              pinned: true,
-              floating: true,
-              forceElevated: true,
-              backgroundColor: Color(0xFF58060A),
-              expandedHeight: _expandedHeight,
-              flexibleSpace: FlexibleSpaceBar(
-                  collapseMode: CollapseMode.parallax,
-                  title: Text(
-                    '${widget.title}',
-                  ),
-                  centerTitle: true,
-                  background: FadeInImage.assetNetwork(
-                    placeholder:
-                        'assets/images/ic_app_horizontal_placeholder.jpg',
-                    image: '${widget.appBarBg}',
-                    fit: BoxFit.cover,
-                    fadeInDuration: Duration(milliseconds: 1100),
-                    fadeInCurve: Curves.linear,
-                  )),
-              brightness: Brightness.dark,
-              automaticallyImplyLeading: true,
+            AvengerSliverAppbar(
+              title: _appBarTitle,
+              appBarBg: _appBarBg,
             ),
             _replaceWidget,
           ],

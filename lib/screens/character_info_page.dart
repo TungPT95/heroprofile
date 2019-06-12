@@ -7,6 +7,7 @@ import 'package:avenger_information/models/character_detail_category.dart';
 import 'package:avenger_information/models/information.dart';
 import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
+import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/board_view.dart';
 import 'package:avenger_information/widgets/drawer/avenger_drawer.dart';
 import 'package:avenger_information/widgets/drawer/avenger_drawer_header.dart';
@@ -47,6 +48,7 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
   final double _expandedHeight = 210;
   List<Widget> _drawerItems = [];
 
+  String get _appBarBg => widget.character.appBarBg;
   CharacterInfoBloc _characterInfoBloc;
 
   @override
@@ -105,24 +107,9 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
           ),
           body: CustomScrollView(
             slivers: <Widget>[
-              SliverAppBar(
-                pinned: true,
-                floating: true,
-                backgroundColor: Color(0xFF58060A),
-                expandedHeight: _expandedHeight,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(_appBarTitle),
-                  collapseMode: CollapseMode.parallax,
-                  centerTitle: true,
-                  background: FadeInImage.assetNetwork(
-                    placeholder:
-                        'assets/images/ic_app_horizontal_placeholder.jpg',
-                    image: '${widget.character.appBarBg}',
-                    fit: BoxFit.cover,
-                    fadeInDuration: Duration(milliseconds: 1100),
-                    fadeInCurve: Curves.linear,
-                  ),
-                ),
+              AvengerSliverAppbar(
+                title: _appBarTitle,
+                appBarBg: _appBarBg,
               ),
               _replaceWidget,
             ],

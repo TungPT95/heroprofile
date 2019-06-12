@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:avenger_information/widgets/avenger_progress_indicator/progress_indicator_custom_paint.dart';
+import 'package:avenger_information/widgets/avenger_progress_indicator/progress_indicator_custom_painter.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -13,9 +13,9 @@ class AvengerProgressIndicator extends AnimatedWidget {
   AvengerProgressIndicator(
       {Key key,
       Animation<double> animation,
-        this.imageWidth = sideLength * (1 + sqrt2) - 10,
-        this.height = 0,
-        this.width = 0})
+      this.imageWidth = sideLength * (1 + sqrt2) - 10,
+      this.height = 0,
+      this.width = 0})
       : super(key: key, listenable: animation);
 
   @override
@@ -25,17 +25,11 @@ class AvengerProgressIndicator extends AnimatedWidget {
     var h = height;
     var w = width;
     if (height <= 0) {
-      h = MediaQuery
-          .of(context)
-          .size
-          .height;
+      h = MediaQuery.of(context).size.height;
     }
 
     if (width <= 0) {
-      w = MediaQuery
-          .of(context)
-          .size
-          .width;
+      w = MediaQuery.of(context).size.width;
     }
 
     return CustomPaint(

@@ -7,6 +7,7 @@
   - Customize Drawer
   - Customize Progressing Indicator
   - Customize ListView item
+  - Customize AppBar
  
 ### Change Icon, App name for both iOS and Android
 ### Change bundle id (for iOs), applicationId (for Android)
@@ -16,7 +17,7 @@
 
 # Next Steps
 ### Make animation for ListView item
-### Setup Flavor (dev, stg, dev)
+### Setup Flavor (dev, stg, dev) for Android
 ### Generate KeyStore for Android
 ### Build release APK
 ### Upload to CH Play
