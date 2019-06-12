@@ -14,9 +14,92 @@
 ### Apply BLOC Pattern (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 ### Handle async process
 ### Setup Flavor (dev, stg, dev) for Android
+### Generate KeyStore for Android (I have not finished this yet)
+  - generate keystore:
+  
+  ```
+  keytool -genkey -v -keystore /Users/<user_name>/<project_directory>/android/app/<keystore_file_name>.jks -keyalg RSA -keysize 2048 -validity 10000 -alias <alias_name>
+  
+  keystore password: 4jRYkBDm3qnSRzNt
+  store password: 4jRYkBDm3qnSRzNt
+  alias: avenger
+  ```
+  - create key_store.properties that contains a reference to your keystore:
+  
+  ```
+  storePassword=<store_password>
+  keyPassword=<keystore_password>
+  keyAlias=<alias>
+  storeFile=</Users/<user_name>/<project_directory>/android/app/<keystore_file_name>.jks>
+  ```
+  - config signin gradle:
+  
+  ```
+  def keystoreProperties = new Properties()
+  def keystorePropertiesFile = rootProject.file('key.properties')
+  if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+  }
+  
+  android {
+  //...
+		  signingConfigs {
+		  		release {
+	        		keyAlias keystoreProperties['keyAlias']
+	        		keyPassword keystoreProperties['keyPassword']
+	        		storeFile file(keystoreProperties['storeFile'])
+			       storePassword keystoreProperties['storePassword']
+	    		}
+	     }
+		  buildTypes {
+		  		release {
+		       	signingConfig signingConfigs.release
+		    	}
+		  }
+  //...
+  }
+  ```
+  - enabling Proguard:
+  	- Step 1 - Configure Proguard
+  
+	  	```
+	  	create /android/app/proguard-rules.pro file
+	  	
+	  	#add rules listed below
+	  	#Flutter Wrapper
+	  	-keep class io.flutter.app.** { *; }
+	  	-keep class io.flutter.plugin.**  { *; }
+	  	-keep class io.flutter.util.**  { *; }
+	  	-keep class io.flutter.view.**  { *; }
+	  	-keep class io.flutter.**  { *; }
+	  	-keep class io.flutter.plugins.**  { *; }
+	  	
+	  	```
+  	- Step 2 - Enable obfuscation and/or minification
+		
+		```
+		android {
 
+    	...
+
+		    buildTypes {
+		
+		        release {
+		
+		            signingConfig signingConfigs.release
+		
+		            minifyEnabled true
+		            useProguard true
+		
+		            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		
+		        }
+		    }
+		    
+		}
+		```
+  	
 # Next Steps
 ### Make animation for ListView item
-### Generate KeyStore for Android
 ### Build release APK
 ### Upload to CH Play
