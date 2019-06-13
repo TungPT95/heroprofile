@@ -62,7 +62,7 @@
 	  }
 	  ```
 	  
-  - enabling Proguard: (***can not finish enabling proguard***)
+  - enabling Proguard: (***I have not finished enabling proguard yet***)
   		- Step 1 - Configure Proguard
 	  
 		  	```
