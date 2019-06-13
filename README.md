@@ -65,44 +65,43 @@
 	  
   - enabling Proguard: (***I have not finished enabling proguard yet***)
   
-  		- Step 1 - Configure Proguard
+  	- Step 1 - Configure Proguard
 	  
-		  	```
-		  	create /android/app/proguard-rules.pro file
-		  	
-		  	#add rules listed below
-		  	#Flutter Wrapper
-		  	-keep class io.flutter.app.** { *; }
-		  	-keep class io.flutter.plugin.**  { *; }
-		  	-keep class io.flutter.util.**  { *; }
-		  	-keep class io.flutter.view.**  { *; }
-		  	-keep class io.flutter.**  { *; }
-		  	-keep class io.flutter.plugins.**  { *; }
-		  	
-		  	```
-  		- Step 2 - Enable obfuscation and/or minification
+		```
+		create /android/app/proguard-rules.pro file
+
+		#add rules listed below
+		#Flutter Wrapper
+		-keep class io.flutter.app.** { *; }
+		-keep class io.flutter.plugin.**  { *; }
+		-keep class io.flutter.util.**  { *; }
+		-keep class io.flutter.view.**  { *; }
+		-keep class io.flutter.**  { *; }
+		-keep class io.flutter.plugins.**  { *; }
+
+		```
+  	- Step 2 - Enable obfuscation and/or minification
 		
-			```
-			android {
-	
-	    	...
-	
-			    buildTypes {
-			
-			        release {
-			
-			            signingConfig signingConfigs.release
-			
-			            minifyEnabled true
-			            useProguard true
-			
-			            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-			
-			        }
-			    }
-			    
+		```
+		android {
+		...
+		
+		    buildTypes {
+
+			release {
+
+			    signingConfig signingConfigs.release
+
+			    minifyEnabled true
+			    useProguard true
+
+			    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
 			}
-			```
+		    }
+
+		}
+		```
 		
 - ### Build release APK
 - ### Upload to CH Play
