@@ -34,8 +34,7 @@ class CharacterItem extends StatefulWidget {
     this.itemPaddingRight = 10,
     this.itemPaddingTop = 5,
     this.itemPaddingBottom = 5,
-  })  : assert(character != null),
-        assert(itemClickListener != null);
+  })  : assert(character != null);
 
   @override
   _CharacterItemState createState() => _CharacterItemState();
