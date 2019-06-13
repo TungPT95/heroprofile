@@ -105,7 +105,7 @@ class ThanosRepos extends CharacterRepos {
 
   @override
   Future<List<Information>> getFunFacts() {
-    var list = <Information>[
+    var list = indexing(<Information>[
       Information(description: 'Thanos once seduced Galactus. Not even lying.'),
       Information(description: 'He once owned a helicopter.'),
       Information(
@@ -113,10 +113,8 @@ class ThanosRepos extends CharacterRepos {
       Information(
           description:
               'He is based after the villain Darkseid from DC Comics.'),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
+    ]);
+
     return returnData<List<Information>>(list);
   }
 
