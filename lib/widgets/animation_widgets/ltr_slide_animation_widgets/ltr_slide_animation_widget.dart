@@ -38,8 +38,11 @@ class _LTRSlideAnimationWidgetState extends State<LTRSlideAnimationWidget>
 
     _animationController =
         AnimationController(vsync: this, duration: _duration);
+
     _animation = Tween<Offset>(begin: Offset(-1, 0), end: Offset.zero)
-        .animate(_animationController);
+        .animate(
+        CurvedAnimation(parent: _animationController, curve: Curves.bounceOut));
+
   }
 
   @override

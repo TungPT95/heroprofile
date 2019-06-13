@@ -22,4 +22,7 @@ class _LTRSlideAnimationViewState
       duration: getDuration(),
     );
   }
+
+  @override
+  Duration getDuration() => Duration(milliseconds: 350);
 }

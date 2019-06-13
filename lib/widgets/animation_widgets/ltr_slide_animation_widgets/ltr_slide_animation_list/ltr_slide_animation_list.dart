@@ -30,7 +30,8 @@ class _LTRSlideAnimationListState
   }
 
   @override
-  int getLength() {
-    return _list.length;
-  }
+  int getLength() => _list.length;
+
+  @override
+  Duration getDuration() => Duration(milliseconds: 400);
 }
