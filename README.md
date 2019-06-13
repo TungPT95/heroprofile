@@ -107,6 +107,13 @@
 
 # Next Steps
 
-- ### Make animation for ListView item
+### Make animation for ListView item
+### Add Splash screen
+### Add the last character data
+### Open app page on store
+### Open my account on Facebook app
+### Send me email via Gmail for user's feedback
+### Share app link on facebook, twitter, messenger ...
+### Login with social network account (facebook, gmail, twitter ...)
 
 
