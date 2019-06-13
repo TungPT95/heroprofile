@@ -14,7 +14,7 @@
 - ### Apply BLOC Pattern (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 - ### Handle async process
 - ### Setup Flavor (dev, stg, dev) for Android
-- ### Generate KeyStore for Android (I have not finished this yet)
+- ### Generate KeyStore for Android
   - generate keystore:
   
 	  ```
@@ -40,7 +40,7 @@
 	  def keystoreProperties = new Properties()
 	  def keystorePropertiesFile = rootProject.file('key.properties')
 	  if (keystorePropertiesFile.exists()) {
-	    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+	  		keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 	  }
 	  
 	  android {
