@@ -7,6 +7,8 @@
   - Customize Drawer
   - Customize Progressing Indicator
   - Customize ListView item
+  - Customize LTR (Left To Right) Slide Animation ListView
+  - Customize LTR Slide Animation Widget
   - Customize AppBar
  
 - ### Change Icon, App name for both iOS and Android
@@ -108,7 +110,7 @@
 
 # Next Steps
 
-### Make animation for ListView item
+### Customize Drawer, Drawer Item Border Animation (Running Light Dot follow Border Shape) 
 ### Add Splash screen
 ### Add the last character data
 ### Open app page on store
