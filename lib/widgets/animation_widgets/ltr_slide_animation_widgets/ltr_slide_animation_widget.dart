@@ -1,28 +1,28 @@
 import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animation_bloc.dart';
 import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animation_state.dart';
-import 'package:avenger_information/widgets/info_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LTRSlideInfoItem extends StatefulWidget {
-  final InfoItem child;
+class LTRSlideAnimationWidget extends StatefulWidget {
+  final Widget child;
   final int index;
   final Duration duration;
 
-  LTRSlideInfoItem(this.child, {this.index = 0, this.duration})
+  LTRSlideAnimationWidget(this.child, {this.index = 0, this.duration})
       : assert(child != null),
         assert(index >= 0),
         assert(duration != null);
 
   @override
-  _LTRSlideInfoItemState createState() => _LTRSlideInfoItemState();
+  _LTRSlideAnimationWidgetState createState() =>
+      _LTRSlideAnimationWidgetState();
 }
 
-class _LTRSlideInfoItemState extends State<LTRSlideInfoItem>
+class _LTRSlideAnimationWidgetState extends State<LTRSlideAnimationWidget>
     with SingleTickerProviderStateMixin {
   LTRSlideAnimationBloc _ltrSlideAnimationBloc;
 
-  InfoItem get _child => widget.child;
+  Widget get _child => widget.child;
 
   int get _index => widget.index;
 

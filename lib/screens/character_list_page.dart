@@ -3,6 +3,7 @@ import 'package:avenger_information/blocs/base/base_state.dart';
 import 'package:avenger_information/blocs/character_list/character_list_bloc.dart';
 import 'package:avenger_information/blocs/character_list/character_list_state.dart';
 import 'package:avenger_information/models/character.dart';
+import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/character_item.dart';
@@ -83,23 +84,23 @@ class _HomePageState extends State<HomePage>
   Widget _buildCharacterList(List<Character> list) {
     return SliverPadding(
       padding: const EdgeInsets.only(top: 10, bottom: 10),
-      sliver: SliverList(
-          delegate: SliverChildBuilderDelegate((context, index) {
-        return CharacterItem(
-          list[index],
+      sliver: LTRSlideAnimationList(
+          list.map<CharacterItem>((item) =>
+              CharacterItem(
+                item,
           itemClickListener: (id) {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => CharacterInfoPage(
-                      character: list[index],
-                      repository: list[index].repository,
-                    ),
+                  character: item,
+                  repository: item.repository,
+                ),
               ),
             );
           },
-        );
-      }, childCount: list.length)),
+              )).toList()
+      ),
     );
   }
 
