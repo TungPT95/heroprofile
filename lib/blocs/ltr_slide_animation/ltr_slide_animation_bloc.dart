@@ -17,7 +17,7 @@ class LTRSlideAnimationBloc extends BaseBloc {
     if (event is StartSlideAnimation) {
       int itemListIndex = event.beginIndex;
       if (itemListIndex < length) {
-        await Future.delayed(delay, () => itemListIndex);
+        await Future.delayed(delay);
         yield OnSlideAnimateState(itemListIndex);
         itemListIndex++;
         dispatch(StartSlideAnimation(itemListIndex));

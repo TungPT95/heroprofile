@@ -48,8 +48,6 @@ class _LTRSlideInfoItemState extends State<LTRSlideInfoItem>
         bloc: _ltrSlideAnimationBloc,
         builder: (context, state) {
           if (state is OnSlideAnimateState) {
-            print(state.toString());
-
             if (state.index >= _index && state.index > -1) {
               _animationController.forward();
             }
