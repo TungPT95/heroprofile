@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'base_event.dart';
 import 'base_state.dart';
 
-class BaseBloc extends Bloc<BaseEvent, BaseState> {
+abstract class BaseBloc extends Bloc<BaseEvent, BaseState> {
   @override
   // TODO: implement initialState
   BaseState get initialState => InitialState();
