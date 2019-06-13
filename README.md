@@ -30,7 +30,7 @@
   storePassword=<store_password>
   keyPassword=<keystore_password>
   keyAlias=<alias>
-  storeFile=</Users/<user_name>/<project_directory>/android/app/<keystore_file_name>.jks>
+  storeFile=<keystore_file_name>.jks>
   ```
   - config signin gradle:
   
@@ -44,16 +44,16 @@
   android {
   //...
 		  signingConfigs {
-		  		release {
+		  	release {
 	        		keyAlias keystoreProperties['keyAlias']
 	        		keyPassword keystoreProperties['keyPassword']
 	        		storeFile file(keystoreProperties['storeFile'])
-			       storePassword keystoreProperties['storePassword']
+			       	storePassword keystoreProperties['storePassword']
 	    		}
-	     }
+	      }
 		  buildTypes {
-		  		release {
-		       	signingConfig signingConfigs.release
+		  	release {
+		       		signingConfig signingConfigs.release
 		    	}
 		  }
   //...
