@@ -15,6 +15,7 @@ class AvengerInformationApp extends StatelessWidget {
   static const String title = 'Avenger Character Profile';
 
 //  final _home = TestPage();
+
   final _home = HomePage(title: title);
 
   @override
@@ -22,7 +23,10 @@ class AvengerInformationApp extends StatelessWidget {
     return BlocProviderTree(
         blocProviders: [
           BlocProvider<CharacterListBloc>(
-              bloc: CharacterListBloc(repository: CharactersRepos())),
+            builder: (context) =>
+                CharacterListBloc(repository: CharactersRepos()),
+            dispose: (context, bloc) => bloc.dispose(),
+          ),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

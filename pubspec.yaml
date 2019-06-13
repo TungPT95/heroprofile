@@ -6,7 +6,7 @@ authors:
 version: 1.0.2+10002
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.3.2-dev.0.1.flutter-6e0d978505 <3.0.0"
 
 dependencies:
   flutter:
@@ -17,7 +17,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   http: ^0.11.3+16
   async: ^2.1.0
-  flutter_bloc: ^0.15.1
+  flutter_bloc: ^0.16.0
   equatable: ^0.2.6
 
 dev_dependencies:

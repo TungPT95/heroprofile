@@ -6,6 +6,7 @@ import 'package:avenger_information/blocs/character_info/character_info_state.da
 import 'package:avenger_information/models/character_detail_category.dart';
 import 'package:avenger_information/models/information.dart';
 import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
+import 'package:avenger_information/widgets/animation_widget/ltr_slide_info_list/ltr_slide_info_list.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/board_view.dart';
@@ -13,7 +14,6 @@ import 'package:avenger_information/widgets/drawer/avenger_drawer.dart';
 import 'package:avenger_information/widgets/drawer/avenger_drawer_header.dart';
 import 'package:avenger_information/widgets/drawer/avenger_drawer_item.dart';
 import 'package:avenger_information/widgets/feats_info_item.dart';
-import 'package:avenger_information/widgets/info_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -146,13 +146,7 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
 
     return SliverPadding(
       padding: EdgeInsets.only(top: 5, bottom: 5),
-      sliver: SliverList(
-          delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          return InfoItem(list[index]);
-        },
-        childCount: list.length,
-      )),
+      sliver: LTRSlideInfoList(inputList),
     );
   }
 
