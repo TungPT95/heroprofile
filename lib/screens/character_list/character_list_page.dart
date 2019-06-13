@@ -3,6 +3,7 @@ import 'package:avenger_information/blocs/base/base_state.dart';
 import 'package:avenger_information/blocs/character_list/character_list_bloc.dart';
 import 'package:avenger_information/blocs/character_list/character_list_state.dart';
 import 'package:avenger_information/models/character.dart';
+import 'package:avenger_information/screens/character_info/character_info_page.dart';
 import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
@@ -10,7 +11,6 @@ import 'package:avenger_information/widgets/character_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../screens/character_info_page.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

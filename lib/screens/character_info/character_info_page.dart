@@ -3,6 +3,7 @@ import 'package:avenger_information/blocs/base/base_state.dart';
 import 'package:avenger_information/blocs/character_info/character_info_bloc.dart';
 import 'package:avenger_information/blocs/character_info/character_info_event.dart';
 import 'package:avenger_information/blocs/character_info/character_info_state.dart';
+import 'package:avenger_information/models/character.dart';
 import 'package:avenger_information/models/character_detail_category.dart';
 import 'package:avenger_information/models/information.dart';
 import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
@@ -19,7 +20,6 @@ import 'package:avenger_information/widgets/info_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../models/character.dart';
 
 class CharacterInfoPage extends StatefulWidget {
   final Character character;
