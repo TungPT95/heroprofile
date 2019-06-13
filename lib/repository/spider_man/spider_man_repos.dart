@@ -7,162 +7,116 @@ class SpiderManRepos extends CharacterRepos {
   @override
   Future<String> getBackground() {
     return returnData<String>(
-        'Hank Pym was an ordinary biochemist living in America, who ended up marrying an escaped refugee from Hungary. Believing Hank\'s American citizenship'
-        ' would protect her, the two traveled to Hungary for a vacation. However, Pym\'s wife was recognized by the secret police, and they ended up '
-        'murdering her after knocking Hank out. Angered by his wife\'s death, Hank swore to do whatever he could to stop injustice and inhumanity. '
-        'One day, Hank created a strange particle that could shrink objects to a much smaller size. After testing it on himself, Hank found that the serum was too powerful, '
-        'shrinking him to the size of an ant. Once he managed to return to his normal size, Hank began studying the ants that attacked him while he was small.'
-        ' Building a helmet to let him communicate with the ants, Hank decided to use his shrinking particle to help him fight crime, with the ants as his personal '
-        'army, becoming the Ant-Man.');
+        'After getting bit by a radioactive spider, 16 year old Peter Parker discovered that he got super strength, speed, agility and a '
+            'spider-sense. After seeing an advertisement, he decided to test his powers on a wrestler. Peter easily defeated the wrestler '
+            'and got the money he was promised. After that, Peter designed a device that can shoot webs, which he called "web shooters" and a new '
+            'costume. Peter, who now called himself Spider-Man, was an immediate hit. Once, after a show, he encountered a burglar. '
+            'Instead of stopping him, Peter decided to let him go. The police officer that was chasing after him remanded Peter. However, '
+            'he just say that it was not his problem.'
+            '\n\nLater, he was heading home, he saw that his house was surrounded by police. When he asked a police officer, he was informed that his uncle '
+            'Ben was killed by a burglar and that the burglar was currently being surround in a warehouse.'
+            '\n\nQuickly donning his costume, Spider-Man went to the warehouse with revenge in his mind. When he caught the burglar, he looked '
+            'at the burglar. He quickly realized that it was the same person he should have stopped. From that day on, Peter decided to use '
+            'his powers to fight crime.');
   }
 
   @override
   Future<List<Information>> getPowersAbilities() {
-    var list = <Information>[
+    var spiderDNAList = indexing(<Information>[
+      Information(description: 'Superhuman Physique'),
+      Information(description: 'Skilled Acrobat'),
+      Information(description: 'Spider-Sense'),
+      Information(description: 'Wall-Crawling'),
+      Information(description: 'Regeneration'),
+    ]);
+    var list = indexing(<Information>[
       Information(
-          title: 'Size-Shifting',
+          title: 'Spider DNA',
           description:
-              'Using the Pym Particles he invented, Hank can change his size at will. He can reduce himself down to the size of an ant,'
-              ' while retaining his strength from when he was normal-sized. As Giant-Man or Goliath, Hank can grow to a giant size, making him taller than even '
-              'the largest buildings in New York. In this stage, Hank\'s strength and durability gain a massive boost. He can even grow to the point where he becomes '
-              'larger than the microverse, entering the realm of abstract cosmic entities. While he originally required his Pym Particle serum to shrink and grow, '
-              'he\'s absorbed so much Pym Particles over the years that his body naturally produces them, letting him change his size at will. '
-              'Since he naturally produces Pym Particles, Hank can also expose others to them to change their size as well.'),
+          'After being bitten by a radioactive spider, Peter inherited its DNA and many of its traits.',
+          subInformation: spiderDNAList),
       Information(
-          title: 'Dimensional Shifting',
+          title: 'Vast Intellect',
           description:
-              'By shrinking or growing to a certain extent, Hank can enter a subatomic realm, an alternate universe accessible to those who\'ve removed a majority of their mass.'),
+          'Peter has a gifted mind, and he possessed genius level intellect that rivals some of the smartest minds in Marvel. He '
+              'officially has an IQ over 250, and he has personally invented several gadgets over the years, like his famous web shooters.'),
       Information(
-        title: 'Genius Intellect',
-        description:
-            'Hank Pym is one of Earth\'s leading scientific minds, with considerable expertise in various fields of science. He\'s been said to be one of the '
-            'smartest people on the planet, and was even named Earth\'s Scientist Supreme by Eternity.',
-      ),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
+          title: 'Way of the Spider',
+          description:
+          'A combination of Peter\'s bullying experiences, Captain America and Shang-Chi\'s respective training, and '
+              'his own superhuman capabilities, it was originally created to compensate for his Spider-Sense leaving him. Later on, combines it with '
+              'his Spider-Sense for increased effectiveness and to counter all types of combatants. The Art Focuses on getting up close and personal, '
+              'performing quick and powerful strikes using his speed and strength, and targeting nerve clusters, pressure points, and weak areas of the body.'),
+      Information(
+          title: 'Women Magnetism',
+          description:
+          'Peter has had more girlfriends/potential love interests than any superhero ever known. Chicks love him.'),
+    ]);
     return returnData<List<Information>>(list);
   }
 
   @override
   Future<List<Information>> getWeaknesses() {
-    var list = <Information>[
+    var list = indexing(<Information>[
       Information(
-          title: 'Reliant on his shield',
+          title: 'Ethyl Chloride Pesticide',
           description:
-              'If someone was to get rid of it, he could be defeated by an opponent of similar strength and skill, '
-              'which can be easily done, as his only method of ranged attacks if throwing it.'),
+          'Due to his spider DNA, Peter is vulnerable to the spider-killing ethyl chloride pesticide.'),
       Information(
+          title: 'Spider-Sense Limitations',
           description:
-              'Shield can be destroyed, although it could only be done by cosmic beings and gods'),
+          'While very useful in a fight, the Spider-sense isn\'t 100% reliable since some people like Venom for example, are'
+              ' either completely immune to it, or too fast for the Spider-Sense to detect in time.'),
       Information(
+          title: 'Secret Identity',
           description:
-              'Uniform has unarmored spots, such as his chin, mouth and eyes'),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
-    return returnData<List<Information>>(list);
-  }
-
-  @override
-  Future<List<Information>> getFunFacts() {
-    var list = <Information>[
-      Information(
-          description:
-              'Hank has had six different superhero identities over the years.'),
-      Information(
-          description:
-              'He is considered the Marvel Comics counterpart of DC Comics the Atom.'),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
+          'On the few occasions when Spidey\'s identity was revealed, his loved ones were put onto danger by his enemies. '
+              'For example, what many consider the turning point for light-hearted comics, Peter\'s girlfriend Gwen Stacy was killed in a '
+              'fight with the Green Goblin.'),
+    ]);
     return returnData<List<Information>>(list);
   }
 
   @override
   Future<List<Information>> getEquipment() {
-    var list = <Information>[
+    var list = indexing(<Information>[
       Information(
-          title: 'Ant-Man Suit',
+          title: 'Web-Shooters',
           description:
-              'Hank\'s superhero uniform, which allows him to shrink and grow without experiencing the mind-altering effects of the Pym Particle.'),
+          'Peter has designed devices that shoot a \"strong liquid cement\" that rapidly cools into a substance approximating spider '
+              'silk. He can use this to tie up criminals, swing from tall buildings, or use them as various tools including: a shield, '
+              'a parachute, skis, safety net, a raft, barrier, ball, or sticky glue, and wrap around his hands as makeshift boxing gloves, '
+              'or even to bind wounds. The webbing dissolves in an hour.'),
       Information(
-          title: 'Cybernetic Helmet',
+          title: 'Spider-Tracers',
           description:
-              'Ant-Man\'s helmet, which allows him to telepathically communicate with and control ants. He can use these ants either to distract or attack opponents, or as mounts.'),
+          'Used by Spider-Man to track who or whatever they latch on to. They can also be shot from the Web Shooters for greater '
+              'range and accuracy. They work by emitting a signal that Spider-Man can detect in a 100-yard radius.'),
       Information(
-          title: 'Toolbot',
-          description:
-              'A small multi-tool device that stores hundreds of tools for Hank to use, such as a key, a minicomputer, and even an energy sword.'),
-      Information(
-          title: 'The Stinger',
-          description:
-              'A small firearm that converts Hank\'s bio-electric aura into powerful stun beams.'),
-    ];
-
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
-    return returnData<List<Information>>(list);
-  }
-
-  @override
-  Future<List<Information>> getAlternateForms() {
-    var giantManList = <Information>[
-      Information(description: 'Enhanced Strength'),
-      Information(description: 'Enhanced Durability'),
-    ];
-    var yellowJacketList = <Information>[
-      Information(description: 'Bio-Energy Projection'),
-      Information(description: 'Flight'),
-    ];
-    var waspList = <Information>[
-      Information(description: 'Bio-Synthetic Wings'),
-      Information(description: 'Wasp\'s Sting'),
-      Information(description: 'Wasp Goggles'),
-    ];
-
-    var list = <Information>[
-      Information(
-          title: 'Giant-Man',
-          description:
-              'After learning of the Pym Particle\'s ability to increase the size of objects as well, Hank Pym became Giant-Man. As Giant-Man, '
-              'Pym uses his size-changing to grow to massive sizes, knocking foes off-balance with staggering blows.',
-          subInformation: giantManList),
-      Information(
-        title: 'Goliath',
+        title: 'Utility Belt',
         description:
-            'Despite fighting crime as Giant-Man for a while, Pym eventually retired the identity due to the strain growing placed on his body. However, '
-            'to save his wife when she was kidnapped, he decided to use his growing powers again, becoming the superhero Goliath. Despite the change in '
-            'name and appearance, Goliath\'s abilities are pretty much the same as Giant-Man\'s.',
+        'A belt that Spider-Man wears that holds web cartridges, freeze capsules, new Spider-Tracers that are now wired for sound, '
+            'and a newly upgraded Spider-Signal that has a UV light setting for forensic analysis.',
       ),
       Information(
-          title: 'Yellowjacket',
+          title: 'Spider Armor MK IV',
           description:
-              'After being exposed to various unknown gases, Hank\'s personality underwent a radical change, and he took on the identity of Yellowjacket. '
-              'Even after returning to his normal personality, Hank stayed as Yellowjacket for a while due to the strain of growing into his Giant-Man persona. '
-              'As Yellowjacket, Hank retains the size-shifting and insect controlling abilities of Ant-Man, with some new powers as well.',
-          subInformation: yellowJacketList),
+          'Spider-Man\'s most advance suit, modeled after his original red and blue costume and created from Parker Industries\' best resources. Composed '
+              'of unknown, lightweight material that provides protection for Spider-Man without lowering his speed. Has holographic projectors that can be '
+              'used to disguise the suit. Has built-in Web Shooters in each forearm.'),
       Information(
-          title: 'Wasp',
+          title: 'Webware',
           description:
-              'After the death of his wife Janet van Dyne, Hank took on her superhero persona of the Wasp. As the Wasp, Hank still can change his size and '
-              'control insects, but now has Janet\'s abilities as well.',
-          subInformation: waspList),
+          'A wrist device created by Parker Industries that allows affordable internet access with clear reception and unlimited data anywhere on Earth. '
+              'It is water proof and can also track Spider-Tracers.'),
       Information(
-          title: 'Ultron',
+          title: 'Spider Mobile',
           description:
-              'During an attempt to kill his creation Ultron, Hank accidentally merged his body with Ultron\'s. This turned Hank into a cyborg, with his only remaining '
-              'organic parts being his head and upper torso, though he can cover his organic parts in Ultron\'s upper body as armor. While merged with Ultron, '
-              'he has all of Ultron\'s abilities. See the Ultron page for info on Hank\'s abilities as Ultron.'),
-    ];
+          'Spider-Man’s personal ride. Created by him with the help of Lian Tang, a designer at the Shanghai branch of Parker Industries. '
+              'It can drive at 88 miles per hour and it can drive on walls and ceilings. It has a voice-operated computer system, web-fluid airbags, and '
+              'its wheels can be unfolded into spider-like legs.'),
+    ]);
 
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
     return returnData<List<Information>>(list);
   }
 
@@ -170,55 +124,67 @@ class SpiderManRepos extends CharacterRepos {
   Future<List<FeatsInfo>> getFeats() {
     //strengthList
     var strengthList = <String>[
-      'Has peak physical strength for a human, and retains it while shrunk.',
-      'At ten feet tall, can press around 1000 pounds.',
-      'At twenty-five feet tall, can lift 10 tons.',
-      'At one-hundred feet tall, can lift 50 tons.',
-      'Knocked back both Black Panther and Beast.',
-      'Grabbed a wrecking ball and threw it backwards.',
-      'Pulverized Ultron.',
-      'Tore a building in half and lifted it over his head.',
-      'Lifted Absorbing Man over his head.',
-      'Lifted multiple people with ease while tearing a large ray gun apart.',
-      'As Ultron, is just as strong as the original Ultron.',
+      'Lifted over 15 tons.',
+      'Knocked out a dinosaur with one punch.',
+      'Can hold up section of collapsing buildings.',
+      'With the Mark of Kaine, was able to pull off Iron Man\'s armor.',
+      'Broke through Doctor Octopus’ titanium-steel tentacles.',
+      'Lifted a 30 ton train car.',
+      'Can rip and bend apart steel beams.',
+      'Lifted a falling skyscraper.',
+      'Freed himself from tons of metal and debris.',
+      'Stopped a speeding truck with his bare hands.',
+      'Can lift huge amounts of rubble',
+      'One-shotted Quicksilver',
+      'Lifted a machine which outweights a locomotive.',
     ];
 
     //speedList
     var speedList = <String>[
-      'While giant, can travel several feet with one step.',
-      'Shrunk and grew in quick succession to dodge attacks from Red Hulk.',
-      'Flies at speeds up to 38 miles per hour as Wasp.',
-      'Can easily dodge incoming projectiles.',
-      'As Ultron, is just as fast as the original Ultron.',
+      'Regularly dodges automatic fire.',
+      'Outruns cars and trains.',
+      'His top speed is stated to be 250 mph.',
+      'Can dodge a 4,000 ft per second firearm from 2 meters away without his Spider-Sense.',
+      'Tagged Speed Demon, who can travel at supersonic speeds.',
+      'Blitzed Absorbing Man.',
+      'Caught Electro of guard.',
+      'Maneuvered his way through a laser system with ease.',
+      'Can dodge Iron Man\'s Repulsor Blasts.',
+      'Caught Quicksilver.',
     ];
 
     //durabilityList
     var durabilityList = <String>[
-      'Stayed standing after being hit by a large boulder.',
-      'Survived hits from a wrecking ball.',
-      'His durability increases with his size.',
-      'As Ultron, is composed of adamantium, the toughest metal in the Marvel universe.',
+      'Took a grenade to the face.',
+      'Survived being hit by a high-speed car.',
+      'Regularly takes punches full-force by multiple super-powered villains.',
+      'Didn’t flinch from punches to the face by the Punisher.',
+      'Spider Armor MK IV was able to endure a battle against the Human Torch.',
+      'Survives a massive amount of electricity.',
+      'Survived an explosion capable of destroying buildings.',
+      'Can survive strikes from godlike characters like the Hulk.',
     ];
 
     //skillList
     var skillList = <String>[
-      'Invented the Pym Particle and Ultron.',
-      'One of the five smartest people on the planet.',
-      'Trained by Captain America in hand-to-hand combat.',
-      'Has training in judo, karate, and wrestling.',
-      'Has had six different superhero identities.',
+      'Beat the Hulk.',
+      'Once stomped Wolverine in battle.',
+      'Can go up against the likes of Captain America in hand-to-hand combat while blindfolded.',
+      'Destined teacher of Hope Summers, the ultimate mutant.',
+      'Has an IQ of 250, and even Reed Richards and Hank Pym noticed his intellect.',
+      'Created three Spider-Armors, the Spidey Stealth Suit, his own web-shooters, the Cryo-Cube 3000, noise reduction headphones, and his own spider webbing.',
+      'Honorary member of the Fantastic Four.',
+      'Defeated Quicksilver with his Spider-Sense.',
+      'Has held on his own against the likes of the Fantastic Four and even the X-men.',
     ];
 
-    var list = <FeatsInfo>[
+    var list = indexing(<FeatsInfo>[
       FeatsInfo(title: 'Strength', descs: strengthList),
       FeatsInfo(title: 'Speed', descs: speedList),
       FeatsInfo(title: 'Durability', descs: durabilityList),
       FeatsInfo(title: 'Skill', descs: skillList),
-    ];
+    ]);
 
-    for (FeatsInfo item in list) {
-      item.id = list.indexOf(item);
-    }
     return returnData<List<FeatsInfo>>(list);
   }
 
@@ -238,10 +204,6 @@ class SpiderManRepos extends CharacterRepos {
         categoryType: CategoryType.Equipment,
       ),
       CharacterDetailCategory(
-        title: alternateFormsTitle,
-        categoryType: CategoryType.AlternateForms,
-      ),
-      CharacterDetailCategory(
         title: featsTitle,
         categoryType: CategoryType.Feats,
       ),
@@ -249,15 +211,7 @@ class SpiderManRepos extends CharacterRepos {
         title: weaknessesTitle,
         categoryType: CategoryType.Weaknesses,
       ),
-      CharacterDetailCategory(
-        title: funFactsTitle,
-        categoryType: CategoryType.FunFacts,
-      ),
     ];
-
-    for (CharacterDetailCategory item in list) {
-      item.id = list.indexOf(item);
-    }
     return list;
   }
 }
