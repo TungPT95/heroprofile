@@ -20,7 +20,7 @@ class _LTRSlideInfoListState extends State<LTRSlideInfoList> {
 
   List<Information> get _list => widget.items;
 
-  final Duration _duration = const Duration(milliseconds: 500);
+  final Duration _duration = const Duration(milliseconds: 200);
 
   @override
   void initState() {
