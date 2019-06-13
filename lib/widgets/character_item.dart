@@ -34,7 +34,7 @@ class CharacterItem extends StatefulWidget {
     this.itemPaddingRight = 10,
     this.itemPaddingTop = 5,
     this.itemPaddingBottom = 5,
-  })  : assert(character != null);
+  }) : assert(character != null);
 
   @override
   _CharacterItemState createState() => _CharacterItemState();
@@ -145,7 +145,7 @@ class _CharacterItemState extends State<CharacterItem> {
               child: Material(
                 shape: CircleBorder(
                     side: BorderSide(
-                      color: Colors.yellow[200],
+                  color: Colors.yellow[200],
                   width: widget.circleBorderWidth,
                 )),
                 child: InkWell(
