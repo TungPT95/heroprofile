@@ -5,7 +5,6 @@ import 'base_state.dart';
 
 abstract class BaseBloc extends Bloc<BaseEvent, BaseState> {
   @override
-  // TODO: implement initialState
   BaseState get initialState => InitialState();
 
   @override
