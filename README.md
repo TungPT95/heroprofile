@@ -15,6 +15,7 @@
 - ### Handle async process
 - ### Setup Flavor (dev, stg, dev) for Android
 - ### Generate KeyStore for Android
+
   - generate keystore:
   
 	  ```
@@ -63,6 +64,7 @@
 	  ```
 	  
   - enabling Proguard: (***I have not finished enabling proguard yet***)
+  
   		- Step 1 - Configure Proguard
 	  
 		  	```
