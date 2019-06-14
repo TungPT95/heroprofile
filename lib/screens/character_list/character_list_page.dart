@@ -3,8 +3,8 @@ import 'package:avenger_information/blocs/base/base_state.dart';
 import 'package:avenger_information/blocs/character_list/character_list_bloc.dart';
 import 'package:avenger_information/blocs/character_list/character_list_state.dart';
 import 'package:avenger_information/models/character.dart';
+import 'package:avenger_information/screens/base/state/base_page_state.dart';
 import 'package:avenger_information/screens/character_info/character_info_page.dart';
-import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/character_item.dart';
 import 'package:avenger_information/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
@@ -22,11 +22,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends BasePageState<HomePage> {
   List<Character> list = [];
-  AnimationController controller;
-  Animation<double> _animation;
   double _expandedHeight = 210;
 
   CharacterListBloc _characterListBloc;
@@ -41,10 +38,6 @@ class _HomePageState extends State<HomePage>
     _characterListBloc.dispatch(OnStart());
 
     super.initState();
-
-    controller = AnimationController(
-        duration: Duration(milliseconds: 1200), vsync: this);
-    _animation = Tween<double>(begin: 0, end: 100).animate(controller);
   }
 
   @override
@@ -55,11 +48,10 @@ class _HomePageState extends State<HomePage>
       builder: (context, state) {
         Widget _replaceWidget;
         if (state is LoadingCharacterSate) {
-          _replaceWidget = _showProgressIndicator(context);
+          _replaceWidget = showProgressIndicator();
         }
 
         if (state is LoadedCharacterState) {
-          _stopProgressIndicator();
           _replaceWidget = _buildCharacterList(state.characters);
         }
 
@@ -98,28 +90,15 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  Widget _showProgressIndicator(BuildContext context) {
-    final progress = SliverToBoxAdapter(
-      child: AvengerProgressIndicator(
-        animation: _animation,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height - _expandedHeight,
-      ),
-    );
-    controller.forward();
-    controller.repeat();
-    return progress;
-  }
-
-  void _stopProgressIndicator() {
-    controller.stop();
-  }
+  @override
+  double getProgressViewHeight() =>
+      MediaQuery
+          .of(context)
+          .size
+          .height - _expandedHeight;
 
   @override
   void dispose() {
-    controller.dispose();
     _characterListBloc.dispose();
     super.dispose();
   }

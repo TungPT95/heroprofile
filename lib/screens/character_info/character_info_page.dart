@@ -7,7 +7,7 @@ import 'package:avenger_information/models/character.dart';
 import 'package:avenger_information/models/character_detail_category.dart';
 import 'package:avenger_information/models/information.dart';
 import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
-import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
+import 'package:avenger_information/screens/base/state/base_page_state.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/board_view.dart';
 import 'package:avenger_information/widgets/drawer/avenger_drawer.dart';
@@ -37,11 +37,8 @@ class CharacterInfoPage extends StatefulWidget {
   _CharacterInfoPageState createState() => _CharacterInfoPageState();
 }
 
-class _CharacterInfoPageState extends State<CharacterInfoPage>
-    with SingleTickerProviderStateMixin {
+class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
   CharacterRepos get _repository => widget.repository;
-  AnimationController controller;
-  Animation<double> _animation;
   String _appBarTitle = '';
   int _currentDrawerItemIndex = CategoryType.Background.index;
 
@@ -57,10 +54,6 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
     _characterInfoBloc.dispatch(OnStart());
     super.initState();
 
-    controller = AnimationController(
-        duration: Duration(milliseconds: 1200), vsync: this);
-    _animation = Tween<double>(begin: 0, end: 100).animate(controller);
-
     _characterInfoBloc.dispatch(LoadCharacterDetailCategory());
   }
 
@@ -73,27 +66,24 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
         if (state is OnDrawerClickState) {
           _appBarTitle = state.title;
           _currentDrawerItemIndex = state.category.index;
-          _replaceWidget = _showProgressIndicator(context);
+          _replaceWidget = showProgressIndicator();
         }
 
         if (state is LoadedCharacterDetailCategoryState) {
-          _replaceWidget = _showProgressIndicator(context);
+          _replaceWidget = showProgressIndicator();
           _drawerItems = _buildDrawerItems(state.categories);
         }
 
         if (state is LoadedInformationState) {
           _replaceWidget = _buildInformationFragment(state.information);
-          _stopProgressIndicator();
         }
 
         if (state is LoadedFeatsState) {
           _replaceWidget = _buildFeatsFragment(state.feats);
-          _stopProgressIndicator();
         }
 
         if (state is LoadedBackgroundState) {
           _replaceWidget = _buildBackgroundFragment(state.background);
-          _stopProgressIndicator();
         }
 
         return Scaffold(
@@ -159,29 +149,16 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
     return list;
   }
 
-  Widget _showProgressIndicator(BuildContext context) {
-    final progress = SliverToBoxAdapter(
-        child: AvengerProgressIndicator(
-          animation: _animation,
-          height: MediaQuery
-              .of(context)
-              .size
-              .height - _expandedHeight,
-        )
-    );
-    controller.forward();
-    controller.repeat();
-    return progress;
-  }
-
-  void _stopProgressIndicator() {
-    controller.stop();
-  }
+  @override
+  double getProgressViewHeight() =>
+      MediaQuery
+          .of(context)
+          .size
+          .height - _expandedHeight;
 
   @override
   void dispose() {
     _characterInfoBloc.dispose();
-    controller.dispose();
     super.dispose();
   }
 }

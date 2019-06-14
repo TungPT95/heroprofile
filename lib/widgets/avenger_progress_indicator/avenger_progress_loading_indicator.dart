@@ -36,11 +36,16 @@ class _AvengerProgressLoadingIndicatorState
   Widget build(BuildContext context) {
     return Center(
       child: AvengerProgressIndicator(
-        sideLength: 60,
         animation: _animation,
         height: _height,
         width: _width,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
