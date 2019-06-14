@@ -64,6 +64,7 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
+//            shrinkResources true
 //            minifyEnabled true
 //            useProguard true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -84,6 +85,10 @@ android {
         pro {
             dimension 'flavors'
         }
+    }
+
+    aaptOptions {
+        cruncherEnabled = false
     }
 }
 
