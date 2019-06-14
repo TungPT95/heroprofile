@@ -1,4 +1,5 @@
-import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_base_state/ltr_slide_animation_base_state.dart';
+import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_widget.dart';
+import 'package:avenger_information/widgets/animation_widgets/slide_animation_view_base_state.dart';
 import 'package:flutter/material.dart';
 
 class LTRSlideAnimationList extends StatefulWidget {
@@ -11,7 +12,7 @@ class LTRSlideAnimationList extends StatefulWidget {
 }
 
 class _LTRSlideAnimationListState
-    extends LTRSlideAnimationBaseState<LTRSlideAnimationList> {
+    extends SlideAnimationViewBaseState<LTRSlideAnimationList> {
   List<Widget> get _list => widget.items;
 
   @override
@@ -19,7 +20,7 @@ class _LTRSlideAnimationListState
     return SliverList(
         delegate: SliverChildBuilderDelegate(
       (context, index) {
-        return getLTRSlideAnimationWidget(
+        return getSlideAnimationWidget(
           _list[index],
           index: index,
           duration: getDuration(),
@@ -33,5 +34,15 @@ class _LTRSlideAnimationListState
   int getLength() => _list.length;
 
   @override
-  Duration getDuration() => Duration(milliseconds: 400);
+  Duration getDuration() => Duration(milliseconds: 250);
+
+  @override
+  Widget getSlideAnimationWidget(Widget child, {int index, Duration duration}) {
+    // TODO: implement getSlideAnimationWidget
+    return LTRSlideAnimationWidget(
+      child,
+      index: index,
+      duration: duration,
+    );
+  }
 }

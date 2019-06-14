@@ -1,18 +1,18 @@
-import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_widget.dart';
+import 'package:avenger_information/widgets/animation_widgets/btt_slide_animation_widgets/btt_slide_animation_widget.dart';
 import 'package:avenger_information/widgets/animation_widgets/slide_animation_view_base_state.dart';
 import 'package:flutter/material.dart';
 
-class LTRSlideAnimationView extends StatefulWidget {
+class BTTSlideAnimationView extends StatefulWidget {
   final Widget child;
 
-  LTRSlideAnimationView(this.child) : assert(child != null);
+  BTTSlideAnimationView(this.child) : assert(child != null);
 
   @override
-  _LTRSlideAnimationViewState createState() => _LTRSlideAnimationViewState();
+  _BTTSlideAnimationViewState createState() => _BTTSlideAnimationViewState();
 }
 
-class _LTRSlideAnimationViewState
-    extends SlideAnimationViewBaseState<LTRSlideAnimationView> {
+class _BTTSlideAnimationViewState
+    extends SlideAnimationViewBaseState<BTTSlideAnimationView> {
   Widget get _child => widget.child;
 
   @override
@@ -30,7 +30,7 @@ class _LTRSlideAnimationViewState
   @override
   Widget getSlideAnimationWidget(Widget child, {int index, Duration duration}) {
     // TODO: implement getSlideAnimationWidget
-    return LTRSlideAnimationWidget(
+    return BTTSlideAnimationWidget(
       child,
       index: index,
       duration: duration,
