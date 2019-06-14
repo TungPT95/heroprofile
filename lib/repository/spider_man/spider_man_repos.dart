@@ -8,16 +8,16 @@ class SpiderManRepos extends CharacterRepos {
   Future<String> getBackground() {
     return returnData<String>(
         'After getting bit by a radioactive spider, 16 year old Peter Parker discovered that he got super strength, speed, agility and a '
-            'spider-sense. After seeing an advertisement, he decided to test his powers on a wrestler. Peter easily defeated the wrestler '
-            'and got the money he was promised. After that, Peter designed a device that can shoot webs, which he called "web shooters" and a new '
-            'costume. Peter, who now called himself Spider-Man, was an immediate hit. Once, after a show, he encountered a burglar. '
-            'Instead of stopping him, Peter decided to let him go. The police officer that was chasing after him remanded Peter. However, '
-            'he just say that it was not his problem.'
-            '\n\nLater, he was heading home, he saw that his house was surrounded by police. When he asked a police officer, he was informed that his uncle '
-            'Ben was killed by a burglar and that the burglar was currently being surround in a warehouse.'
-            '\n\nQuickly donning his costume, Spider-Man went to the warehouse with revenge in his mind. When he caught the burglar, he looked '
-            'at the burglar. He quickly realized that it was the same person he should have stopped. From that day on, Peter decided to use '
-            'his powers to fight crime.');
+        'spider-sense. After seeing an advertisement, he decided to test his powers on a wrestler. Peter easily defeated the wrestler '
+        'and got the money he was promised. After that, Peter designed a device that can shoot webs, which he called "web shooters" and a new '
+        'costume. Peter, who now called himself Spider-Man, was an immediate hit. Once, after a show, he encountered a burglar. '
+        'Instead of stopping him, Peter decided to let him go. The police officer that was chasing after him remanded Peter. However, '
+        'he just say that it was not his problem.'
+        '\n\nLater, he was heading home, he saw that his house was surrounded by police. When he asked a police officer, he was informed that his uncle '
+        'Ben was killed by a burglar and that the burglar was currently being surround in a warehouse.'
+        '\n\nQuickly donning his costume, Spider-Man went to the warehouse with revenge in his mind. When he caught the burglar, he looked '
+        'at the burglar. He quickly realized that it was the same person he should have stopped. From that day on, Peter decided to use '
+        'his powers to fight crime.');
   }
 
   @override
@@ -33,24 +33,24 @@ class SpiderManRepos extends CharacterRepos {
       Information(
           title: 'Spider DNA',
           description:
-          'After being bitten by a radioactive spider, Peter inherited its DNA and many of its traits.',
+              'After being bitten by a radioactive spider, Peter inherited its DNA and many of its traits.',
           subInformation: spiderDNAList),
       Information(
           title: 'Vast Intellect',
           description:
-          'Peter has a gifted mind, and he possessed genius level intellect that rivals some of the smartest minds in Marvel. He '
+              'Peter has a gifted mind, and he possessed genius level intellect that rivals some of the smartest minds in Marvel. He '
               'officially has an IQ over 250, and he has personally invented several gadgets over the years, like his famous web shooters.'),
       Information(
           title: 'Way of the Spider',
           description:
-          'A combination of Peter\'s bullying experiences, Captain America and Shang-Chi\'s respective training, and '
+              'A combination of Peter\'s bullying experiences, Captain America and Shang-Chi\'s respective training, and '
               'his own superhuman capabilities, it was originally created to compensate for his Spider-Sense leaving him. Later on, combines it with '
               'his Spider-Sense for increased effectiveness and to counter all types of combatants. The Art Focuses on getting up close and personal, '
               'performing quick and powerful strikes using his speed and strength, and targeting nerve clusters, pressure points, and weak areas of the body.'),
       Information(
           title: 'Women Magnetism',
           description:
-          'Peter has had more girlfriends/potential love interests than any superhero ever known. Chicks love him.'),
+              'Peter has had more girlfriends/potential love interests than any superhero ever known. Chicks love him.'),
     ]);
     return returnData<List<Information>>(list);
   }
@@ -61,16 +61,16 @@ class SpiderManRepos extends CharacterRepos {
       Information(
           title: 'Ethyl Chloride Pesticide',
           description:
-          'Due to his spider DNA, Peter is vulnerable to the spider-killing ethyl chloride pesticide.'),
+              'Due to his spider DNA, Peter is vulnerable to the spider-killing ethyl chloride pesticide.'),
       Information(
           title: 'Spider-Sense Limitations',
           description:
-          'While very useful in a fight, the Spider-sense isn\'t 100% reliable since some people like Venom for example, are'
+              'While very useful in a fight, the Spider-sense isn\'t 100% reliable since some people like Venom for example, are'
               ' either completely immune to it, or too fast for the Spider-Sense to detect in time.'),
       Information(
           title: 'Secret Identity',
           description:
-          'On the few occasions when Spidey\'s identity was revealed, his loved ones were put onto danger by his enemies. '
+              'On the few occasions when Spidey\'s identity was revealed, his loved ones were put onto danger by his enemies. '
               'For example, what many consider the turning point for light-hearted comics, Peter\'s girlfriend Gwen Stacy was killed in a '
               'fight with the Green Goblin.'),
     ]);
@@ -83,36 +83,36 @@ class SpiderManRepos extends CharacterRepos {
       Information(
           title: 'Web-Shooters',
           description:
-          'Peter has designed devices that shoot a \"strong liquid cement\" that rapidly cools into a substance approximating spider '
+              'Peter has designed devices that shoot a \"strong liquid cement\" that rapidly cools into a substance approximating spider '
               'silk. He can use this to tie up criminals, swing from tall buildings, or use them as various tools including: a shield, '
               'a parachute, skis, safety net, a raft, barrier, ball, or sticky glue, and wrap around his hands as makeshift boxing gloves, '
               'or even to bind wounds. The webbing dissolves in an hour.'),
       Information(
           title: 'Spider-Tracers',
           description:
-          'Used by Spider-Man to track who or whatever they latch on to. They can also be shot from the Web Shooters for greater '
+              'Used by Spider-Man to track who or whatever they latch on to. They can also be shot from the Web Shooters for greater '
               'range and accuracy. They work by emitting a signal that Spider-Man can detect in a 100-yard radius.'),
       Information(
         title: 'Utility Belt',
         description:
-        'A belt that Spider-Man wears that holds web cartridges, freeze capsules, new Spider-Tracers that are now wired for sound, '
+            'A belt that Spider-Man wears that holds web cartridges, freeze capsules, new Spider-Tracers that are now wired for sound, '
             'and a newly upgraded Spider-Signal that has a UV light setting for forensic analysis.',
       ),
       Information(
           title: 'Spider Armor MK IV',
           description:
-          'Spider-Man\'s most advance suit, modeled after his original red and blue costume and created from Parker Industries\' best resources. Composed '
+              'Spider-Man\'s most advance suit, modeled after his original red and blue costume and created from Parker Industries\' best resources. Composed '
               'of unknown, lightweight material that provides protection for Spider-Man without lowering his speed. Has holographic projectors that can be '
               'used to disguise the suit. Has built-in Web Shooters in each forearm.'),
       Information(
           title: 'Webware',
           description:
-          'A wrist device created by Parker Industries that allows affordable internet access with clear reception and unlimited data anywhere on Earth. '
+              'A wrist device created by Parker Industries that allows affordable internet access with clear reception and unlimited data anywhere on Earth. '
               'It is water proof and can also track Spider-Tracers.'),
       Information(
           title: 'Spider Mobile',
           description:
-          'Spider-Man’s personal ride. Created by him with the help of Lian Tang, a designer at the Shanghai branch of Parker Industries. '
+              'Spider-Man’s personal ride. Created by him with the help of Lian Tang, a designer at the Shanghai branch of Parker Industries. '
               'It can drive at 88 miles per hour and it can drive on walls and ceilings. It has a voice-operated computer system, web-fluid airbags, and '
               'its wheels can be unfolded into spider-like legs.'),
     ]);
@@ -194,22 +194,27 @@ class SpiderManRepos extends CharacterRepos {
       CharacterDetailCategory(
         title: backgroundTitle,
         categoryType: CategoryType.Background,
+        id: CategoryType.Background.index,
       ),
       CharacterDetailCategory(
         title: powersAbilitiesTitle,
         categoryType: CategoryType.PowersAbilities,
+        id: CategoryType.PowersAbilities.index,
       ),
       CharacterDetailCategory(
         title: equipmentTitle,
         categoryType: CategoryType.Equipment,
+        id: CategoryType.Equipment.index,
       ),
       CharacterDetailCategory(
         title: featsTitle,
         categoryType: CategoryType.Feats,
+        id: CategoryType.Feats.index,
       ),
       CharacterDetailCategory(
         title: weaknessesTitle,
         categoryType: CategoryType.Weaknesses,
+        id: CategoryType.Weaknesses.index,
       ),
     ];
     return list;
