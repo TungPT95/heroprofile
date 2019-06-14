@@ -7,23 +7,30 @@ class AvengerProgressIndicator extends AnimatedWidget {
   final double sideLength;
   final double height;
   final double width;
+  final double imagePadding;
   final String imagePath;
+  final double strokeWidth;
+  final StrokeCap strokeCap;
 
   AvengerProgressIndicator(
       {Key key,
       Animation<double> animation,
       this.sideLength = 16,
+        this.strokeWidth = 2,
       this.height = 0,
         this.width = 0,
-        this.imagePath = ''})
+        this.imagePadding = 10,
+        this.strokeCap = StrokeCap.butt,
+        this.imagePath = 'assets/images/ic_loading_dark.png'})
       : assert(sideLength > 0),
+        assert(imagePadding >= 0),
         assert(imagePath != null),
         super(key: key, listenable: animation);
 
   @override
   Widget build(BuildContext context) {
     final Animation<double> _animation = listenable;
-    final imageWidth = sideLength * (1 + sqrt2) - 10;
+    final imageWidth = sideLength * (1 + sqrt2) - strokeWidth - imagePadding;
 
     var h = height;
     var w = width;
@@ -43,13 +50,15 @@ class AvengerProgressIndicator extends AnimatedWidget {
               shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.circular(imageWidth / 3.4))),
           child: Image.asset(
-            'assets/images/ic_loading_dark.png',
+            imagePath,
             width: imageWidth,
             height: imageWidth,
           ),
         ),
       ),
       foregroundPainter: ProgressIndicatorCustomPaint(
+        strokeWidth: strokeWidth,
+        strokeCap: strokeCap,
         percent: _animation.value,
         sideLength: sideLength,
         x: w / 2,

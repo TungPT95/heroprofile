@@ -7,14 +7,17 @@ class ProgressIndicatorCustomPaint extends CustomPainter {
   final double strokeWidth;
   final double sideLength;
   final double x, y;
+  final StrokeCap strokeCap;
 
   ProgressIndicatorCustomPaint(
       {this.percent = 0,
         this.strokeWidth = 2,
       this.sideLength = 50,
+        this.strokeCap = StrokeCap.butt,
       this.x = 0.0,
       this.y = 0.0})
-      : assert(percent >= 0);
+      : assert(percent >= 0),
+        assert(strokeCap != null);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -22,7 +25,7 @@ class ProgressIndicatorCustomPaint extends CustomPainter {
       ..color = Colors.red[900]
       ..strokeWidth = this.strokeWidth
       ..strokeJoin = StrokeJoin.bevel
-      ..strokeCap = StrokeCap.butt
+      ..strokeCap = strokeCap
       ..style = PaintingStyle.stroke;
 
     final angleOfTreAngle = pi / 4;

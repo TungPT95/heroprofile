@@ -39,6 +39,7 @@ class _AvengerProgressLoadingIndicatorState
         sideLength: 60,
         animation: _animation,
         height: _height,
+        width: _width,
       ),
     );
   }

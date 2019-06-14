@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'screens/character_list/character_list_page.dart';
+import 'screens/splash/splash_page.dart';
 
 void main() {
   BlocSupervisor.delegate = AppBlocDelegate();
@@ -15,9 +15,9 @@ void main() {
 class AvengerInformationApp extends StatelessWidget {
   static const String title = 'Avenger Character Profile';
 
-//  final _home = SplashPage();
+  final _home = SplashPage();
 
-  final _home = HomePage(title: title);
+//  final _home = HomePage(title: title);
 
   @override
   Widget build(BuildContext context) {
