@@ -3,7 +3,7 @@ import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animatio
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-abstract class SlideAnimationtState<T extends StatefulWidget> extends State<T>
+abstract class SlideAnimationState<T extends StatefulWidget> extends State<T>
     with SingleTickerProviderStateMixin {
   LTRSlideAnimationBloc _ltrSlideAnimationBloc;
 

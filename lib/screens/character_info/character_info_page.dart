@@ -7,8 +7,8 @@ import 'package:avenger_information/models/character.dart';
 import 'package:avenger_information/models/character_detail_category.dart';
 import 'package:avenger_information/models/information.dart';
 import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
-import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
-import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_view/ltr_slide_animation_view.dart';
+import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
+import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_view/ltr_slide_animation_view.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/board_view.dart';
@@ -19,7 +19,6 @@ import 'package:avenger_information/widgets/feats_info_item.dart';
 import 'package:avenger_information/widgets/info_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class CharacterInfoPage extends StatefulWidget {
   final Character character;
@@ -124,22 +123,20 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
   Widget _buildBackgroundFragment(String background) {
     return SliverList(
         delegate: SliverChildListDelegate(<Widget>[
-          LTRSlideAnimationView(Container(
+      LTRSlideAnimationView(Container(
           padding: EdgeInsets.all(10),
-              child: BoardView(content: '$background}'))),
+          child: BoardView(content: '$background}'))),
     ]));
   }
 
-  Widget _buildFeatsFragment(var list) =>
-      SliverPadding(
+  Widget _buildFeatsFragment(var list) => SliverPadding(
         padding: EdgeInsets.only(top: 5, bottom: 5),
         sliver: LTRSlideAnimationList(list.map<FeatsInfoItem>((item) {
           return FeatsInfoItem(item);
         }).toList()),
       );
 
-  Widget _buildInformationFragment(List<Information> list) =>
-      SliverPadding(
+  Widget _buildInformationFragment(List<Information> list) => SliverPadding(
         padding: EdgeInsets.only(top: 5, bottom: 5),
         sliver: LTRSlideAnimationList(list.map<InfoItem>((item) {
           return InfoItem(item);

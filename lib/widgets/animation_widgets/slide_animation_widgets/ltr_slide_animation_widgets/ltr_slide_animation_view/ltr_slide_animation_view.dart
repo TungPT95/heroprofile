@@ -1,5 +1,5 @@
-import 'package:avenger_information/widgets/animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_widget.dart';
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_view_base_state.dart';
+import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_widget.dart';
+import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/slide_animation_view_base_state.dart';
 import 'package:flutter/material.dart';
 
 class LTRSlideAnimationView extends StatefulWidget {
@@ -25,11 +25,10 @@ class _LTRSlideAnimationViewState
   }
 
   @override
-  Duration getDuration() => Duration(milliseconds: 350);
+  Duration getDuration() => Duration(milliseconds: 250);
 
   @override
   Widget getSlideAnimationWidget(Widget child, {int index, Duration duration}) {
-    // TODO: implement getSlideAnimationWidget
     return LTRSlideAnimationWidget(
       child,
       index: index,

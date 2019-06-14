@@ -1,7 +1,7 @@
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_state.dart';
+import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/slide_animation_state.dart';
 import 'package:flutter/material.dart';
 
-class SlideAnimationWidget extends StatefulWidget {
+abstract class SlideAnimationWidget extends StatefulWidget {
   final Widget child;
   final int index;
   final Duration duration;
@@ -24,7 +24,7 @@ class SlideAnimationWidget extends StatefulWidget {
 }
 
 class _SlideAnimationWidgetState
-    extends SlideAnimationtState<SlideAnimationWidget> {
+    extends SlideAnimationState<SlideAnimationWidget> {
   Widget get _child => widget.child;
 
   int get _index => widget.index;
