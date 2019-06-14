@@ -151,10 +151,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
 
   @override
   double getProgressViewHeight() =>
-      MediaQuery
-          .of(context)
-          .size
-          .height - _expandedHeight;
+      MediaQuery.of(context).size.height - _expandedHeight;
 
   @override
   void dispose() {
