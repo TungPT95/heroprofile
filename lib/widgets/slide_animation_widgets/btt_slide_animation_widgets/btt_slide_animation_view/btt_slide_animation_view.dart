@@ -1,6 +1,7 @@
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/btt_slide_animation_widgets/btt_slide_animation_widget.dart';
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/slide_animation_view_base_state.dart';
 import 'package:flutter/material.dart';
+
+import '../../slide_animation_view_base_state.dart';
+import '../btt_slide_animation_widget.dart';
 
 class BTTSlideAnimationView extends StatefulWidget {
   final Widget child;

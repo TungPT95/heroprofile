@@ -1,5 +1,6 @@
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/slide_animation_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../slide_animation_widget.dart';
 
 class BTTSlideAnimationWidget extends SlideAnimationWidget {
   final Widget child;

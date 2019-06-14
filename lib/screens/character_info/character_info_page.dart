@@ -7,8 +7,6 @@ import 'package:avenger_information/models/character.dart';
 import 'package:avenger_information/models/character_detail_category.dart';
 import 'package:avenger_information/models/information.dart';
 import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
-import 'package:avenger_information/widgets/animation_widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_view/ltr_slide_animation_view.dart';
 import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/board_view.dart';
@@ -17,6 +15,8 @@ import 'package:avenger_information/widgets/drawer/avenger_drawer_header.dart';
 import 'package:avenger_information/widgets/drawer/avenger_drawer_item.dart';
 import 'package:avenger_information/widgets/feats_info_item.dart';
 import 'package:avenger_information/widgets/info_item.dart';
+import 'package:avenger_information/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
+import 'package:avenger_information/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_view/ltr_slide_animation_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
