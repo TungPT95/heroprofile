@@ -70,7 +70,7 @@
   	- Step 1 - Configure Proguard
 	  
 		```
-		create /android/app/proguard-rules.pro file
+		create <project_directory>/android/app/proguard-rules.pro file
 
 		#add rules listed below
 		#Flutter Wrapper
