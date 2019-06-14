@@ -86,7 +86,7 @@
 		
 		```
 		android {
-		...
+		\\...
 		
 		    buildTypes {
 		    	release {
@@ -97,7 +97,8 @@
 		    		proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		    	}
 		    }
-
+		    
+		\\...
 		}
 		```
 		
