@@ -3,10 +3,10 @@ description: Avenger Character Profile
 authors:
   - Tung Pham <phamthanhtung1995@gmail.com>
 
-version: 1.0.3+10003
+version: 1.0.5+10005
 
 environment:
-  sdk: ">=2.3.2-dev.0.1.flutter-6e0d978505 <3.0.0"
+  sdk: ">=2.3.0-dev.0.5.flutter-a1668566e5 <3.0.0"
 
 dependencies:
   flutter:

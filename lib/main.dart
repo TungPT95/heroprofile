@@ -1,6 +1,7 @@
 import 'package:avenger_information/blocs/character_list/character_list_bloc.dart';
 import 'package:avenger_information/blocs/delegate/app_bloc_delegate.dart';
 import 'package:avenger_information/repository/characters/characters_repos.dart';
+import 'package:avenger_information/screens/character_list/character_list_page.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,8 +15,6 @@ void main() {
 
 class AvengerInformationApp extends StatelessWidget {
   static const String title = 'Avenger Character Profile';
-
-  final _home = SplashPage();
 
 //  final _home = HomePage(title: title);
 
@@ -36,7 +35,14 @@ class AvengerInformationApp extends StatelessWidget {
             accentColor: Color(0xFF58060A),
             primaryColor: Colors.red[900],
           ),
-          home: _home,
+          home: SplashPage(
+            splashLoadingCallback: (context) {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => HomePage(title: title)));
+            },
+          ),
         ));
   }
 }
