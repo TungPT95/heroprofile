@@ -3,7 +3,7 @@ description: Avenger Character Profile
 authors:
   - Tung Pham <phamthanhtung1995@gmail.com>
 
-version: 1.0.2+10002
+version: 1.0.3+10003
 
 environment:
   sdk: ">=2.3.2-dev.0.1.flutter-6e0d978505 <3.0.0"
