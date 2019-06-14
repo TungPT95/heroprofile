@@ -7,162 +7,159 @@ class ThorRepos extends CharacterRepos {
   @override
   Future<String> getBackground() {
     return returnData<String>(
-        'Hank Pym was an ordinary biochemist living in America, who ended up marrying an escaped refugee from Hungary. Believing Hank\'s American citizenship'
-        ' would protect her, the two traveled to Hungary for a vacation. However, Pym\'s wife was recognized by the secret police, and they ended up '
-        'murdering her after knocking Hank out. Angered by his wife\'s death, Hank swore to do whatever he could to stop injustice and inhumanity. '
-        'One day, Hank created a strange particle that could shrink objects to a much smaller size. After testing it on himself, Hank found that the serum was too powerful, '
-        'shrinking him to the size of an ant. Once he managed to return to his normal size, Hank began studying the ants that attacked him while he was small.'
-        ' Building a helmet to let him communicate with the ants, Hank decided to use his shrinking particle to help him fight crime, with the ants as his personal '
-        'army, becoming the Ant-Man.');
+        'Born as the half-Asgardian, half-Elder God son of Odin, the All-Father and King of Asgard, and as the Norse God of Thunder, Thor was an adventurous yet '
+        'ill-tempered deity, often travelling to other realms to do battle with Asgard’s foes. He spent much of his time in Midgard in particular, or our Earth, '
+        'fighting as the mythic Germanic hero Siegfried and battling the ancient mutant, Apocalypse. As he became more arrogant, it became apparent to Odin that '
+        'his son needed to learn the value of humility. To do so, he stripped Thor of his powers and memories, rendering him human and stranding him on Earth.'
+        '\n\nUnder the guise of Dr. Donald Blake, Thor grew to care for his fellow man, and eventually regained his old identity with Odin’s blessing. To this end, '
+        'he opted to split his time between Asgard and Midgard, and helped found the Avengers, dedicating himself to the protection of Earth alongside the likes '
+        'of Captain America, Iron Man, the Hulk, Ant-Man, the Wasp, Spider-Man and many other heroes, while upholding his responsibilities as a prince.');
   }
 
   @override
   Future<List<Information>> getPowersAbilities() {
-    var list = <Information>[
+    var list = indexing(<Information>[
       Information(
-          title: 'Size-Shifting',
+          title: 'Asgardian Physiology',
           description:
-              'Using the Pym Particles he invented, Hank can change his size at will. He can reduce himself down to the size of an ant,'
-              ' while retaining his strength from when he was normal-sized. As Giant-Man or Goliath, Hank can grow to a giant size, making him taller than even '
-              'the largest buildings in New York. In this stage, Hank\'s strength and durability gain a massive boost. He can even grow to the point where he becomes '
-              'larger than the microverse, entering the realm of abstract cosmic entities. While he originally required his Pym Particle serum to shrink and grow, '
-              'he\'s absorbed so much Pym Particles over the years that his body naturally produces them, letting him change his size at will. '
-              'Since he naturally produces Pym Particles, Hank can also expose others to them to change their size as well.'),
+              'Due to his parentage, Thor is naturally bestowed with various powers'),
       Information(
-          title: 'Dimensional Shifting',
-          description:
-              'By shrinking or growing to a certain extent, Hank can enter a subatomic realm, an alternate universe accessible to those who\'ve removed a majority of their mass.'),
-      Information(
-        title: 'Genius Intellect',
-        description:
-            'Hank Pym is one of Earth\'s leading scientific minds, with considerable expertise in various fields of science. He\'s been said to be one of the '
-            'smartest people on the planet, and was even named Earth\'s Scientist Supreme by Eternity.',
+        title: 'Godly Physique',
       ),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
+      Information(
+          title: 'Master Combatant',
+          description:
+              'Having hundreds of years of combat experience under his belt, he is one of the more skilled fighters in the Marvel universe. He is Asgard\'s '
+              'finest warrior and has learned numerous combat styles both from Asgard and from Earth. His skills are on par with some of the best martial artists '
+              'in Marvel such as Iron Fist and Captain America. He is not only extremely proficient in hand-to-hand combat but he is also an expert in both sword '
+              'and hammer combat. His preferred method of fighting outside of using his hammer is likely Glima, a Viking wrestling style that uses quick throws, '
+              'chokes and locks. He has been shown wrestling both the Hulk and Hercules.'),
+      Information(
+          title: 'Flight',
+          description:
+              'Contrary to popular belief, Thor is capable of flying without his hammer.'),
+      Information(
+          title: 'Longevity',
+          description:
+              'Even though Thor isn\'t immortal, his aging cycle is still slowed down to the point where he appears so. He has lived for thousands of years and is '
+              'still only in his physical prime.'),
+      Information(
+          title: 'Incredible Healing Factor',
+          description:
+              'Thor is able heal faster than any average human beings on Earth. He was once able to regenerate both of his broken fists and regenerate his liver when it was vitrified.'),
+      Information(
+          title: 'Godlike Senses',
+          description:
+              'Thor is able to track objects travelling faster than light speeds, and hear cries of help from the other side of a planet.'),
+      Information(
+          title: 'Super Breath',
+          description:
+              'Thor is able to hurricane force winds with just his breath alone.'),
+      Information(
+          title: 'Earth Manipulation',
+          description:
+              'Due to having Gaea as his mother, Thor is able to manipulate the ground he stands on, capable of shaking the earth to create anything from a minor landslide to a continent-wide earthquake.'),
+      Information(
+          title: 'Memory Alteration',
+          description:
+              'Stated to be known as "Gift of Forgetfulness" from Thor, he is able to change one\'s memory and could potentially control ones mind.'),
+      Information(
+          title: 'Dimensional Travel',
+          description:
+              'Thor can travel through space, different dimensions, and other worlds, including creating portals. He once created a portal to the Sun and determined the boundaries of the Tesseract (the pocket dimension Thor was prisoned in).'),
+      Information(
+          title: 'Omnilingual',
+          description:
+              'Whenever Thor speaks, anyone who hears him will speak their native language.'),
+      Information(
+          title: 'Mental Influence Resistance',
+          description:
+              'Thor has shown to have resisted mental influences from foes. He managed to resist a mind blast from a Super-Beast.'),
+      Information(
+          title: 'Incredible Intellect',
+          description:
+              'Thor not only a strong brawler, he is also incredibly smart. He is shown to be an excellent strategies and knowledge of different type of magic.'),
+    ]);
+
     return returnData<List<Information>>(list);
   }
 
   @override
   Future<List<Information>> getWeaknesses() {
-    var list = <Information>[
+    var list = indexing(<Information>[
       Information(
-          title: 'Reliant on his shield',
+          title: 'Linked to Mjolnir',
           description:
-              'If someone was to get rid of it, he could be defeated by an opponent of similar strength and skill, '
-              'which can be easily done, as his only method of ranged attacks if throwing it.'),
+              'Most of Thor\'s powers are actually because of Mjolnir and not Thor himself. Therefor, if he looses Mjolnir, or if the hammer finds someone'
+              ' more worthy of it\'s power than him, Thor is left powerless aside from his superhuman physique.'),
       Information(
+          title: 'Arrogance',
           description:
-              'Shield can be destroyed, although it could only be done by cosmic beings and gods'),
+              'Although Thor’s time on Earth has humbled him, shades of his old arrogant self still remain. He is likely to hold back against foes he '
+              'perceives to be weaker than himself, to prevent unnecessary collateral damage or to act as a self-imposed challenge, at least at first.'),
       Information(
+          title: 'Loss of Belt',
           description:
-              'Uniform has unarmored spots, such as his chin, mouth and eyes'),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
-    return returnData<List<Information>>(list);
-  }
+              'Even when operating at near-peak condition, stripping away his belt will partially rob him of his access to the Odin Force'),
+      Information(
+          title: 'Warrior\'s Madness',
+          description:
+              'While entering the Warrior’s Madness greatly increases his power, it will also turn him into a mindless berserker.'),
+    ]);
 
-  @override
-  Future<List<Information>> getFunFacts() {
-    var list = <Information>[
-      Information(
-          description:
-              'Hank has had six different superhero identities over the years.'),
-      Information(
-          description:
-              'He is considered the Marvel Comics counterpart of DC Comics the Atom.'),
-    ];
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
     return returnData<List<Information>>(list);
   }
 
   @override
   Future<List<Information>> getEquipment() {
-    var list = <Information>[
+    var mjolnirList = indexing(<Information>[
+      Information(description: 'Weather Manipulation'),
+      Information(description: 'Energy Manipulation'),
+      Information(description: 'Barriers'),
+      Information(description: 'Dead Summoning'),
+      Information(description: 'Invisibily & Intangibility'),
+      Information(description: 'Lightning Bestowal'),
+      Information(description: 'Thermal Explosion'),
+      Information(description: 'Anti-Force'),
+      Information(description: 'God Blast'),
+    ]);
+    var list = indexing(<Information>[
       Information(
-          title: 'Ant-Man Suit',
+          title: 'Mjolnir',
           description:
-              'Hank\'s superhero uniform, which allows him to shrink and grow without experiencing the mind-altering effects of the Pym Particle.'),
+              'A hammer forged in the core of a dying star that is magically bound to Thor, and the source of most of his powers. Only Thor can truly wield the '
+              'powers of Mjolnir, though it is possible for him to lose worthiness with it given to someone else. Some characters are strong enough to pick up Mjolnir,'
+              ' but often aren\'t worthy to properly wield it. The hammer is extremely strong, able to level mountains with casual ease and create small cracks in the '
+              'armour of a Celestial, which are durable enough to withstand planet shattering impacts.',
+          subInformation: mjolnirList),
       Information(
-          title: 'Cybernetic Helmet',
+          title: 'Megingjord',
           description:
-              'Ant-Man\'s helmet, which allows him to telepathically communicate with and control ants. He can use these ants either to distract or attack opponents, or as mounts.'),
+              'An enchanted belt that doubles Thor\'s strength and stamina.'),
       Information(
-          title: 'Toolbot',
+          title: 'Jarnbjorn',
           description:
-              'A small multi-tool device that stores hundreds of tools for Hank to use, such as a key, a minicomputer, and even an energy sword.'),
-      Information(
-          title: 'The Stinger',
-          description:
-              'A small firearm that converts Hank\'s bio-electric aura into powerful stun beams.'),
-    ];
+              'a battle axe forged by dwarves, it is sharper and more durable than most earthly weapons and was enchanted by Thor himself to be able to penetrate '
+              'celestial armor and technologies.'),
+    ]);
 
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
     return returnData<List<Information>>(list);
   }
 
   @override
   Future<List<Information>> getAlternateForms() {
-    var giantManList = <Information>[
-      Information(description: 'Enhanced Strength'),
-      Information(description: 'Enhanced Durability'),
-    ];
-    var yellowJacketList = <Information>[
-      Information(description: 'Bio-Energy Projection'),
-      Information(description: 'Flight'),
-    ];
-    var waspList = <Information>[
-      Information(description: 'Bio-Synthetic Wings'),
-      Information(description: 'Wasp\'s Sting'),
-      Information(description: 'Wasp Goggles'),
-    ];
+    var list = indexing(<Information>[
+      Information(
+          title: 'Warrior\'s Madness',
+          description:
+              'In the heat of battle, Thor can succumb to the Warrior’s Madness, a state in which he gives in to his most basic and primal instincts of '
+              'battle. Known as the Sin Unpardonable due to its usage being outlawed by Odin, his strength and stamina are increased tenfold at the cost of'
+              ' whatever rationality he once possessed, turning him into a raging beast not unlike Wolverine’s Berserker Rage or World Breaker Hulk. Under its effects,'
+              ' Thor has beaten the likes of Beta Ray Bill, the Silver Surfer, Thanos and members of the Infinity Watch armed with their respective Infinity Gems '
+              'such as Drax the Destroyer, Adam Warlock and Moondragon. It is worth noting that Thor, as with all Asgardians, can still access this even after '
+              'being labeled unworthy by Mjolnir.'),
+    ]);
 
-    var list = <Information>[
-      Information(
-          title: 'Giant-Man',
-          description:
-              'After learning of the Pym Particle\'s ability to increase the size of objects as well, Hank Pym became Giant-Man. As Giant-Man, '
-              'Pym uses his size-changing to grow to massive sizes, knocking foes off-balance with staggering blows.',
-          subInformation: giantManList),
-      Information(
-        title: 'Goliath',
-        description:
-            'Despite fighting crime as Giant-Man for a while, Pym eventually retired the identity due to the strain growing placed on his body. However, '
-            'to save his wife when she was kidnapped, he decided to use his growing powers again, becoming the superhero Goliath. Despite the change in '
-            'name and appearance, Goliath\'s abilities are pretty much the same as Giant-Man\'s.',
-      ),
-      Information(
-          title: 'Yellowjacket',
-          description:
-              'After being exposed to various unknown gases, Hank\'s personality underwent a radical change, and he took on the identity of Yellowjacket. '
-              'Even after returning to his normal personality, Hank stayed as Yellowjacket for a while due to the strain of growing into his Giant-Man persona. '
-              'As Yellowjacket, Hank retains the size-shifting and insect controlling abilities of Ant-Man, with some new powers as well.',
-          subInformation: yellowJacketList),
-      Information(
-          title: 'Wasp',
-          description:
-              'After the death of his wife Janet van Dyne, Hank took on her superhero persona of the Wasp. As the Wasp, Hank still can change his size and '
-              'control insects, but now has Janet\'s abilities as well.',
-          subInformation: waspList),
-      Information(
-          title: 'Ultron',
-          description:
-              'During an attempt to kill his creation Ultron, Hank accidentally merged his body with Ultron\'s. This turned Hank into a cyborg, with his only remaining '
-              'organic parts being his head and upper torso, though he can cover his organic parts in Ultron\'s upper body as armor. While merged with Ultron, '
-              'he has all of Ultron\'s abilities. See the Ultron page for info on Hank\'s abilities as Ultron.'),
-    ];
-
-    for (Information item in list) {
-      item.id = list.indexOf(item);
-    }
     return returnData<List<Information>>(list);
   }
 
@@ -170,55 +167,129 @@ class ThorRepos extends CharacterRepos {
   Future<List<FeatsInfo>> getFeats() {
     //strengthList
     var strengthList = <String>[
-      'Has peak physical strength for a human, and retains it while shrunk.',
-      'At ten feet tall, can press around 1000 pounds.',
-      'At twenty-five feet tall, can lift 10 tons.',
-      'At one-hundred feet tall, can lift 50 tons.',
-      'Knocked back both Black Panther and Beast.',
-      'Grabbed a wrecking ball and threw it backwards.',
-      'Pulverized Ultron.',
-      'Tore a building in half and lifted it over his head.',
-      'Lifted Absorbing Man over his head.',
-      'Lifted multiple people with ease while tearing a large ray gun apart.',
-      'As Ultron, is just as strong as the original Ultron.',
+      'Stated by Adam Warlock to be physically the strongest of the universe.',
+      'Casually snapped an adamanitum alloy cables by just flexing.',
+      'Stalemated the Hulk.',
+      'Knocked down Mangog, a being who is resistant to blunt forces.',
+      'Destroyed an arch weighing over a million tons.',
+      'Clashed with Gorr, which shattered an entire planet.',
+      'Pushed over the leaning Tower of Pisca with just his fingers.',
+      'Knocked out Namor with a single blow, despite being fully hydrated by a rainstorm.',
+      'Launched Harald Jaekelsson into orbit with a single uppercut.',
+      'Can create thunders that can be heard from other planets.',
+      'His punches has levelled a countryside and closed a dimensional drift.',
+      'Effortlessly threw a piece of the star core at the God Bomb.',
+      'Destroyed Silver Surfer\'s force fields, which are tough enough to withstand a barrage of nuclear bombs.',
+      'Beat up Silver Surfer after the latter stopped holding back.',
+      'Held together the fissures of a badly damaged moon, and fixed it with his lightning.',
+      'Fought with Red Norvell, which shook all off Asgard.',
+      'Lifted the Midgard Serpent, a snake large enough to coil around Earth and crush it in its grip.',
+      'Wrestled the World Serpent, Jormungandr, off Earth.',
+      'Holds up the George Washington Bridge long enough for Damage Control to fix it while heavily injured.',
+      'Crumbled Uru to dust.',
+      'Destroyed an earth-threatening comet.',
+      'Accidently formed a black hole with his fists.',
+      'Knocked out the Pheonix Force.',
+      'Resisted the gravity of a neutron star.',
+      'Reversed the World Engine.',
+      'Managed to Odin, a skyfather level being.',
+      'Almost killed the Hulk with a single strike.',
+      'Destroyed Demorgore\'s heart, who is twenty times the size of planets and stars.',
+      'Fought Superman. Although he lost the duel he managed to put up a great fight.',
+      'Mjolnir’s strikes can dent Celestial armor.',
+      'Can one shot Namor and the Abomination.',
+      'Strong enough to tear the ground open with just his hands.',
+      'Hit Beta Ray Bill so hard that the ground underneath him completely shattered.',
+      'Mjolnir is strong enough to knock the extremely powerful Galactus over.',
+      'Destroyed a helicopter while depowered.',
     ];
 
     //speedList
     var speedList = <String>[
-      'While giant, can travel several feet with one step.',
-      'Shrunk and grew in quick succession to dodge attacks from Red Hulk.',
-      'Flies at speeds up to 38 miles per hour as Wasp.',
-      'Can easily dodge incoming projectiles.',
-      'As Ultron, is just as fast as the original Ultron.',
+      'Thor’s speed has been directly stated to be faster than light.',
+      'Can create tornadoes by just twirling his cape.',
+      'Flew to the sun in a matter of seconds.',
+      'Can swing his hammer twice at the speed of light.',
+      'Able to throw his hammer at light speed.',
+      'Saved Red Hulk from a black hole.',
+      'Was able to land a hit on Quicksilver, who regularly moves at hypersonic speeds, and stated that he fought faster foes than him.',
+      'Stated that he was fast as the lightning commands.',
+      'Capable of hyperspace travel.',
+      'Can fly through galaxies with ease.',
+      'Was able to sawing his hammer at lightspeeds when his strength was reduced in half.',
+      'Has been established that the speed of his hammer transcends both time and space.',
+      'Reacts to cosmic blasts from the Silver Surfer and catch guys like him off-guard.',
+      'Has caught up to Hermes, the literal Greek God of Speed.',
+      'His reflexes allow him to catch shells (Mach 1.3 speeds), darts, and weapons out of the air.',
+      'Can strike and move in microseconds.',
+      'Adam Warlock says he moves as quick as lightning.',
+      'Can easily react to and deflect lasers.',
+      'Mjolnir is faster than Silver Surfer.',
     ];
 
     //durabilityList
     var durabilityList = <String>[
-      'Stayed standing after being hit by a large boulder.',
-      'Survived hits from a wrecking ball.',
-      'His durability increases with his size.',
-      'As Ultron, is composed of adamantium, the toughest metal in the Marvel universe.',
+      'Is completely bullet-proof.',
+      'Tanked a direct hit from Starbrand, who is strong enough to damage Captain America and Iron Man in the process.',
+      'Tanked anti-matter blasts from an upgraded Electro.',
+      'Only flinched when Rogue punched him, which would shatter diamonds.',
+      'Survived being crushed by the gravitational power of a neutron star and being buried under a pile of debris.',
+      'Tanked a supernova.',
+      'Was the only one consciouse when clashed with four other Mjolnir at full force.',
+      'Took a blast from Thanos, which blasted open a planet.',
+      'Tanked a holocaust bomb.',
+      'Young Thor endured torture from Gorr for seventeen days.',
+      'Withstood an attack on what he thought be the source of all planets.',
+      'Withstood blows from Skurge\'s Axe when his power was reduced to half.',
+      'Able to survive absolute zero temperatures.',
+      'Can endure heat from the heart of stars.',
+      'Took Ghost Rider\'s hellfire blast.',
+      'Survived blows from the Celestials.',
+      'Got punched in the face by Wonder Man and was fine.',
+      'Took punches from a Power Gem-enhanced Drax.',
+      'Tanked a blow from Surtur, who is one of the most powerful demons in the Marvel universe.',
+      'Wolverine’s claws barely even leave a scratch.',
+      'Tanked Zeus\' lightning bolt.',
+      'Survived a scream from Black Bolt',
+      'Has tanked blows from the Hulk numerous times',
     ];
 
     //skillList
     var skillList = <String>[
-      'Invented the Pym Particle and Ultron.',
-      'One of the five smartest people on the planet.',
-      'Trained by Captain America in hand-to-hand combat.',
-      'Has training in judo, karate, and wrestling.',
-      'Has had six different superhero identities.',
+      'Summoned cosmic weather without Mjolnir.',
+      'Can channel lightning through the ground.',
+      'has matched Captain American in a pure boxing match.',
+      'Was once able to cause a canyon so large that it spanned an entire country.',
+      'Founding members of the Avengers',
+      'One of the strongest heroes in the Marvel Universe',
+      'Thor\'s weapon pretty much ignored all of Newton’s laws of physics.',
+      'Took on the likes of Thanos, Galactus and Silver Surfer',
+      'Defeated Juggernaut, Silver Surfer, & Iron Man.',
+      'Defeated the Midgard Serpent, the Earth coiling snake Jormungand.',
+      'Is one of the most powerful Avengers (debatably the most powerful - often called in to fight foes others cannot)',
+      'Has fought the Hulk numerous times and won',
+      'Has consistently fought in and won large scale battles, such as the time he fought off Mephisto’s army of demons',
+      'Defeated a bear without any of his powers',
+      'Has thousands of years of experience.',
+      'KO\'d the Phoenix Force',
+    ];
+    //mentalityList
+    var mentalityList = <String>[
+      'Has one is the most powerful souls in the Marvel universe',
+      'Feels no fear',
+      'Possesses an extremely high IQ due to his time as Donald Blake',
+      'Can resist illusions to the strength of his mind',
+      'He can also resist telepathic attacks. His most impressive feat regarding this is resisting Moondragon, who had a mind gem during this time.',
     ];
 
-    var list = <FeatsInfo>[
+    var list = indexing(<FeatsInfo>[
       FeatsInfo(title: 'Strength', descs: strengthList),
       FeatsInfo(title: 'Speed', descs: speedList),
       FeatsInfo(title: 'Durability', descs: durabilityList),
       FeatsInfo(title: 'Skill', descs: skillList),
-    ];
+      FeatsInfo(title: 'Mentality', descs: mentalityList),
+    ]);
 
-    for (FeatsInfo item in list) {
-      item.id = list.indexOf(item);
-    }
     return returnData<List<FeatsInfo>>(list);
   }
 
@@ -228,42 +299,35 @@ class ThorRepos extends CharacterRepos {
       CharacterDetailCategory(
         title: backgroundTitle,
         categoryType: CategoryType.Background,
+        id: CategoryType.Background.index,
       ),
       CharacterDetailCategory(
         title: powersAbilitiesTitle,
         categoryType: CategoryType.PowersAbilities,
+        id: CategoryType.PowersAbilities.index,
       ),
       CharacterDetailCategory(
         title: equipmentTitle,
         categoryType: CategoryType.Equipment,
+        id: CategoryType.Equipment.index,
       ),
       CharacterDetailCategory(
         title: alternateFormsTitle,
         categoryType: CategoryType.AlternateForms,
+        id: CategoryType.AlternateForms.index,
       ),
       CharacterDetailCategory(
         title: featsTitle,
         categoryType: CategoryType.Feats,
+        id: CategoryType.Feats.index,
       ),
       CharacterDetailCategory(
         title: weaknessesTitle,
         categoryType: CategoryType.Weaknesses,
-      ),
-      CharacterDetailCategory(
-        title: funFactsTitle,
-        categoryType: CategoryType.FunFacts,
+        id: CategoryType.Weaknesses.index,
       ),
     ];
 
-    for (CharacterDetailCategory item in list) {
-      item.id = list.indexOf(item);
-    }
     return list;
-  }
-
-  @override
-  Future<List<Information>> getFaults() {
-    // TODO: implement getFaults
-    return null;
   }
 }
