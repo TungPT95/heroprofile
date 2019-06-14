@@ -90,16 +90,16 @@
 		
 		    buildTypes {
 
-			release {
-
-			    signingConfig signingConfigs.release
-
-			    minifyEnabled true
-			    useProguard true
-
-			    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-			}
+				release {
+	
+				    signingConfig signingConfigs.release
+	
+				    minifyEnabled true
+				    useProguard true
+	
+				    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+	
+				}
 		    }
 
 		}
