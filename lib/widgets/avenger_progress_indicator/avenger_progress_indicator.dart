@@ -5,22 +5,23 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AvengerProgressIndicator extends AnimatedWidget {
-  final double imageWidth;
-  static const double sideLength = 16;
+  double sideLength = 16;
   double height;
   double width;
 
   AvengerProgressIndicator(
       {Key key,
       Animation<double> animation,
-      this.imageWidth = sideLength * (1 + sqrt2) - 10,
+      this.sideLength = 16,
       this.height = 0,
       this.width = 0})
-      : super(key: key, listenable: animation);
+      : assert(sideLength > 0),
+        super(key: key, listenable: animation);
 
   @override
   Widget build(BuildContext context) {
     final Animation<double> _animation = listenable;
+    final imageWidth = sideLength * (1 + sqrt2) - 10;
 
     var h = height;
     var w = width;
