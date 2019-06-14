@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage>
   List<Character> list = [];
   AnimationController controller;
   Animation<double> _animation;
-  AvengerProgressIndicator _avengerProgressIndicator;
   double _expandedHeight = 210;
 
   CharacterListBloc _characterListBloc;
@@ -46,9 +45,6 @@ class _HomePageState extends State<HomePage>
     controller = AnimationController(
         duration: Duration(milliseconds: 1200), vsync: this);
     _animation = Tween<double>(begin: 0, end: 100).animate(controller);
-    _avengerProgressIndicator = AvengerProgressIndicator(
-      animation: _animation,
-    );
   }
 
   @override
@@ -104,8 +100,13 @@ class _HomePageState extends State<HomePage>
 
   Widget _showProgressIndicator(BuildContext context) {
     final progress = SliverToBoxAdapter(
-      child: _avengerProgressIndicator
-        ..height = MediaQuery.of(context).size.height - _expandedHeight,
+      child: AvengerProgressIndicator(
+        animation: _animation,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height - _expandedHeight,
+      ),
     );
     controller.forward();
     controller.repeat();

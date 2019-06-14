@@ -3,19 +3,21 @@ import 'dart:math';
 import 'package:avenger_information/widgets/avenger_progress_indicator/progress_indicator_custom_painter.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class AvengerProgressIndicator extends AnimatedWidget {
-  double sideLength = 16;
-  double height;
-  double width;
+  final double sideLength;
+  final double height;
+  final double width;
+  final String imagePath;
 
   AvengerProgressIndicator(
       {Key key,
       Animation<double> animation,
       this.sideLength = 16,
       this.height = 0,
-      this.width = 0})
+        this.width = 0,
+        this.imagePath = ''})
       : assert(sideLength > 0),
+        assert(imagePath != null),
         super(key: key, listenable: animation);
 
   @override

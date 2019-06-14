@@ -42,7 +42,6 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
   CharacterRepos get _repository => widget.repository;
   AnimationController controller;
   Animation<double> _animation;
-  AvengerProgressIndicator _avengerProgressIndicator;
   String _appBarTitle = '';
   int _currentDrawerItemIndex = CategoryType.Background.index;
 
@@ -61,9 +60,6 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
     controller = AnimationController(
         duration: Duration(milliseconds: 1200), vsync: this);
     _animation = Tween<double>(begin: 0, end: 100).animate(controller);
-    _avengerProgressIndicator = AvengerProgressIndicator(
-      animation: _animation,
-    );
 
     _characterInfoBloc.dispatch(LoadCharacterDetailCategory());
   }
@@ -165,8 +161,13 @@ class _CharacterInfoPageState extends State<CharacterInfoPage>
 
   Widget _showProgressIndicator(BuildContext context) {
     final progress = SliverToBoxAdapter(
-      child: _avengerProgressIndicator
-        ..height = MediaQuery.of(context).size.height - _expandedHeight,
+        child: AvengerProgressIndicator(
+          animation: _animation,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height - _expandedHeight,
+        )
     );
     controller.forward();
     controller.repeat();
