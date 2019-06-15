@@ -16,13 +16,16 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      height: double.infinity,
-      width: double.infinity,
-      child: Center(
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        height: double.infinity,
+        width: double.infinity,
         child: AvengerSplashLoading(
-          splashLoadingCallback: _splashLoadingCallback,
+          splashLoadingCallback: (context) async {
+            await Future.delayed(Duration(milliseconds: 500));
+            _splashLoadingCallback(context);
+          },
         ),
       ),
     );

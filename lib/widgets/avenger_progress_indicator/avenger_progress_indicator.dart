@@ -11,17 +11,19 @@ class AvengerProgressIndicator extends AnimatedWidget {
   final String imagePath;
   final double strokeWidth;
   final StrokeCap strokeCap;
+  final Color strokeColor;
 
   AvengerProgressIndicator(
       {Key key,
       Animation<double> animation,
       this.sideLength = 16,
-        this.strokeWidth = 2,
+      this.strokeWidth = 2,
       this.height = 0,
-        this.width = 0,
-        this.imagePadding = 10,
-        this.strokeCap = StrokeCap.butt,
-        this.imagePath = 'assets/images/ic_loading_dark.png'})
+      this.width = 0,
+      this.imagePadding = 10,
+      this.strokeColor = const Color(0xFFB71C1C),
+      this.strokeCap = StrokeCap.butt,
+      this.imagePath = 'assets/images/ic_loading_dark.png'})
       : assert(sideLength > 0),
         assert(imagePadding >= 0),
         assert(imagePath != null),
@@ -61,6 +63,7 @@ class AvengerProgressIndicator extends AnimatedWidget {
         strokeCap: strokeCap,
         percent: _animation.value,
         sideLength: sideLength,
+        strokeColor: strokeColor,
         x: w / 2,
         y: -h / 2,
       ),
