@@ -107,12 +107,10 @@
 
 # Next Steps
 
-### Customize Drawer, Drawer Item Border Animation (Running Light Dot follow Border Shape) 
-### Add Splash screen
-### Add the last character data
+### Customize Drawer, Drawer Item Border Animation (Running Light Dot follow Border Shape)
 ### Open app page on store
 ### Open my account on Facebook app
-### Send me email via Gmail for user's feedback
+### Send me email via Gmail with user's feedback
 ### Share app link on facebook, twitter, messenger ...
 ### Login with social network account (facebook, gmail, twitter ...)
 
