@@ -47,6 +47,9 @@ class _HomePageState extends BasePageState<HomePage> {
       bloc: _characterListBloc,
       builder: (context, state) {
         Widget _replaceWidget;
+        if (state is InitialState) {
+          _replaceWidget = buildBlankSliverFragment();
+        }
         if (state is LoadingCharacterSate) {
           _replaceWidget = showProgressIndicator();
         }

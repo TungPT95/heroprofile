@@ -50,7 +50,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
 
   @override
   void initState() {
-    _characterInfoBloc = CharacterInfoBloc()..characterRepository = _repository;
+    _characterInfoBloc = CharacterInfoBloc(characterRepository: _repository);
     _characterInfoBloc.dispatch(OnStart());
     super.initState();
 
@@ -63,6 +63,10 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
       bloc: _characterInfoBloc,
       builder: (context, state) {
         Widget _replaceWidget;
+
+        if (state is InitialState) {
+          _replaceWidget = buildBlankSliverFragment();
+        }
         if (state is OnDrawerClickState) {
           _appBarTitle = state.title;
           _currentDrawerItemIndex = state.category.index;

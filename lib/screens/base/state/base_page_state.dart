@@ -11,4 +11,8 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   }
 
   double getProgressViewHeight() => double.infinity;
+
+  Widget buildBlankSliverFragment() => SliverToBoxAdapter(
+        child: Container(),
+      );
 }
