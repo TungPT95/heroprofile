@@ -44,13 +44,14 @@ class _AvengerSplashLoadingState extends State<AvengerSplashLoading>
   Widget build(BuildContext context) {
     final sideLength = 60.0;
     final imageWidth = sideLength * (1 + math.sqrt2);
-    return Center(
-      child: AnimatedBuilder(
-          animation: controller,
-          builder: (context, widget) {
-            return Transform.scale(
-              scale: _scaleAnimation.value,
+    return AnimatedBuilder(
+        animation: controller,
+        builder: (context, widget) {
+          return Transform.scale(
+            scale: _scaleAnimation.value,
+            child: Center(
               child: Stack(
+                alignment: Alignment.center,
                 children: <Widget>[
                   Center(
                     child: ClipPath(
@@ -85,8 +86,8 @@ class _AvengerSplashLoadingState extends State<AvengerSplashLoading>
                   )
                 ],
               ),
-            );
-          }),
-    );
+            ),
+          );
+        });
   }
 }
