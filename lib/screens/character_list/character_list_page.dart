@@ -11,18 +11,18 @@ import 'package:avenger_information/widgets/slide_animation_widgets/ltr_slide_an
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomePage extends StatefulWidget {
+class CharactersPage extends StatefulWidget {
   final String title;
   final String appBarBg =
       'https://www.wallpaperup.com/uploads/wallpapers/2015/11/28/844462/3fd9cb463620756c8f3dacc926303d45.jpg';
 
-  HomePage({this.title = ''}) : assert(title != null);
+  CharactersPage({this.title = ''}) : assert(title != null);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _CharactersPageState createState() => _CharactersPageState();
 }
 
-class _HomePageState extends BasePageState<HomePage> {
+class _CharactersPageState extends BasePageState<CharactersPage> {
   List<Character> list = [];
   double _expandedHeight = 210;
 
