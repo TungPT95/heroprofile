@@ -135,7 +135,7 @@ class NavClipper extends CustomClipper<Path> {
     final path = Path();
     path.lineTo(0, size.height - 30);
     path.lineTo(30, size.height);
-    path.lineTo(size.wi, size.height);
+    path.lineTo(size.width, size.height);
     path.lineTo(size.width - 30, size.height);
     path.lineTo(size.width, 30);
     path.lineTo(size.width - 30, 0);
