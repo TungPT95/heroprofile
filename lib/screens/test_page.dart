@@ -11,10 +11,13 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.yellow[100],
+        appBar: AppBar(
+          brightness: Brightness.dark,
+        ),
         body: Stack(
           alignment: Alignment.bottomCenter,
+          overflow: Overflow.clip,
           children: <Widget>[
-
             Container(
               margin: EdgeInsets.only(bottom: 80),
               width: double.infinity,
@@ -25,32 +28,32 @@ class _TestPageState extends State<TestPage> {
                 child: Text('button ne'),
               ),
             ),
-            Align(
-              alignment: Alignment(0, -1),
-              child: SizedBox(
-                height: 70,
-                width: 70,
-                child: Material(
-                  shape: BeveledRectangleBorder(
-                      borderRadius:
-                      BorderRadius.all(Radius.circular(70 / 2 - 3))),
-                  elevation: 10,
-                  color: Colors.grey,
-                  child: InkWell(
-                    customBorder: BeveledRectangleBorder(
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(70 / 2 - 3))),
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(70 / 4),
-                      child: Image.asset(
-                        'assets/images/ic_loading.png',
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+//            Align(
+//              alignment: Alignment(0, -1),
+//              child: SizedBox(
+//                height: 70,
+//                width: 70,
+//                child: Material(
+//                  shape: BeveledRectangleBorder(
+//                      borderRadius:
+//                      BorderRadius.all(Radius.circular(70 / 2 - 3))),
+//                  elevation: 10,
+//                  color: Colors.grey,
+//                  child: InkWell(
+//                    customBorder: BeveledRectangleBorder(
+//                        borderRadius:
+//                        BorderRadius.all(Radius.circular(70 / 2 - 3))),
+//                    onTap: () {},
+//                    child: Container(
+//                      padding: EdgeInsets.all(70 / 4),
+//                      child: Image.asset(
+//                        'assets/images/ic_loading.png',
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//              ),
+//            ),
             BottomNavBar(),
           ],
         ));

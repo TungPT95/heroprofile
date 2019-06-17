@@ -9,30 +9,57 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     final height1 = 70.0;
-    final height = 80.0 + height1 / 2;
     final shape = BeveledRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(height1 / 2 - 3)));
-    return ClipPath(
-      clipper: NavClipper(),
-
-      child: Container(
-        color: Colors.blue[100],
-        height: height,
-        child: Row(
+        borderRadius: BorderRadius.all(Radius.circular(height1 / 2)));
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      fit: StackFit.passthrough,
+      children: <Widget>[
+        Opacity(
+          opacity: 1,
+          child: ClipPath(
+            clipper: NavClipper(),
+            child: Container(
+              height: 60,
+              decoration: BoxDecoration(
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 2,
+                      offset: Offset(10, 10),
+                      spreadRadius: 2)
+                ],
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Color(0xFF58060A),
+                    Color(0xFF642B3D),
+                    Color(0xFF543F7A),
+                  ],
+                  stops: <double>[0.2, 0.5, 1],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            buildItem('Chapters'),
-            buildItem('Videos'),
+            buildItem('Chapters', icon: Icons.view_list),
+            buildItem('Videos', icon: Icons.video_library),
             Align(
-              alignment: Alignment(0, -1),
+              alignment:
+                  Alignment(0, 1 - 0 / MediaQuery.of(context).size.height),
               child: SizedBox(
                 height: height1,
                 width: height1,
                 child: Material(
                   shape: shape,
                   elevation: 10,
-                  color: Colors.grey,
+                  color: Colors.white,
                   child: InkWell(
                     customBorder: shape,
                     onTap: () {},
@@ -46,49 +73,57 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 ),
               ),
             ),
-            buildItem('Others'),
-            buildItem('About')
+            buildItem('Others', icon: Icons.assignment),
+            buildItem('About', icon: Icons.settings)
           ],
-        ),
-      ),
+        )
+      ],
     );
   }
 
-  Widget buildItem(String title) {
+  Widget buildItem(String title, {IconData icon = Icons.android}) {
     final width = 40.0;
-    final radius = width / 2 - 3;
+    final radius = width / 2;
     final shape = BeveledRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius)));
     return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          SizedBox(
-            width: width,
-            height: width,
-            child: Material(
-              elevation: 10,
-              animationDuration: Duration(milliseconds: 1000),
-              shape: shape,
-              color: Colors.blue,
-              child: InkWell(
-                customBorder: shape,
-                onTap: () {},
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
+      flex: 1,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SizedBox(
+              width: width,
+              height: width,
+              child: Material(
+                elevation: 10,
+                animationDuration: Duration(milliseconds: 1000),
+                shape: shape,
+                color: Colors.white,
+                child: InkWell(
+                  customBorder: shape,
+                  onTap: () {},
+                  child: Icon(
+                    icon,
+                    color: Colors.red[900],
+                    size: 18,
+                  ),
                 ),
               ),
             ),
-          ),
-        Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+//            Padding(
+//              padding: const EdgeInsets.only(top: 5),
+//              child: Text(
+//                title,
+//                style: TextStyle(
+//                  color: Colors.white,
+//                ),
+//              ),
+//            ),
+          ],
         ),
-        ],
       ),
     );
   }
@@ -98,14 +133,17 @@ class NavClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
-    path.lineTo(0, size.height);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, size.height - 80);
-    path.lineTo(size.width / 2 + 35 + 7, size.height - 80);
-    path.lineTo(size.width / 2, 0.0 - 7);
-    path.lineTo(size.width / 2 - 35 - 7, 0.0 + 35);
-    path.lineTo(0, size.height - 80);
-
+    path.lineTo(0, size.height - 30);
+    path.lineTo(30, size.height);
+    path.lineTo(size.wi, size.height);
+    path.lineTo(size.width - 30, size.height);
+    path.lineTo(size.width, 30);
+    path.lineTo(size.width - 30, 0);
+    path.lineTo(size.width / 2 + 35 + 30, 0);
+    path.lineTo(size.width / 2, 0.0 + 35 + 7);
+    path.lineTo(size.width / 2 - 35 - 7, 0);
+    path.lineTo(30, 0);
+    path.lineTo(0, 30);
     path.close();
     return path;
   }
