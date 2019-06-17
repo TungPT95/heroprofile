@@ -1,5 +1,6 @@
 import 'package:avenger_information/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -9,23 +10,34 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return Scaffold(
         backgroundColor: Colors.yellow[100],
-        appBar: AppBar(
-          brightness: Brightness.dark,
-        ),
         body: Stack(
           alignment: Alignment.bottomCenter,
           overflow: Overflow.clip,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 80),
+              margin: EdgeInsets.only(bottom: 60 - 35.0 - 7, top: 56 + 12.0),
               width: double.infinity,
               height: MediaQuery.of(context).size.height - 80,
               color: Colors.grey[300],
-              child: RaisedButton(
-                onPressed: () {},
-                child: Text('button ne'),
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Text('$index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index'
+                      '   $index');
+                },
+                itemCount: 100,
               ),
             ),
 //            Align(
@@ -54,6 +66,19 @@ class _TestPageState extends State<TestPage> {
 //                ),
 //              ),
 //            ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: double.infinity,
+                color: Colors.transparent,
+                height: 56 + 12.0,
+                child: Material(
+                    shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(30),
+                            bottomRight: Radius.circular(30)))),
+              ),
+            ),
             BottomNavBar(),
           ],
         ));
