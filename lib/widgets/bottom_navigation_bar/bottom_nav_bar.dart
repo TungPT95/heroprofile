@@ -113,15 +113,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 ),
               ),
             ),
-//            Padding(
-//              padding: const EdgeInsets.only(top: 5),
-//              child: Text(
-//                title,
-//                style: TextStyle(
-//                  color: Colors.white,
-//                ),
-//              ),
-//            ),
           ],
         ),
       ),

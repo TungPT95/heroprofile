@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'screens/test_page.dart';
+import 'screens/home/home_page.dart';
 
 void main() {
   BlocSupervisor.delegate = AppBlocDelegate();
@@ -16,7 +16,7 @@ class AvengerInformationApp extends StatelessWidget {
   static const String title = 'Avenger Character Profile';
 
 //  final _home = HomePage(title: title);
-  final _home = TestPage();
+  final _home = HomePage();
 
 //  final _home = SplashPage(
 //    splashLoadingCallback: (context) {
