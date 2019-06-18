@@ -22,6 +22,14 @@ class _HomePageState extends State<HomePage> {
 
   String _title = 'Home';
 
+  List<String> pageTitles = [
+    'Cinematic Universe films',
+    'Videos',
+    'Home',
+    'Parts',
+    'About'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +47,7 @@ class _HomePageState extends State<HomePage> {
               child: PageView(
                 pageSnapping: true,
                 scrollDirection: Axis.horizontal,
-                controller: _pageController,
+                controller: _pageController ,
                 children: <Widget>[
                   Container(
                     child: Center(child: Text('$_title')),
