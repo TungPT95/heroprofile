@@ -1,4 +1,4 @@
-import 'package:avenger_information/models/character.dart';
+import 'package:hero_profile/models/character.dart';
 import 'package:flutter/material.dart';
 
 typedef ItemClickListener = void Function(int id);

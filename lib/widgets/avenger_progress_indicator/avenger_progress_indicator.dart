@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:avenger_information/widgets/avenger_progress_indicator/progress_indicator_custom_painter.dart';
+import 'package:hero_profile/widgets/avenger_progress_indicator/progress_indicator_custom_painter.dart';
 import 'package:flutter/material.dart';
 
 class AvengerProgressIndicator extends AnimatedWidget {

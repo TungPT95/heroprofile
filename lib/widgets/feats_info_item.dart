@@ -1,4 +1,4 @@
-import 'package:avenger_information/models/feats_info.dart';
+import 'package:hero_profile/models/feats_info.dart';
 import 'package:flutter/material.dart';
 
 class FeatsInfoItem extends StatefulWidget {

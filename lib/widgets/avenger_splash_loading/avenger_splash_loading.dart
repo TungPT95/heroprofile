@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
+import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 typedef SplashLoadingCallback = void Function(BuildContext context);

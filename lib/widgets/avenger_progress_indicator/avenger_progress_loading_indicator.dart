@@ -1,4 +1,4 @@
-import 'package:avenger_information/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
+import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 class AvengerProgressLoadingIndicator extends StatefulWidget {

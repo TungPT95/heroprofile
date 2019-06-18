@@ -1,8 +1,8 @@
-import 'package:avenger_information/blocs/base/base_bloc.dart';
-import 'package:avenger_information/blocs/base/base_event.dart';
-import 'package:avenger_information/blocs/base/base_state.dart';
-import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animation_event.dart';
-import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animation_state.dart';
+import 'package:hero_profile/blocs/base/base_bloc.dart';
+import 'package:hero_profile/blocs/base/base_event.dart';
+import 'package:hero_profile/blocs/base/base_state.dart';
+import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_event.dart';
+import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_state.dart';
 
 class LTRSlideAnimationBloc extends BaseBloc {
   final Duration delay;

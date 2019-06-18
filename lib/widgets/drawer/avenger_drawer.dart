@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:avenger_information/widgets/drawer/avenger_drawer_item.dart';
+import 'package:hero_profile/widgets/drawer/avenger_drawer_item.dart';
 
 class AvengerDrawer extends StatefulWidget {
   final String background;

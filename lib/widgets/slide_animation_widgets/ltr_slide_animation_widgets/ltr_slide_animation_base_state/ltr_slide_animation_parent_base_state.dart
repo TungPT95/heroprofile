@@ -1,5 +1,5 @@
-import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animation_bloc.dart';
-import 'package:avenger_information/blocs/ltr_slide_animation/ltr_slide_animation_event.dart';
+import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_bloc.dart';
+import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

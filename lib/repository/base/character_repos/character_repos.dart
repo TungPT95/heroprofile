@@ -1,7 +1,7 @@
-import 'package:avenger_information/models/character_detail_category.dart';
-import 'package:avenger_information/models/feats_info.dart';
-import 'package:avenger_information/models/information.dart';
-import 'package:avenger_information/repository/base/repository.dart';
+import 'package:hero_profile/models/character_detail_category.dart';
+import 'package:hero_profile/models/feats_info.dart';
+import 'package:hero_profile/models/information.dart';
+import 'package:hero_profile/repository/base/repository.dart';
 
 abstract class CharacterRepos extends Repository {
   Future<String> getBackground() => returnData<String>('');

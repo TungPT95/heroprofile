@@ -1,7 +1,7 @@
-import 'package:avenger_information/blocs/base/base_state.dart';
-import 'package:avenger_information/models/character_detail_category.dart';
-import 'package:avenger_information/models/feats_info.dart';
-import 'package:avenger_information/models/information.dart';
+import 'package:hero_profile/blocs/base/base_state.dart';
+import 'package:hero_profile/models/character_detail_category.dart';
+import 'package:hero_profile/models/feats_info.dart';
+import 'package:hero_profile/models/information.dart';
 
 abstract class CharacterInfoState extends BaseState {
   CharacterInfoState([List props]) : super(props);

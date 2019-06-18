@@ -1,4 +1,4 @@
-import 'package:avenger_information/repository/base/repository.dart';
+import 'package:hero_profile/repository/base/repository.dart';
 import 'package:meta/meta.dart';
 
 class Character {

@@ -1,17 +1,17 @@
-import 'package:avenger_information/models/character.dart';
-import 'package:avenger_information/repository/ant_man/ant_man_repos.dart';
-import 'package:avenger_information/repository/base/repository.dart';
-import 'package:avenger_information/repository/black_panther/black_panther_repos.dart';
-import 'package:avenger_information/repository/black_widow/black_widow_repos.dart';
-import 'package:avenger_information/repository/captain_america/captain_america_repos.dart';
-import 'package:avenger_information/repository/captain_marvel/captain_marvel_repos.dart';
-import 'package:avenger_information/repository/doctor_strange/doctor_strange_repos.dart';
-import 'package:avenger_information/repository/hawk_eye/hawk_eye_repos.dart';
-import 'package:avenger_information/repository/iron_man/iron_man_repos.dart';
-import 'package:avenger_information/repository/spider_man/spider_man_repos.dart';
-import 'package:avenger_information/repository/thanos/thanos_repos.dart';
-import 'package:avenger_information/repository/the_hulk/the_hulk_repos.dart';
-import 'package:avenger_information/repository/thor/thor_repos.dart';
+import 'package:hero_profile/models/character.dart';
+import 'package:hero_profile/repository/ant_man/ant_man_repos.dart';
+import 'package:hero_profile/repository/base/repository.dart';
+import 'package:hero_profile/repository/black_panther/black_panther_repos.dart';
+import 'package:hero_profile/repository/black_widow/black_widow_repos.dart';
+import 'package:hero_profile/repository/captain_america/captain_america_repos.dart';
+import 'package:hero_profile/repository/captain_marvel/captain_marvel_repos.dart';
+import 'package:hero_profile/repository/doctor_strange/doctor_strange_repos.dart';
+import 'package:hero_profile/repository/hawk_eye/hawk_eye_repos.dart';
+import 'package:hero_profile/repository/iron_man/iron_man_repos.dart';
+import 'package:hero_profile/repository/spider_man/spider_man_repos.dart';
+import 'package:hero_profile/repository/thanos/thanos_repos.dart';
+import 'package:hero_profile/repository/the_hulk/the_hulk_repos.dart';
+import 'package:hero_profile/repository/thor/thor_repos.dart';
 
 class CharactersRepos extends Repository {
   Future<List<Character>> getCharacters() {

@@ -1,7 +1,7 @@
-import 'package:avenger_information/blocs/base/base_bloc.dart';
-import 'package:avenger_information/blocs/base/base_event.dart';
-import 'package:avenger_information/blocs/base/base_state.dart';
-import 'package:avenger_information/repository/characters/characters_repos.dart';
+import 'package:hero_profile/blocs/base/base_bloc.dart';
+import 'package:hero_profile/blocs/base/base_event.dart';
+import 'package:hero_profile/blocs/base/base_state.dart';
+import 'package:hero_profile/repository/characters/characters_repos.dart';
 import 'package:meta/meta.dart';
 
 import 'character_list_state.dart';

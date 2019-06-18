@@ -1,6 +1,6 @@
-import 'package:avenger_information/models/character.dart';
-import 'package:avenger_information/models/feats_info.dart';
-import 'package:avenger_information/models/information.dart';
+import 'package:hero_profile/models/character.dart';
+import 'package:hero_profile/models/feats_info.dart';
+import 'package:hero_profile/models/information.dart';
 abstract class Repository {
   indexing(List list) {
     for (dynamic item in list) {

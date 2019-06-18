@@ -1,4 +1,4 @@
-import 'package:avenger_information/widgets/avenger_splash_loading/avenger_splash_loading.dart';
+import 'package:hero_profile/widgets/avenger_splash_loading/avenger_splash_loading.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {

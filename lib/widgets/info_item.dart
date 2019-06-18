@@ -1,5 +1,5 @@
-import 'package:avenger_information/models/information.dart';
-import 'package:avenger_information/widgets/sub_info_item.dart';
+import 'package:hero_profile/models/information.dart';
+import 'package:hero_profile/widgets/sub_info_item.dart';
 import 'package:flutter/material.dart';
 
 class InfoItem extends StatefulWidget {

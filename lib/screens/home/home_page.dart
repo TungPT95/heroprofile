@@ -1,4 +1,4 @@
-import 'package:avenger_information/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
+import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

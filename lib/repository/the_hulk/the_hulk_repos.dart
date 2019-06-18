@@ -1,7 +1,7 @@
-import 'package:avenger_information/models/character_detail_category.dart';
-import 'package:avenger_information/models/feats_info.dart';
-import 'package:avenger_information/models/information.dart';
-import 'package:avenger_information/repository/base/character_repos/character_repos.dart';
+import 'package:hero_profile/models/character_detail_category.dart';
+import 'package:hero_profile/models/feats_info.dart';
+import 'package:hero_profile/models/information.dart';
+import 'package:hero_profile/repository/base/character_repos/character_repos.dart';
 
 class TheHulkRepos extends CharacterRepos {
   @override
@@ -152,15 +152,6 @@ class TheHulkRepos extends CharacterRepos {
     var giantManList = <Information>[
       Information(description: 'Enhanced Strength'),
       Information(description: 'Enhanced Durability'),
-    ];
-    var yellowJacketList = <Information>[
-      Information(description: 'Bio-Energy Projection'),
-      Information(description: 'Flight'),
-    ];
-    var waspList = <Information>[
-      Information(description: 'Bio-Synthetic Wings'),
-      Information(description: 'Wasp\'s Sting'),
-      Information(description: 'Wasp Goggles'),
     ];
 
     var list = indexing(<Information>[

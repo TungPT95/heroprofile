@@ -1,5 +1,5 @@
-import 'package:avenger_information/blocs/base/base_state.dart';
-import 'package:avenger_information/models/character.dart';
+import 'package:hero_profile/blocs/base/base_state.dart';
+import 'package:hero_profile/models/character.dart';
 
 class CharacterListState extends BaseState {}
 

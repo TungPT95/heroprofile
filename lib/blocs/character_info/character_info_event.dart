@@ -1,5 +1,5 @@
-import 'package:avenger_information/blocs/base/base_event.dart';
-import 'package:avenger_information/models/character_detail_category.dart';
+import 'package:hero_profile/blocs/base/base_event.dart';
+import 'package:hero_profile/models/character_detail_category.dart';
 
 abstract class CharacterInfoEvent extends BaseEvent {
   CharacterInfoEvent([List props]) : super(props);

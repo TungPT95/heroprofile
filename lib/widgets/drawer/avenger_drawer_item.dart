@@ -1,4 +1,4 @@
-import 'package:avenger_information/models/character_detail_category.dart';
+import 'package:hero_profile/models/character_detail_category.dart';
 import 'package:flutter/material.dart';
 
 typedef DrawerItemClickListener = void Function(CategoryType category);

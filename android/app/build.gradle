@@ -43,7 +43,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.flutter.ptt.avengers.android"
+        applicationId "com.flutter.ptt.heroprofile.android"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
@@ -76,14 +76,17 @@ android {
             dimension 'flavors'
             applicationIdSuffix '.dev'
             versionNameSuffix '-dev'
+            resValue('string','app_name','[DEV] Hero Profile')
         }
         qa {
             dimension 'flavors'
             applicationIdSuffix '.qa'
             versionNameSuffix '-qa'
+            resValue('string','app_name','[QA] Hero Profile')
         }
         pro {
             dimension 'flavors'
+            resValue('string','app_name','Hero Profile')
         }
     }
 
