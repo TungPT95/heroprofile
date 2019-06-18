@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
+  final BottomNavItemClickCallback bottomNavItemClickCallback;
+
+  BottomNavBar({this.bottomNavItemClickCallback});
+
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  BottomNavItemClickCallback get _bottomNavItemClickCallback =>
+      widget.bottomNavItemClickCallback;
+
   @override
   Widget build(BuildContext context) {
     final height1 = 70.0;
-    final shape = BeveledRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(height1 / 2)));
     return Stack(
       alignment: Alignment.bottomCenter,
       fit: StackFit.passthrough,
@@ -22,13 +27,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
             child: Container(
               height: 60,
               decoration: BoxDecoration(
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 2,
-                      offset: Offset(10, 10),
-                      spreadRadius: 2)
-                ],
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
@@ -48,42 +46,149 @@ class _BottomNavBarState extends State<BottomNavBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            buildItem('Chapters', icon: Icons.view_list),
-            buildItem('Videos', icon: Icons.video_library),
-            Align(
-              alignment:
-                  Alignment(0, 1 - 0 / MediaQuery.of(context).size.height),
-              child: SizedBox(
-                height: height1,
-                width: height1,
-                child: Material(
-                  shape: shape,
-                  elevation: 10,
-                  color: Colors.white,
-                  child: InkWell(
-                    customBorder: shape,
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(height1 / 4),
-                      child: Image.asset(
-                        'assets/images/ic_loading.png',
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            BottomNavItem(
+              'Marvel Cinematic Universe films',
+              icon: Icons.view_list,
+              bottomNavItemClickCallback: _bottomNavItemClickCallback,
+              index: 0,
             ),
-            buildItem('Others', icon: Icons.assignment),
-            buildItem('About', icon: Icons.settings)
+            BottomNavItem(
+              'Videos',
+              icon: Icons.video_library,
+              bottomNavItemClickCallback: _bottomNavItemClickCallback,
+              index: 1,
+            ),
+            BottomNavCenterItem(
+              title: 'Home',
+              height: height1,
+              bottomNavItemClickCallback: _bottomNavItemClickCallback,
+              index: 2,
+            ),
+            BottomNavItem(
+              'Parts',
+              icon: Icons.assignment,
+              bottomNavItemClickCallback: _bottomNavItemClickCallback,
+              index: 3,
+            ),
+            BottomNavItem(
+              'About',
+              icon: Icons.settings,
+              bottomNavItemClickCallback: _bottomNavItemClickCallback,
+              index: 4,
+            )
           ],
         )
       ],
     );
   }
+}
 
-  Widget buildItem(String title, {IconData icon = Icons.android}) {
+typedef BottomNavItemClickCallback = void Function(int index, String title);
+
+abstract class BottomNavBaseItem extends StatefulWidget {
+  final int index;
+  final String title;
+  final BottomNavItemClickCallback bottomNavItemClickCallback;
+
+  BottomNavBaseItem(
+      {this.index = 0, this.title = '', this.bottomNavItemClickCallback})
+      : assert(index >= 0),
+        assert(title != null);
+}
+
+class BottomNavCenterItem extends BottomNavBaseItem {
+  final double height;
+
+  BottomNavCenterItem(
+      {this.height,
+      int index = 0,
+      String title,
+      BottomNavItemClickCallback bottomNavItemClickCallback})
+      : assert(height > 0),
+        super(
+            index: index,
+            title: title,
+            bottomNavItemClickCallback: bottomNavItemClickCallback);
+
+  @override
+  _BottomNavCenterItemState createState() => _BottomNavCenterItemState();
+}
+
+class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
+  double get height => widget.height;
+
+  String get _title => widget.title;
+
+  BottomNavItemClickCallback get bottomNavItemClickCallback =>
+      widget.bottomNavItemClickCallback;
+
+  int get index => widget.index;
+
+  @override
+  Widget build(BuildContext context) {
+    final shape = BeveledRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(height / 2 - 2.5)));
+    return Align(
+      alignment: Alignment(0, 1 - 23 / MediaQuery.of(context).size.height),
+      child: SizedBox(
+        height: height,
+        width: height,
+        child: Material(
+          shape: shape,
+          elevation: 10,
+          color: Colors.white,
+          child: InkWell(
+            customBorder: shape,
+            onTap: () {
+              return bottomNavItemClickCallback != null
+                  ? bottomNavItemClickCallback(index, _title)
+                  : () {};
+            },
+            child: Container(
+              padding: EdgeInsets.all(height / 4),
+              child: Image.asset(
+                'assets/images/ic_loading.png',
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BottomNavItem extends BottomNavBaseItem {
+  final IconData icon;
+
+  BottomNavItem(String title,
+      {this.icon = Icons.android,
+      int index = 0,
+      BottomNavItemClickCallback bottomNavItemClickCallback})
+      : assert(icon != null),
+        assert(index >= 0),
+        super(
+            index: index,
+            title: title,
+            bottomNavItemClickCallback: bottomNavItemClickCallback);
+
+  @override
+  _BottomNavItemState createState() => _BottomNavItemState();
+}
+
+class _BottomNavItemState extends State<BottomNavItem> {
+  IconData get _icon => widget.icon;
+
+  String get _title => widget.title;
+
+  BottomNavItemClickCallback get bottomNavItemClickCallback =>
+      widget.bottomNavItemClickCallback;
+
+  int get index => widget.index;
+
+  @override
+  Widget build(BuildContext context) {
     final width = 40.0;
-    final radius = width / 2;
+    final radius = width / 2 - 2.5;
     final shape = BeveledRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius)));
     return Expanded(
@@ -104,9 +209,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 color: Colors.white,
                 child: InkWell(
                   customBorder: shape,
-                  onTap: () {},
+                  onTap: () {
+                    return bottomNavItemClickCallback != null
+                        ? bottomNavItemClickCallback(index, _title)
+                        : () {};
+                  },
                   child: Icon(
-                    icon,
+                    _icon,
                     color: Colors.red[900],
                     size: 18,
                   ),
@@ -128,8 +237,8 @@ class NavClipper extends CustomClipper<Path> {
     path.lineTo(30, size.height);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, size.height);
-    path.lineTo(size.width , 0);
-    path.lineTo(size.width / 2 + 35 + 30, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width / 2 + 35 + 7, 0);
     path.lineTo(size.width / 2, 0.0 + 35 + 7);
     path.lineTo(size.width / 2 - 35 - 7, 0);
     path.close();

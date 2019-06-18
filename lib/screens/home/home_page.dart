@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  final _title = 'Home';
+  String _title = 'Home';
 
   @override
   Widget build(BuildContext context) {
@@ -42,22 +42,31 @@ class _HomePageState extends State<HomePage> {
                 controller: _pageController,
                 children: <Widget>[
                   Container(
-                    child: Center(child: Text('Chapters')),
+                    child: Center(child: Text('$_title')),
                   ),
                   Container(
-                    child: Center(child: Text('Videos')),
+                    child: Center(child: Text('$_title')),
                   ),
                   CharactersPage(),
                   Container(
-                    child: Center(child: Text('Others')),
+                    child: Center(child: Text('$_title')),
                   ),
                   Container(
-                    child: Center(child: Text('About')),
+                    child: Center(child: Text('$_title')),
                   ),
                 ],
               ),
             ),
-            BottomNavBar(),
+            BottomNavBar(
+              bottomNavItemClickCallback: (index, title) {
+                _pageController.animateToPage(index,
+                    duration: Duration(milliseconds: 200),
+                    curve: Curves.linear);
+                setState(() {
+                  _title = title;
+                });
+              },
+            ),
           ],
         ));
   }
