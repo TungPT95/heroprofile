@@ -70,11 +70,11 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
         if (state is OnDrawerClickState) {
           _appBarTitle = state.title;
           _currentDrawerItemIndex = state.category.index;
-          _replaceWidget = showProgressIndicator();
+          _replaceWidget = showSliverProgressIndicator();
         }
 
         if (state is LoadedCharacterDetailCategoryState) {
-          _replaceWidget = showProgressIndicator();
+          _replaceWidget = buildBlankSliverFragment();
           _drawerItems = _buildDrawerItems(state.categories);
         }
 

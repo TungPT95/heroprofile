@@ -64,8 +64,8 @@ class AvengerProgressIndicator extends AnimatedWidget {
         percent: _animation.value,
         sideLength: sideLength,
         strokeColor: strokeColor,
-        x: w / 2,
-        y: -h / 2,
+        axisX: w / 2,
+        axisY: -h / 2,
       ),
     );
   }

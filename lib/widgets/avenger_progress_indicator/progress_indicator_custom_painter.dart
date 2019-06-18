@@ -6,7 +6,7 @@ class ProgressIndicatorCustomPaint extends CustomPainter {
   final double percent;
   final double strokeWidth;
   final double sideLength;
-  final double x, y;
+  final double axisX, axisY;
   final StrokeCap strokeCap;
   final Color strokeColor;
 
@@ -16,8 +16,8 @@ class ProgressIndicatorCustomPaint extends CustomPainter {
       this.sideLength = 50,
       this.strokeCap = StrokeCap.butt,
       this.strokeColor = const Color(0xFFB71C1C),
-      this.x = 0.0,
-      this.y = 0.0})
+      this.axisX = 0.0,
+      this.axisY = 0.0})
       : assert(percent >= 0),
         assert(strokeCap != null);
 
@@ -31,6 +31,9 @@ class ProgressIndicatorCustomPaint extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     final constant = sideLength * sqrt2 / 2;
+
+    final x = axisX <= 0 ? size.width / 2 : axisX;
+    final y = axisY <= 0 ? -size.height / 2 : axisY;
 
     //1
     final x1 = x - sideLength / 2, y1 = -(y + constant + sideLength / 2);

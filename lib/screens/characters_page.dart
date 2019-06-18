@@ -5,7 +5,6 @@ import 'package:avenger_information/blocs/character_list/character_list_state.da
 import 'package:avenger_information/models/character.dart';
 import 'package:avenger_information/screens/base/state/base_page_state.dart';
 import 'package:avenger_information/screens/character_info/character_info_page.dart';
-import 'package:avenger_information/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:avenger_information/widgets/character_item.dart';
 import 'package:avenger_information/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +23,8 @@ class CharactersPage extends StatefulWidget {
 
 class _CharactersPageState extends BasePageState<CharactersPage> {
   List<Character> list = [];
-  double _expandedHeight = 210;
 
   CharacterListBloc _characterListBloc;
-
-  String get _appBarTitle => widget.title;
-
-  String get _appBarBg => widget.appBarBg;
 
   @override
   void initState() {
@@ -47,26 +41,27 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
       bloc: _characterListBloc,
       builder: (context, state) {
         Widget _replaceWidget;
+        bool isLoading = false;
+
         if (state is InitialState) {
-          _replaceWidget = buildBlankSliverFragment();
+          _replaceWidget = buildBlankFragment();
+          isLoading = true;
         }
         if (state is LoadingCharacterSate) {
-          _replaceWidget = showSliverProgressIndicator();
+          _replaceWidget = showProgressIndicator();
+          isLoading = true;
         }
 
         if (state is LoadedCharacterState) {
           _replaceWidget = _buildCharacterList(state.characters);
         }
-
-        return CustomScrollView(
-          slivers: <Widget>[
-            AvengerSliverAppbar(
-              title: _appBarTitle,
-              appBarBg: _appBarBg,
-            ),
-            _replaceWidget,
-          ],
-        );
+        return isLoading
+            ? _replaceWidget
+            : CustomScrollView(
+                slivers: <Widget>[
+                  _replaceWidget,
+                ],
+              );
       },
     ));
   }
@@ -94,8 +89,7 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
   }
 
   @override
-  double getProgressViewHeight() =>
-      MediaQuery.of(context).size.height - _expandedHeight;
+  double getProgressViewHeight() => MediaQuery.of(context).size.height;
 
   @override
   void dispose() {
