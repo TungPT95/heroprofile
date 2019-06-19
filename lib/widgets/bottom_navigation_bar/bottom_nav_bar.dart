@@ -47,7 +47,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             BottomNavItem(
-              'Marvel Cinematic Universe films',
+              'Entertainments',
               icon: Icons.view_list,
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 0,

@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'screens/entertainments_list/entertainments_list.dart';
 import 'screens/home/home_page.dart';
 
 void main() {
@@ -13,10 +14,11 @@ void main() {
 }
 
 class AvengerInformationApp extends StatelessWidget {
-  static const String title = 'Avenger Character Profile';
+  static const String title = 'Hero Profile';
 
 //  final _home = HomePage(title: title);
-  final _home = HomePage();
+//  final _home = HomePage();
+  final _home = EntertainmentsList();
 
 //  final _home = SplashPage(
 //    splashLoadingCallback: (context) {
