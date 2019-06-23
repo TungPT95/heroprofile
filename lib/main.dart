@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'screens/entertainments_list/entertainments_list.dart';
+import 'screens/entertainments_list/comics_list.dart';
 import 'screens/home/home_page.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class AvengerInformationApp extends StatelessWidget {
 
 //  final _home = HomePage(title: title);
 //  final _home = HomePage();
-  final _home = EntertainmentsList();
+  final _home = ComicsList();
 
 //  final _home = SplashPage(
 //    splashLoadingCallback: (context) {

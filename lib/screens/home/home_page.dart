@@ -1,4 +1,4 @@
-import 'package:hero_profile/screens/entertainments_list/entertainments_list.dart';
+import 'package:hero_profile/screens/entertainments_list/comics_list.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 controller: _pageController,
                 children: <Widget>[
-                  EntertainmentsList(),
+                  ComicsList(),
                   Container(
                     child: Center(child: Text('$_title')),
                   ),
