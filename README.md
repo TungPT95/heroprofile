@@ -1,6 +1,8 @@
 # Avenger Character Profile APP
 
 
+<img src="/screenshots/Screenshot_20190624-103258.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103323.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103332.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103346.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103353.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103412.png" alt="drawing" width="100"/>
+
 
 - ### Customize Widget
 
@@ -113,7 +115,3 @@
 ### Send me email via Gmail with user's feedback
 ### Share app link on facebook, twitter, messenger ...
 ### Login with social network account (facebook, gmail, twitter ...)
-
-# Screenshots
-
-<img src="/screenshots/Screenshot_20190624-103258.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103323.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103332.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103346.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103353.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103412.png" alt="drawing" width="100"/>
