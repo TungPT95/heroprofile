@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:hero_profile/models/comic.dart';
 import 'package:hero_profile/repository/entertainments/comics_repos.dart';
+import 'package:hero_profile/widgets/comic_item.dart';
 
 class ComicsList extends StatefulWidget {
   @override
@@ -55,76 +56,16 @@ class _ComicsListState extends State<ComicsList> {
                   scale: scale < 1 && scale > wantedPercent
                       ? scale
                       : wantedPercent,
-                  child: buildItem(_list[index]),
+                  child: ComicItem(_list[index]),
                 ),
               ),
             );
           } else {
-            debugPrint('');
-            return buildItem(_list[index]);
+            return ComicItem(_list[index]);
           }
         },
         controller: _pageController,
         itemCount: _list.length,
-      ),
-    );
-  }
-
-  Widget buildItem(Comic item) {
-    return Container(
-      margin: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height * 1 / 15,
-          bottom: MediaQuery.of(context).size.height * 1 / 20,
-          right: 10,
-          left: 10),
-      child: Material(
-        color: Colors.transparent,
-        clipBehavior: Clip.antiAlias,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        elevation: 8,
-        child: Container(
-          color: Colors.white,
-          child: Stack(
-            fit: StackFit.expand,
-            alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              Image.network(
-                item.imgPath,
-                fit: BoxFit.fitHeight,
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 1 / 5.5,
-                  color: Colors.black,
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  margin: EdgeInsets.only(bottom: 15,left: 8,right: 8),
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 1 / 7,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        item.title,
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold,fontSize: 17),
-                      ),
-                      Text(
-                        '${item.desc}',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

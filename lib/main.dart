@@ -5,7 +5,7 @@ import 'package:hero_profile/blocs/character_list/character_list_bloc.dart';
 import 'package:hero_profile/blocs/delegate/app_bloc_delegate.dart';
 import 'package:hero_profile/repository/characters/characters_repos.dart';
 
-import 'screens/comics_list/comics_list.dart';
+import 'screens/home/home_page.dart';
 
 void main() {
   BlocSupervisor.delegate = AppBlocDelegate();
@@ -16,8 +16,9 @@ class AvengerInformationApp extends StatelessWidget {
   static const String title = 'Hero Profile';
 
 //  final _home = HomePage(title: title);
-//  final _home = HomePage();
-  final _home = ComicsList();
+  final _home = HomePage();
+
+//  final _home = ComicsList();
 
 //  final _home = SplashPage(
 //    splashLoadingCallback: (context) {
