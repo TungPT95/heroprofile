@@ -116,4 +116,4 @@
 
 # Screenshots
 
-![](../blob/master/screenshots/Screenshot_20190624-103258.png)
+<img src="/screenshots/Screenshot_20190624-103258.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103323.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103332.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103346.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103353.png" alt="drawing" width="100"/> <img src="/screenshots/Screenshot_20190624-103412.png" alt="drawing" width="100"/>
