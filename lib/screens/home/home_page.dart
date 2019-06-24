@@ -1,7 +1,7 @@
-import 'package:hero_profile/screens/entertainments_list/comics_list.dart';
-import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hero_profile/screens/comics_list/comics_list.dart';
+import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 
 import '../characters_page.dart';
 
