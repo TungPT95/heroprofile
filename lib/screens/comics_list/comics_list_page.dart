@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hero_profile/models/comic.dart';
-import 'package:hero_profile/repository/entertainments/comics_repos.dart';
+import 'package:hero_profile/repository/comics/comics_repos.dart';
 import 'package:hero_profile/widgets/comic_item.dart';
 
 class ComicsListPage extends StatefulWidget {
