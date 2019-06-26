@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class BaseState extends Equatable {
+abstract class BaseState extends Equatable {
   BaseState([List props = const []]) : super(props);
 }
 
