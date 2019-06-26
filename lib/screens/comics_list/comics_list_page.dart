@@ -5,12 +5,12 @@ import 'package:hero_profile/models/comic.dart';
 import 'package:hero_profile/repository/entertainments/comics_repos.dart';
 import 'package:hero_profile/widgets/comic_item.dart';
 
-class ComicsList extends StatefulWidget {
+class ComicsListPage extends StatefulWidget {
   @override
-  _ComicsListState createState() => _ComicsListState();
+  _ComicsListPageState createState() => _ComicsListPageState();
 }
 
-class _ComicsListState extends State<ComicsList> {
+class _ComicsListPageState extends State<ComicsListPage> {
   ComicsRepos _repos = ComicsRepos();
   List<Comic> _list = [];
   PageController _pageController;
