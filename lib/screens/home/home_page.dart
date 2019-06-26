@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   String _title = 'Home';
 
   List<String> pageTitles = [
-    'Cinematic Universe films',
+    'Comics',
     'Videos',
     'Home',
     'Parts',

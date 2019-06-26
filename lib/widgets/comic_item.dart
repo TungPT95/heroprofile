@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:hero_profile/models/comic.dart';
 
@@ -16,7 +18,7 @@ class _ComicItemState extends State<ComicItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, bottom: 20, right: 25, left: 25),
+      margin: EdgeInsets.only(top: 10, bottom: 20, right: 40, left: 40),
       child: Material(
         color: Colors.transparent,
         clipBehavior: Clip.antiAlias,
@@ -34,31 +36,35 @@ class _ComicItemState extends State<ComicItem> {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[
-                        Color(0xFF58060A),
-                        Color(0xFF642B3D),
-                        Color(0xFF543F7A),
-                      ],
-                      stops: <double>[0.2, 0.5, 1],
+                child: Opacity(
+                  opacity: 0.7,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[
+                          Color(0xFF58060A),
+                          Color(0xFF642B3D),
+                          Color(0xFF543F7A),
+                        ],
+                        stops: <double>[0.2, 0.5, 1],
+                      ),
                     ),
+                    height: MediaQuery.of(context).size.height * 1 / 7.5,
                   ),
-                  height: MediaQuery.of(context).size.height * 1 / 5.5,
                 ),
               ),
               Align(
                 alignment: Alignment.bottomLeft,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 15, left: 8, right: 8),
+                  margin: EdgeInsets.only(left: 8, right: 8),
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 1 / 7,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
                         _comic.title,
@@ -71,7 +77,7 @@ class _ComicItemState extends State<ComicItem> {
                       Text(
                         '${_comic.desc}',
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 4,
+                        maxLines: 2,
                         style: TextStyle(color: Colors.white),
                       )
                     ],
