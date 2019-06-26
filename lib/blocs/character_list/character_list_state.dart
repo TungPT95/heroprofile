@@ -1,7 +1,7 @@
 import 'package:hero_profile/blocs/base/base_state.dart';
 import 'package:hero_profile/models/character.dart';
 
-class CharacterListState extends BaseState {}
+abstract class CharacterListState extends BaseState {}
 
 class LoadingCharacterSate extends CharacterListState {
   @override
