@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hero_profile/screens/about/about_pge.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 
@@ -23,13 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   String _title = 'Home';
 
-  List<String> pageTitles = [
-    'Comics',
-    'Videos',
-    'Home',
-    'Parts',
-    'About'
-  ];
+  List<String> pageTitles = ['Comics', 'Videos', 'Home', 'Parts', 'About'];
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +53,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     child: Center(child: Text('$_title')),
                   ),
-                  Container(
-                    child: Center(child: Text('$_title')),
-                  ),
+                  AboutPage(),
                 ],
               ),
             ),
