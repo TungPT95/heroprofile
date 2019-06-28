@@ -34,40 +34,42 @@ class _HomePageState extends State<HomePage> {
           brightness: Brightness.dark,
           backgroundColor: Color(0xFF58060A),
         ),
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          overflow: Overflow.clip,
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(bottom: 50),
-              child: PageView(
-                pageSnapping: true,
-                scrollDirection: Axis.horizontal,
-                controller: _pageController,
-                children: <Widget>[
-                  ComicsListPage(),
-                  Container(
-                    child: Center(child: Text('$_title')),
-                  ),
-                  CharactersPage(),
-                  Container(
-                    child: Center(child: Text('$_title')),
-                  ),
-                  AboutPage(),
-                ],
+        body: SafeArea(
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            overflow: Overflow.clip,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(bottom: 50),
+                child: PageView(
+                  pageSnapping: true,
+                  scrollDirection: Axis.horizontal,
+                  controller: _pageController,
+                  children: <Widget>[
+                    ComicsListPage(),
+                    Container(
+                      child: Center(child: Text('$_title')),
+                    ),
+                    CharactersPage(),
+                    Container(
+                      child: Center(child: Text('$_title')),
+                    ),
+                    AboutPage(),
+                  ],
+                ),
               ),
-            ),
-            BottomNavBar(
-              bottomNavItemClickCallback: (index, title) {
-                _pageController.animateToPage(index,
-                    duration: Duration(milliseconds: 200),
-                    curve: Curves.linear);
-                setState(() {
-                  _title = title;
-                });
-              },
-            ),
-          ],
+              BottomNavBar(
+                bottomNavItemClickCallback: (index, title) {
+                  _pageController.animateToPage(index,
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.linear);
+                  setState(() {
+                    _title = title;
+                  });
+                },
+              ),
+            ],
+          ),
         ));
   }
 }
