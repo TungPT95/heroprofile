@@ -102,7 +102,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
                 title: _appBarTitle,
                 appBarBg: _appBarBg,
               ),
-              _replaceWidget,
+              SliverSafeArea(sliver: _replaceWidget,top: false,),
             ],
           ),
         );

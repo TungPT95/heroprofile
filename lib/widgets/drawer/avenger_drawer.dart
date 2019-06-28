@@ -22,12 +22,9 @@ class AvengerDrawer extends StatefulWidget {
 class _AvengerDrawerState extends State<AvengerDrawer> {
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData.light().copyWith(canvasColor: Colors.transparent),
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 24,
-        ),
+    return SafeArea(
+      child: Theme(
+        data: ThemeData.light().copyWith(canvasColor: Colors.transparent),
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 2 / 3,
           child: Card(
