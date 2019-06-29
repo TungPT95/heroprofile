@@ -17,13 +17,13 @@ class AvengerProgressIndicator extends AnimatedWidget {
       {Key key,
       Animation<double> animation,
       this.sideLength = 16,
-      this.strokeWidth = 2,
+      this.strokeWidth = 1.5,
       this.height = 0,
       this.width = 0,
       this.imagePadding = 10,
-      this.strokeColor = const Color(0xFFB71C1C),
+      this.strokeColor = Colors.black,
       this.strokeCap = StrokeCap.butt,
-      this.imagePath = 'assets/images/ic_loading_dark.png'})
+      this.imagePath = 'assets/images/ic_loading_main.png'})
       : assert(sideLength > 0),
         assert(imagePadding >= 0),
         assert(imagePath != null),

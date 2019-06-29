@@ -26,7 +26,7 @@ class CharacterItem extends StatefulWidget {
     this.itemCardHeight = 120,
     this.avatarSize = 90,
     this.circleBorderWidth = 2.5,
-    this.itemElevation = 6,
+    this.itemElevation = 10,
     this.itemBorderRadius = 20,
     this.contentPaddingLeft = 120,
     this.contentPaddingRight = 50,
@@ -45,7 +45,7 @@ class _CharacterItemState extends State<CharacterItem> {
   Widget build(BuildContext context) {
     return Container(
       height: widget.itemHeight,
-      margin: const EdgeInsets.only(left: 10, right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10,bottom: 10),
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -55,81 +55,55 @@ class _CharacterItemState extends State<CharacterItem> {
                   widget.itemPaddingRight,
               height: widget.itemCardHeight,
               child: Material(
-                type: MaterialType.canvas,
+                clipBehavior: Clip.antiAlias,
+                type: MaterialType.card,
                 elevation: widget.itemElevation,
-                shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.circular(widget.itemBorderRadius),
-                ),
-                color: Colors.white,
-                child: ClipPath(
-                  clipper: ShapeBorderClipper(
-                    shape: BeveledRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(widget.itemBorderRadius),
-                    ),
-                  ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {
-                        if (widget.itemClickListener != null) {
-                          return widget.itemClickListener(widget.character.id);
-                        }
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: <Color>[
-                              Color(0xFF58060A),
-                              Color(0xFF642B3D),
-                              Color(0xFF543F7A),
-                            ],
-                            stops: <double>[0.2, 0.5, 1],
+                shadowColor: Colors.grey[100],
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      if (widget.itemClickListener != null) {
+                        return widget.itemClickListener(widget.character.id);
+                      }
+                    },
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          left: widget.contentPaddingLeft,
+                          right: widget.contentPaddingRight),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            '${widget.character.name}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
                           ),
-                        ),
-                        padding: EdgeInsets.only(
-                            left: widget.contentPaddingLeft,
-                            right: widget.contentPaddingRight),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              '${widget.character.name}',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontSize: 16),
-                            ),
-                            Text(
-                              '${widget.character.series}',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                            Container(
-                              color: Colors.white,
-                              height: 2,
-                              width: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text(
-                                  '${widget.character.sex}',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 10),
-                                ),
-                                Text(
-                                  '${widget.character.alignment}',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 10),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
+                          Text(
+                            '${widget.character.series}',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          Container(
+                            height: 2,
+                            width: 15,
+                            color: Colors.black,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                '${widget.character.sex}',
+                                style: TextStyle(fontSize: 10),
+                              ),
+                              Text(
+                                '${widget.character.alignment}',
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -145,7 +119,7 @@ class _CharacterItemState extends State<CharacterItem> {
               child: Material(
                 shape: CircleBorder(
                     side: BorderSide(
-                  color: Colors.yellow[200],
+                  color: Colors.grey[500],
                   width: widget.circleBorderWidth,
                 )),
                 child: InkWell(

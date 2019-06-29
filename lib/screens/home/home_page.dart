@@ -1,6 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hero_profile/screens/about/about_pge.dart';
+import 'package:hero_profile/screens/about/about_page.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 
@@ -22,51 +23,62 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  String _title = 'Home';
-
-  List<String> pageTitles = ['Comics', 'Videos', 'Home', 'Parts', 'About'];
+  int _currentIndex = 2;
+  List<String> _pageTitles = ['Comics', 'Videos', 'Heroes', 'Parts', 'About'];
 
   @override
   Widget build(BuildContext context) {
+    String _title = _pageTitles[_currentIndex];
     return Scaffold(
-        appBar: AppBar(
-          title: Text('$_title'),
-          brightness: Brightness.dark,
-          backgroundColor: Color(0xFF58060A),
-        ),
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Stack(
-            alignment: Alignment.bottomCenter,
             overflow: Overflow.clip,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(bottom: 50),
-                child: PageView(
-                  pageSnapping: true,
-                  scrollDirection: Axis.horizontal,
-                  controller: _pageController,
-                  children: <Widget>[
-                    ComicsListPage(),
-                    Container(
-                      child: Center(child: Text('$_title')),
-                    ),
-                    CharactersPage(),
-                    Container(
-                      child: Center(child: Text('$_title')),
-                    ),
-                    AboutPage(),
-                  ],
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.topCenter,
+                child: Image.asset(
+                  'assets/images/bg_home.jpg',
+                  alignment: Alignment.topCenter,
                 ),
+              ),
+              PageView(
+                scrollDirection: Axis.horizontal,
+                physics: NeverScrollableScrollPhysics(),
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                children: <Widget>[
+                  ComicsListPage(),
+                  Container(
+                    child: Center(child: Text(_title)),
+                  ),
+                  CharactersPage(),
+                  Container(
+                    child: Center(child: Text(_title)),
+                  ),
+                  AboutPage(),
+                ],
               ),
               BottomNavBar(
                 bottomNavItemClickCallback: (index, title) {
                   _pageController.animateToPage(index,
-                      duration: Duration(milliseconds: 200),
+                      duration: Duration(milliseconds: 100),
                       curve: Curves.linear);
-                  setState(() {
-                    _title = title;
-                  });
                 },
+              ),
+              Container(
+                alignment: Alignment.topCenter,
+                height: 56,
+                child: Center(
+                    child: Text(_title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20))),
               ),
             ],
           ),

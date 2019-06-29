@@ -15,7 +15,7 @@ class ProgressIndicatorCustomPaint extends CustomPainter {
       this.strokeWidth = 2,
       this.sideLength = 50,
       this.strokeCap = StrokeCap.butt,
-      this.strokeColor = const Color(0xFFB71C1C),
+      this.strokeColor = Colors.black,
       this.axisX = 0.0,
       this.axisY = 0.0})
       : assert(percent >= 0),

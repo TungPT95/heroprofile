@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hero_profile/blocs/character_list/character_list_bloc.dart';
 import 'package:hero_profile/blocs/delegate/app_bloc_delegate.dart';
 import 'package:hero_profile/repository/characters/characters_repos.dart';
-
+import 'package:flutter/services.dart';
 import 'screens/home/home_page.dart';
 
 void main() {
@@ -31,6 +31,7 @@ class AvengerInformationApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return BlocProviderTree(
         blocProviders: [
           BlocProvider<CharacterListBloc>(
@@ -42,9 +43,8 @@ class AvengerInformationApp extends StatelessWidget {
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: title,
-            theme: ThemeData(
-              accentColor: Color(0xFF58060A),
-              primaryColor: Colors.red[900],
+            theme: ThemeData.light().copyWith(
+              brightness: Brightness.light,
             ),
             home: _home));
   }

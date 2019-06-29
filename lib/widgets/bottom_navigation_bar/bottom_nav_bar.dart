@@ -1,9 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
   final BottomNavItemClickCallback bottomNavItemClickCallback;
+  final int currentIndex;
 
-  BottomNavBar({this.bottomNavItemClickCallback});
+  BottomNavBar({this.currentIndex = 0, this.bottomNavItemClickCallback})
+      : assert(currentIndex >= 0);
 
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
@@ -15,69 +19,51 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    final height1 = 70.0;
     return Stack(
-      alignment: Alignment.bottomCenter,
       fit: StackFit.passthrough,
       children: <Widget>[
-        Opacity(
-          opacity: 1,
-          child: ClipPath(
-            clipper: NavClipper(),
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    Color(0xFF58060A),
-                    Color(0xFF642B3D),
-                    Color(0xFF543F7A),
-                  ],
-                  stops: <double>[0.2, 0.5, 1],
-                ),
-              ),
-            ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            height: 60,
+            color: Colors.white,
           ),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             BottomNavItem(
-              'Entertainments',
-              icon: Icons.view_list,
+              'Comics',
+              icAsset: 'assets/images/ic_nav_comic.png',
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 0,
             ),
             BottomNavItem(
               'Videos',
-              icon: Icons.video_library,
+              icAsset: 'assets/images/ic_nav_video.png',
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 1,
             ),
             BottomNavCenterItem(
               title: 'Home',
-              height: height1,
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 2,
             ),
             BottomNavItem(
               'Parts',
-              icon: Icons.assignment,
+              icAsset: 'assets/images/ic_nav_part.png',
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 3,
             ),
             BottomNavItem(
               'About',
-              icon: Icons.settings,
+              icAsset: 'assets/images/ic_nav_about.png',
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 4,
             )
           ],
-        )
+        ),
       ],
     );
   }
@@ -100,7 +86,7 @@ class BottomNavCenterItem extends BottomNavBaseItem {
   final double height;
 
   BottomNavCenterItem(
-      {this.height,
+      {this.height = 68,
       int index = 0,
       String title,
       BottomNavItemClickCallback bottomNavItemClickCallback})
@@ -126,10 +112,9 @@ class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
 
   @override
   Widget build(BuildContext context) {
-    final shape = BeveledRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(height / 2 - 2.5)));
+    final shape = CircleBorder();
     return Align(
-      alignment: Alignment(0, 1 - 23 / MediaQuery.of(context).size.height),
+      alignment: Alignment(0, 1 - 40 / MediaQuery.of(context).size.height),
       child: SizedBox(
         height: height,
         width: height,
@@ -145,9 +130,9 @@ class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
                   : () {};
             },
             child: Container(
-              padding: EdgeInsets.all(height / 4),
+              padding: EdgeInsets.all(height / 5),
               child: Image.asset(
-                'assets/images/ic_loading.png',
+                'assets/images/superhero.png',
               ),
             ),
           ),
@@ -159,13 +144,19 @@ class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
 
 class BottomNavItem extends BottomNavBaseItem {
   final IconData icon;
+  final double width;
+  final String icAsset;
 
   BottomNavItem(String title,
-      {this.icon = Icons.android,
+      // ignore: avoid_init_to_null
+      {this.icon = null,
+      this.icAsset = '',
+      this.width = 50,
       int index = 0,
       BottomNavItemClickCallback bottomNavItemClickCallback})
-      : assert(icon != null),
+      : assert(icon != null || icAsset != null),
         assert(index >= 0),
+        assert(width > 0),
         super(
             index: index,
             title: title,
@@ -180,6 +171,10 @@ class _BottomNavItemState extends State<BottomNavItem> {
 
   String get _title => widget.title;
 
+  double get _width => widget.width;
+
+  String get _icAsset => widget.icAsset;
+
   BottomNavItemClickCallback get bottomNavItemClickCallback =>
       widget.bottomNavItemClickCallback;
 
@@ -187,22 +182,20 @@ class _BottomNavItemState extends State<BottomNavItem> {
 
   @override
   Widget build(BuildContext context) {
-    final width = 40.0;
-    final radius = width / 2 - 2.5;
-    final shape = BeveledRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(radius)));
+    final shape = CircleBorder();
     return Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(bottom: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             SizedBox(
-              width: width,
-              height: width,
+              width: _width,
+              height: _width,
               child: Material(
+                clipBehavior: Clip.antiAlias,
                 elevation: 10,
                 animationDuration: Duration(milliseconds: 1000),
                 shape: shape,
@@ -214,11 +207,18 @@ class _BottomNavItemState extends State<BottomNavItem> {
                         ? bottomNavItemClickCallback(index, _title)
                         : () {};
                   },
-                  child: Icon(
-                    _icon,
-                    color: Colors.red[900],
-                    size: 18,
-                  ),
+                  child: _icon != null
+                      ? Icon(
+                          _icon,
+                          color: Colors.red[900],
+                          size: 18,
+                        )
+                      : Container(
+                          padding: EdgeInsets.all(_width / 4),
+                          child: Image.asset(
+                            _icAsset,
+                          ),
+                        ),
                 ),
               ),
             ),
@@ -239,6 +239,8 @@ class NavClipper extends CustomClipper<Path> {
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
     path.lineTo(size.width / 2 + 35 + 7, 0);
+    path.arcTo(
+        Rect.fromCircle(center: Offset.zero, radius: 70), 0, pi / 2, false);
     path.lineTo(size.width / 2, 0.0 + 35 + 7);
     path.lineTo(size.width / 2 - 35 - 7, 0);
     path.close();

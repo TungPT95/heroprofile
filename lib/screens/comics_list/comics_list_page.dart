@@ -44,6 +44,7 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
     final wantedPercent = 100 / 100;
 
     return Scaffold(
+        backgroundColor: Colors.transparent,
         body: BlocBuilder<BaseEvent, BaseState>(
             bloc: _comicsListBloc,
             builder: (context, state) {
@@ -51,35 +52,38 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
                 _replaceWidget = showProgressIndicator();
               } else if (state is LoadedComicsState) {
                 _list = state.comics;
-                _replaceWidget = PageView.builder(
-                  itemBuilder: (context, index) {
+                _replaceWidget = Padding(
+                  padding: const EdgeInsets.only(top: 56 + 10.0, bottom: 80),
+                  child: PageView.builder(
+                    itemBuilder: (context, index) {
 //          debugPrint('animate index: $index');
 //          debugPrint('animate index _currentPage: $_currentPage');
 //          debugPrint('animate _currentPage.floor: ${_currentPage.floor()}');
 //          debugPrint('animate index percent: ${index - _currentPage}');
 //          debugPrint('animate -percent: ${_currentPage - index.abs()}');
-                    final percent = (index - _currentPage).abs();
-                    if (index == _currentPage.floor()) {
-                      final scale = 1 - percent;
-                      final trans = percent * halfOfScreenWidth;
-                      return Opacity(
-                        opacity: 1 - percent,
-                        child: Transform.translate(
-                          offset: Offset(trans, 0),
-                          child: Transform.scale(
-                            scale: scale < 1 && scale > wantedPercent
-                                ? scale
-                                : wantedPercent,
-                            child: ComicItem(_list[index]),
+                      final percent = (index - _currentPage).abs();
+                      if (index == _currentPage.floor()) {
+                        final scale = 1 - percent;
+                        final trans = percent * halfOfScreenWidth;
+                        return Opacity(
+                          opacity: 1 - percent,
+                          child: Transform.translate(
+                            offset: Offset(trans, 0),
+                            child: Transform.scale(
+                              scale: scale < 1 && scale > wantedPercent
+                                  ? scale
+                                  : wantedPercent,
+                              child: ComicItem(_list[index]),
+                            ),
                           ),
-                        ),
-                      );
-                    } else {
-                      return ComicItem(_list[index]);
-                    }
-                  },
-                  controller: _pageController,
-                  itemCount: _list.length,
+                        );
+                      } else {
+                        return ComicItem(_list[index]);
+                      }
+                    },
+                    controller: _pageController,
+                    itemCount: _list.length,
+                  ),
                 );
               }
               return _replaceWidget;

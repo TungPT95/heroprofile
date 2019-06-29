@@ -26,6 +26,8 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
 
   CharacterListBloc _characterListBloc;
 
+  String get _title => widget.title;
+
   @override
   void initState() {
     _characterListBloc = BlocProvider.of<CharacterListBloc>(context);
@@ -37,38 +39,43 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.transparent,
         body: BlocBuilder<BaseEvent, BaseState>(
-      bloc: _characterListBloc,
-      builder: (context, state) {
-        Widget _replaceWidget;
-        bool isLoading = false;
+          bloc: _characterListBloc,
+          builder: (context, state) {
+            Widget _replaceWidget;
+            bool isLoading = false;
 
-        if (state is InitialState) {
-          _replaceWidget = buildBlankFragment();
-          isLoading = true;
-        }
-        if (state is LoadingCharacterSate) {
-          _replaceWidget = showProgressIndicator();
-          isLoading = true;
-        }
+            if (state is InitialState) {
+              _replaceWidget = buildBlankFragment();
+              isLoading = true;
+            }
+            if (state is LoadingCharacterSate) {
+              _replaceWidget = showProgressIndicator();
+              isLoading = true;
+            }
 
-        if (state is LoadedCharacterState) {
-          _replaceWidget = _buildCharacterList(state.characters);
-        }
-        return isLoading
-            ? _replaceWidget
-            : CustomScrollView(
-                slivers: <Widget>[
-                  _replaceWidget,
-                ],
-              );
-      },
-    ));
+            if (state is LoadedCharacterState) {
+              _replaceWidget = _buildCharacterList(state.characters);
+            }
+            return isLoading
+                ? _replaceWidget
+                : Stack(
+                    children: <Widget>[
+                      CustomScrollView(
+                        slivers: <Widget>[
+                          _replaceWidget,
+                        ],
+                      ),
+                    ],
+                  );
+          },
+        ));
   }
 
   Widget _buildCharacterList(List<Character> list) {
     return SliverPadding(
-      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      padding: const EdgeInsets.only(top: 76, bottom: 80),
       sliver: LTRSlideAnimationList(list
           .map<CharacterItem>((item) => CharacterItem(
                 item,
