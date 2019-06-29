@@ -66,6 +66,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               BottomNavBar(
+                currentIndex: _currentIndex,
                 bottomNavItemClickCallback: (index, title) {
                   _pageController.animateToPage(index,
                       duration: Duration(milliseconds: 100),
