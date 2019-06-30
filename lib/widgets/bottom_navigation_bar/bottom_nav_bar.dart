@@ -27,8 +27,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 60,
-            color: Colors.white,
+            height: 35,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey[300],
+                  offset: Offset(5, -2),
+                  blurRadius: 15,
+                ),
+              ],
+              color: Colors.white,
+            ),
           ),
         ),
         Row(

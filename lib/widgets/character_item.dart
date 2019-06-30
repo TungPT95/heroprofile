@@ -79,11 +79,10 @@ class _CharacterItemState extends State<CharacterItem> {
                           Text(
                             '${widget.character.name}',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
+                                fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                           Text(
                             '${widget.character.series}',
-                            style: TextStyle(fontSize: 12),
                           ),
                           Container(
                             height: 2,
@@ -95,11 +94,9 @@ class _CharacterItemState extends State<CharacterItem> {
                             children: <Widget>[
                               Text(
                                 '${widget.character.sex}',
-                                style: TextStyle(fontSize: 10),
                               ),
                               Text(
                                 '${widget.character.alignment}',
-                                style: TextStyle(fontSize: 10),
                               ),
                             ],
                           )

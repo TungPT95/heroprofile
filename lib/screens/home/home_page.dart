@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hero_profile/screens/about/about_page.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
@@ -36,12 +34,11 @@ class _HomePageState extends State<HomePage> {
             overflow: Overflow.clip,
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                alignment: Alignment.topCenter,
                 child: Image.asset(
                   'assets/images/bg_home.jpg',
-                  alignment: Alignment.topCenter,
+                  fit: BoxFit.cover,
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
                 ),
               ),
               PageView(
