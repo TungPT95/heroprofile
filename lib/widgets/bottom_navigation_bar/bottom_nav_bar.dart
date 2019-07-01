@@ -159,7 +159,7 @@ class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
             child: Container(
               padding: EdgeInsets.all(height / 5),
               child: Image.asset(
-                'assets/images/superhero.png',
+                'assets/images/ic_nav_character.png',
               ),
             ),
           ),
