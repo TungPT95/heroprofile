@@ -32,7 +32,7 @@ class _ComicItemState extends State<ComicItem> {
             children: <Widget>[
               Image.network(
                 _comic.imgPath,
-                fit: BoxFit.fitHeight,
+                fit: BoxFit.cover,
               ),
               Align(
                 alignment: Alignment.bottomCenter,
