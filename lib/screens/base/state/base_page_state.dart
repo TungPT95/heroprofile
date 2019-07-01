@@ -1,12 +1,15 @@
-import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_loading_indicator.dart';
 
 abstract class BasePageState<T extends StatefulWidget> extends State<T> {
   Widget showSliverProgressIndicator() {
     final progress = SliverToBoxAdapter(
-        child: AvengerProgressLoadingIndicator(
-      height: getProgressViewHeight(),
-    ));
+        child: Container(
+          child: AvengerProgressLoadingIndicator(
+            height: getProgressViewHeight(),
+            width: getProgressViewWidth(),
+          ),
+        ));
     return progress;
   }
 
@@ -14,7 +17,10 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T> {
 
   double getProgressViewHeight() => double.infinity;
 
-  Widget buildBlankSliverFragment() => SliverToBoxAdapter(
+  double getProgressViewWidth() => double.infinity;
+
+  Widget buildBlankSliverFragment() =>
+      SliverToBoxAdapter(
         child: Container(),
       );
 

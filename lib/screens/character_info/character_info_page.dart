@@ -42,7 +42,6 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
   String _appBarTitle = '';
   int _currentDrawerItemIndex = CategoryType.Background.index;
 
-  final double _expandedHeight = 210;
   List<Widget> _drawerItems = [];
 
   CharacterInfoBloc _characterInfoBloc;
@@ -156,12 +155,14 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
   }
 
   @override
-  double getProgressViewHeight() =>
-      MediaQuery.of(context).size.height - _expandedHeight;
+  double getProgressViewHeight() => MediaQuery.of(context).size.height;
 
   @override
   void dispose() {
     _characterInfoBloc.dispose();
     super.dispose();
   }
+
+  @override
+  double getProgressViewWidth() => MediaQuery.of(context).size.width;
 }

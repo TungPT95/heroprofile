@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/comic.dart';
+
+import 'customize_card.dart';
 
 class ComicItem extends StatefulWidget {
   final Comic comic;
@@ -12,80 +15,53 @@ class ComicItem extends StatefulWidget {
   _ComicItemState createState() => _ComicItemState();
 }
 
-class _ComicItemState extends State<ComicItem> {
+class _ComicItemState extends State<ComicItem> with AppTheme {
   Comic get _comic => widget.comic;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 20, right: 40, left: 40),
-      child: Material(
-        color: Colors.transparent,
-        clipBehavior: Clip.antiAlias,
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        elevation: 8,
-        child: Container(
-          color: Colors.white,
-          child: Stack(
-            fit: StackFit.expand,
-            alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              Image.network(
-                _comic.imgPath,
-                fit: BoxFit.cover,
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Opacity(
-                  opacity: 0.7,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: <Color>[
-                          Color(0xFF58060A),
-                          Color(0xFF642B3D),
-                          Color(0xFF543F7A),
-                        ],
-                        stops: <double>[0.2, 0.5, 1],
+      child: CustomizeCard(
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Image.network(
+              _comic.imgPath,
+              fit: BoxFit.cover,
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Container(
+                padding: EdgeInsets.only(left: 8, right: 8),
+                height: MediaQuery.of(context).size.height * 1 / 7.5,
+                color: Colors.white.withOpacity(1),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      _comic.title,
+                      style: TextStyle(
+                        color: textColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    height: MediaQuery.of(context).size.height * 1 / 7.5,
-                  ),
+                    Text(
+                      '${_comic.desc}',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: TextStyle(color: textColor),
+                    )
+                  ],
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: 8, right: 8),
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 1 / 7,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(
-                        _comic.title,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                        ),
-                      ),
-                      Text(
-                        '${_comic.desc}',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: TextStyle(color: Colors.white),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -5,7 +5,7 @@ class CustomizeCard extends StatefulWidget {
   final EdgeInsetsGeometry contentPadding;
   final Widget child;
 
-  CustomizeCard({this.child, this.contentPadding})
+  CustomizeCard({this.child, this.contentPadding = EdgeInsets.zero})
       : assert(child != null),
         assert(contentPadding != null);
 
