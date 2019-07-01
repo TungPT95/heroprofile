@@ -110,7 +110,7 @@
 		```
 		
 - ### Build release APK
-- ### Upload to CH Play
+- ### Upload to CH Play (suspended becuz of impersonation)
 
 # Next Steps
 
