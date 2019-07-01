@@ -1,8 +1,13 @@
 # Avenger Character Profile APP
 
+## IOS Screenshots:
 
-<img src="/screenshots/src1.png" alt="drawing" width="150"/> <img src="/screenshots/src2.png" alt="drawing.png" width="150"/> <img src="/screenshots/src3.png" alt="drawing" width="150"/> <img src="/screenshots/src4.png" alt="drawing" width="150"/> <img src="/screenshots/src5.png" alt="drawing" width="150"/> <img src="/screenshots/src6.png" alt="drawing" width="150"/>
+<img src="/screenshots/ios/src1.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src2.png" alt="drawing.png" width="150"/> <img src="/screenshots/ios/src3.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src4.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src5.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src6.png" alt="drawing" width="150"/>
 
+
+## Android Screenshots:
+
+<img src="/screenshots/android/src1.png" alt="drawing" width="150"/> <img src="/screenshots/android/src2.png" alt="drawing.png" width="150"/> <img src="/screenshots/android/src3.png" alt="drawing" width="150"/> <img src="/screenshots/android/src4.png" alt="drawing" width="150"/> <img src="/screenshots/android/src5.png" alt="drawing" width="150"/> <img src="/screenshots/android/src6.png" alt="drawing" width="150"/>
 
 - ### Customize Widget
 
