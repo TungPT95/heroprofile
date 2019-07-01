@@ -60,7 +60,7 @@ class _CharacterItemState extends State<CharacterItem> with AppTheme {
                 type: MaterialType.card,
                 elevation: elevation,
                 shadowColor: shadowColor,
-                borderRadius: carBorderRadius,
+                borderRadius: cardBorderRadius,
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
