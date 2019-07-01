@@ -114,7 +114,6 @@
 
 # Next Steps
 
-### Customize Drawer, Drawer Item Border Animation (Running Light Dot follow Border Shape)
 ### Open app page on store
 ### Open my account on Facebook app
 ### Send me email via Gmail with user's feedback
