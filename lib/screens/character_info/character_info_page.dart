@@ -10,8 +10,8 @@ import 'package:hero_profile/models/character_detail_category.dart';
 import 'package:hero_profile/models/information.dart';
 import 'package:hero_profile/repository/base/character_repos/character_repos.dart';
 import 'package:hero_profile/screens/base/state/base_page_state.dart';
-import 'package:hero_profile/widgets/avenger_sliver_appbar/avenger_sliver_appbar.dart';
 import 'package:hero_profile/widgets/board_view.dart';
+import 'package:hero_profile/widgets/customize_sliver_appbar/customiz_sliver_appbar.dart';
 import 'package:hero_profile/widgets/drawer/avenger_drawer.dart';
 import 'package:hero_profile/widgets/drawer/avenger_drawer_header.dart';
 import 'package:hero_profile/widgets/drawer/avenger_drawer_item.dart';
@@ -98,7 +98,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
           ),
           body: CustomScrollView(
             slivers: <Widget>[
-              AvengerSliverAppbar(
+              CustomizeSliverAppbar(
                 title: _appBarTitle,
               ),
               SliverSafeArea(

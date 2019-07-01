@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class AvengerSliverAppbar extends StatefulWidget {
+class CustomizeSliverAppbar extends StatefulWidget {
   final String title;
   final Color appBarBgColor;
 
-  AvengerSliverAppbar({this.title = '', this.appBarBgColor = Colors.white})
+  CustomizeSliverAppbar({this.title = '', this.appBarBgColor = Colors.white})
       : assert(title != null);
 
   @override
-  _AvengerSliverAppbarState createState() => _AvengerSliverAppbarState();
+  _CustomizeSliverAppbarState createState() => _CustomizeSliverAppbarState();
 }
 
-class _AvengerSliverAppbarState extends State<AvengerSliverAppbar> {
+class _CustomizeSliverAppbarState extends State<CustomizeSliverAppbar> {
   String get _title => widget.title;
 
   Color get _appBarBgColor => widget.appBarBgColor;
@@ -26,7 +26,7 @@ class _AvengerSliverAppbarState extends State<AvengerSliverAppbar> {
           collapseMode: CollapseMode.parallax,
           title: Text(
             '$_title',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           background: Container(
