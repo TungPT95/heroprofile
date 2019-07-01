@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:hero_profile/widgets/drawer/avenger_drawer_item.dart';
 
 class AvengerDrawer extends StatefulWidget {
@@ -29,46 +30,38 @@ class _AvengerDrawerState extends State<AvengerDrawer> {
           width: MediaQuery.of(context).size.width * 2 / 3,
           child: Card(
             elevation: 0,
-            color: Color(0xFF58060A),
-            shape: BeveledRectangleBorder(
-              side: BorderSide(color: Colors.white, width: 1),
+            color: Colors.white,
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                width: 1.5,
+                color: Colors.black,
+              ),
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
               ),
             ),
-            child: ClipPath(
-              clipper: ShapeBorderClipper(
-                shape: BeveledRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(32),
-                    bottomRight: Radius.circular(32),
-                  ),
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/bg_drawer.jpg',
+                  fit: BoxFit.cover,
+                  alignment: Alignment(-1.5, 0),
                 ),
-              ),
-              child: Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  FadeInImage.assetNetwork(
-                    placeholder:
-                    'assets/images/ic_app_vertical_placeholder.jpg',
-                    image: '${widget.background}',
-                    fit: BoxFit.fitHeight,
-                    fadeInDuration: Duration(milliseconds: 900),
-                    fadeInCurve: Curves.linear,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 25,
-                      left: 25,
-                    ),
+                Container(
+                  color: Colors.black.withAlpha(10),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(top: 25, left: 20, right: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: _updateDrawerItem(),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -76,7 +69,7 @@ class _AvengerDrawerState extends State<AvengerDrawer> {
     );
   }
 
-  _updateDrawerItem() {
+  List<Widget> _updateDrawerItem() {
     var items = widget.drawerItems;
     for (Widget item in items) {
       if (item is AvengerDrawerItem) {
@@ -85,5 +78,30 @@ class _AvengerDrawerState extends State<AvengerDrawer> {
       }
     }
     return widget.drawerItems;
+  }
+}
+
+class BackgroundCustomClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.addPolygon([
+      Offset(size.width, size.height * 0 / 3),
+      Offset(0 + 20.0, size.height),
+      Offset(size.width, size.height),
+    ], false);
+
+//    path.lineTo(-size.width, size.height/2);
+//    path.relativeLineTo(size.width, size.height );
+
+//    path.relativeLineTo(size.width, 0);
+//    path.relativeLineTo(size.width, 5);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }

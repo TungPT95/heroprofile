@@ -1,5 +1,6 @@
-import 'package:hero_profile/models/character.dart';
 import 'package:flutter/material.dart';
+import 'package:hero_profile/blocs/utils/app_theme.dart';
+import 'package:hero_profile/models/character.dart';
 
 typedef ItemClickListener = void Function(int id);
 
@@ -40,12 +41,12 @@ class CharacterItem extends StatefulWidget {
   _CharacterItemState createState() => _CharacterItemState();
 }
 
-class _CharacterItemState extends State<CharacterItem> {
+class _CharacterItemState extends State<CharacterItem> with AppTheme {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: widget.itemHeight,
-      margin: const EdgeInsets.only(left: 10, right: 10,bottom: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -57,9 +58,9 @@ class _CharacterItemState extends State<CharacterItem> {
               child: Material(
                 clipBehavior: Clip.antiAlias,
                 type: MaterialType.card,
-                elevation: widget.itemElevation,
-                shadowColor: Colors.grey[100],
-                borderRadius: BorderRadius.all(Radius.circular(15)),
+                elevation: elevation,
+                shadowColor: shadowColor,
+                borderRadius: carBorderRadius,
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/screens/about/about_page.dart';
+import 'package:hero_profile/screens/characters/characters_page.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
-
-import '../characters_page.dart';
 
 class HomePage extends StatefulWidget {
   @override

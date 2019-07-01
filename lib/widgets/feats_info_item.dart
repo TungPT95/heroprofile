@@ -1,5 +1,6 @@
-import 'package:hero_profile/models/feats_info.dart';
 import 'package:flutter/material.dart';
+import 'package:hero_profile/blocs/utils/app_theme.dart';
+import 'package:hero_profile/models/feats_info.dart';
 
 class FeatsInfoItem extends StatefulWidget {
   final FeatsInfo featsInfo;
@@ -28,77 +29,51 @@ class FeatsInfoItem extends StatefulWidget {
   _FeatsInfoItemState createState() => _FeatsInfoItemState();
 }
 
-class _FeatsInfoItemState extends State<FeatsInfoItem> {
+class _FeatsInfoItemState extends State<FeatsInfoItem> with AppTheme {
   bool isShownSubInfoList = true;
 
   @override
   Widget build(BuildContext context) {
-    var itemShape = BeveledRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(widget.itemBorderRadius),
-        bottomRight: Radius.circular(widget.itemBorderRadius),
-      ),
-    );
-    return Container(
-      padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+        return Container(
+      padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Material(
-            type: MaterialType.canvas,
-            elevation: widget.itemElevation,
-            shape: itemShape,
-            color: Colors.white,
-            child: ClipPath(
-              clipper: ShapeBorderClipper(
-                shape: itemShape,
+            type: MaterialType.card,
+            elevation:elevation,
+            shadowColor: shadowColor,
+            clipBehavior: Clip.antiAlias,
+            borderRadius: carBorderRadius,
+            color: Colors.transparent,
+            child: Container(
+              padding: EdgeInsets.only(
+                left: widget.contentPaddingLeft,
+                right: widget.contentPaddingRight,
+                top: 10,
+                bottom: 10,
               ),
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: <Color>[
-                          Color(0xFF58060A),
-                          Color(0xFF642B3D),
-                          Color(0xFF543F7A),
-                        ],
-                        stops: <double>[0.2, 0.5, 1],
-                      ),
+              color: Colors.white,
+              child: Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      '${widget.featsInfo.title}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 16),
                     ),
-                    padding: EdgeInsets.only(
-                      left: widget.contentPaddingLeft,
-                      right: widget.contentPaddingRight,
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    child: Container(
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            '${widget.featsInfo.title}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 16),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: _buildDescriptions(),
-                            ),
-                          ),
-                        ],
+                        children: _buildDescriptions(),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
@@ -119,7 +94,7 @@ class _FeatsInfoItemState extends State<FeatsInfoItem> {
                 : 0),
         child: Text(
           '-︎ $item',
-          style: TextStyle(fontSize: 12, color: Colors.white),
+          style: TextStyle(color: textColor),
         ),
       ));
     }

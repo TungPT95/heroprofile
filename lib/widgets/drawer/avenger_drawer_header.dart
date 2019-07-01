@@ -25,50 +25,48 @@ class _AvengerDrawerHeaderState extends State<AvengerDrawerHeader> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width * 2 / 3 -
-                25 -
-                20 -
-                20 -
-                widget.avatarSize -
-                8,
-            child: Text(
-              '${widget.title}',
-              overflow: TextOverflow.clip,
-              style: TextStyle(
-                  color: Colors.red, fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 20, right: 20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(widget.avatarSize / 2),
-              child: Material(
-                shape: CircleBorder(
-                    side: BorderSide(
-                      color: Colors.white,
-                  width: 2,
-                )),
-                child: FadeInImage.assetNetwork(
-                  width: widget.avatarSize,
-                  height: widget.avatarSize,
-                  placeholder: 'assets/images/ic_app_placeholder.jpg',
-                  image: '${widget.avatar}',
-                  fit: BoxFit.cover,
-                  fadeInDuration: Duration(seconds: 1),
-                  fadeInCurve: Curves.linear,
+      child: Card(
+        elevation: 10,
+        shape: BeveledRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                  child: Text(
+                '${widget.title}',
+                overflow: TextOverflow.clip,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              )),
+              Container(
+                child: Material(
+                  clipBehavior: Clip.antiAlias,
+                  shape: CircleBorder(
+                      side: BorderSide(
+                    color: Colors.grey[500],
+                    width: 2,
+                  )),
+                  child: FadeInImage.assetNetwork(
+                    width: widget.avatarSize,
+                    height: widget.avatarSize,
+                    placeholder: 'assets/images/ic_app_placeholder.png',
+                    image: '${widget.avatar}',
+                    fit: BoxFit.cover,
+                    fadeInDuration: Duration(seconds: 1),
+                    fadeInCurve: Curves.linear,
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

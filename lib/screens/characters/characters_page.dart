@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hero_profile/blocs/base/base_event.dart';
 import 'package:hero_profile/blocs/base/base_state.dart';
 import 'package:hero_profile/blocs/character_list/character_list_bloc.dart';
@@ -7,8 +9,6 @@ import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'package:hero_profile/screens/character_info/character_info_page.dart';
 import 'package:hero_profile/widgets/character_item.dart';
 import 'package:hero_profile/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharactersPage extends StatefulWidget {
   final String title;
@@ -26,7 +26,6 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
 
   CharacterListBloc _characterListBloc;
 
-  String get _title => widget.title;
 
   @override
   void initState() {

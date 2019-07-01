@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hero_profile/blocs/base/base_event.dart';
 import 'package:hero_profile/blocs/base/base_state.dart';
 import 'package:hero_profile/blocs/character_info/character_info_bloc.dart';
@@ -17,8 +19,6 @@ import 'package:hero_profile/widgets/feats_info_item.dart';
 import 'package:hero_profile/widgets/info_item.dart';
 import 'package:hero_profile/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_list/ltr_slide_animation_list.dart';
 import 'package:hero_profile/widgets/slide_animation_widgets/ltr_slide_animation_widgets/ltr_slide_animation_view/ltr_slide_animation_view.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharacterInfoPage extends StatefulWidget {
   final Character character;
@@ -45,7 +45,6 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
   final double _expandedHeight = 210;
   List<Widget> _drawerItems = [];
 
-  String get _appBarBg => widget.character.appBarBg;
   CharacterInfoBloc _characterInfoBloc;
 
   @override
@@ -91,6 +90,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
         }
 
         return Scaffold(
+          backgroundColor: Colors.white,
           endDrawer: AvengerDrawer(
             '${widget.character.drawerBg}',
             currentDrawerItemIndex: _currentDrawerItemIndex,
@@ -100,9 +100,11 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
             slivers: <Widget>[
               AvengerSliverAppbar(
                 title: _appBarTitle,
-                appBarBg: _appBarBg,
               ),
-              SliverSafeArea(sliver: _replaceWidget,top: false,),
+              SliverSafeArea(
+                sliver: _replaceWidget,
+                top: false,
+              ),
             ],
           ),
         );

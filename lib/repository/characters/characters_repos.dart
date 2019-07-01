@@ -21,7 +21,7 @@ class CharactersRepos extends Repository {
         appBarBg:
             'http://ucsdguardian.org/wp-content/uploads/2016/05/Feature_-Captain-America-Civil-War-02-Courtesy-of-SlickRickDesigns-for-CBM.jpg',
         drawerBg:
-            'https://1.bp.blogspot.com/-olFt60uK5Wk/T8JiHzHxU4I/AAAAAAAAI74/jff2meDSids/s1600/Iron-Man-Wallpaper-HD-1080p-cyborg-photo1024.jpg',
+            'https://www.pngkit.com/png/detail/12-126265_28-collection-of-ironman-clipart-black-and-white.png',
         avatar:
             'https://thichanhdep.com/wp-content/uploads/2019/03/avatar-nhan-vat-iron-man1.jpg',
         series: 'Marvel Comics',
@@ -36,7 +36,7 @@ class CharactersRepos extends Repository {
         appBarBg:
             'https://www.mldspot.com/sites/default/files/field/image/Captain-America-Vs-Iron-Man-Civil-War-HD-Wallpaper.jpg',
         drawerBg:
-            'https://stmed.net/sites/default/files/captain-america-wallpapers-27534-7704642.jpg',
+            'https://i.pinimg.com/originals/d5/e6/77/d5e677db4a94428dcb6eb61edc343580.jpg',
         series: 'Marvel Comics',
         sex: 'Male',
         alignment: 'Lawful Good',
