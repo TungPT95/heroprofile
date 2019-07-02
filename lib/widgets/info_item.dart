@@ -38,45 +38,51 @@ class _InfoItemState extends State<InfoItem> with AppTheme {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+      padding: EdgeInsets.only(top: 5, bottom: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CustomizeCard(
-            onTap: () => setState(() {
-                  if (widget.information.subInformation != null &&
-                      widget.information.subInformation.isNotEmpty) {
-                    isShownSubInfoList = !isShownSubInfoList;
-                  }
-                }),
-            contentPadding: EdgeInsets.only(
-              left: widget.contentPaddingLeft,
-              right: widget.contentPaddingRight,
-              top: widget.information.title.isNotEmpty ? 10 : 30,
-              bottom: widget.information.title.isNotEmpty ? 10 : 30,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                widget.information.title.isNotEmpty
-                    ? Text(
-                        '${widget.information.title}',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: textColor,
-                            fontSize: 16),
-                      )
-                    : Container(),
-                Container(
-                  margin: EdgeInsets.only(
-                      top: widget.information.title.isNotEmpty ? 10 : 0),
-                  child: Text(
-                    '${widget.information.description}',
-                    style: TextStyle(color: textColor),
-                  ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10,right: 10),
+            child: CustomizeCard(
+              onTap: () => setState(() {
+                    if (widget.information.subInformation != null &&
+                        widget.information.subInformation.isNotEmpty) {
+                      isShownSubInfoList = !isShownSubInfoList;
+                    }
+                  }),
+              contentPadding: EdgeInsets.only(
+                left: widget.contentPaddingLeft,
+                right: widget.contentPaddingRight,
+                top: widget.information.title.isNotEmpty ? 10 : 30,
+                bottom: widget.information.title.isNotEmpty ? 10 : 30,
+              ),
+              child: Container(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    widget.information.title.isNotEmpty
+                        ? Text(
+                            '${widget.information.title}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: textColor,
+                                fontSize: 16),
+                          )
+                        : Container(),
+                    Container(
+                      margin: EdgeInsets.only(
+                          top: widget.information.title.isNotEmpty ? 10 : 0),
+                      child: Text(
+                        '${widget.information.description}',
+                        style: TextStyle(color: textColor),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
           SingleChildScrollView(
