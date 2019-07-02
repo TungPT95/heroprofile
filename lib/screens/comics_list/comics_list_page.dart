@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hero_profile/blocs/base/base_event.dart';
 import 'package:hero_profile/blocs/base/base_state.dart';
 import 'package:hero_profile/blocs/comics_list/comics_list_bloc.dart';
@@ -52,8 +52,11 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
                 _replaceWidget = showProgressIndicator();
               } else if (state is LoadedComicsState) {
                 _list = state.comics;
-                _replaceWidget = Padding(
-                  padding: const EdgeInsets.only(top: 56 + 10.0, bottom: 80),
+                _replaceWidget = Container(
+                  padding: const EdgeInsets.only(
+                    top: 56 + 10.0,
+                    bottom: 70,
+                  ),
                   child: PageView.builder(
                     itemBuilder: (context, index) {
 //          debugPrint('animate index: $index');
