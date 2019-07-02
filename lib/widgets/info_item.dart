@@ -43,42 +43,40 @@ class _InfoItemState extends State<InfoItem> with AppTheme {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           CustomizeCard(
+            onTap: () => setState(() {
+                  if (widget.information.subInformation != null &&
+                      widget.information.subInformation.isNotEmpty) {
+                    isShownSubInfoList = !isShownSubInfoList;
+                  }
+                }),
             contentPadding: EdgeInsets.only(
               left: widget.contentPaddingLeft,
               right: widget.contentPaddingRight,
               top: widget.information.title.isNotEmpty ? 10 : 30,
               bottom: widget.information.title.isNotEmpty ? 10 : 30,
             ),
-            child: InkWell(
-              onTap: () => setState(() {
-                    if (widget.information.subInformation != null &&
-                        widget.information.subInformation.isNotEmpty) {
-                      isShownSubInfoList = !isShownSubInfoList;
-                    }
-                  }),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  widget.information.title.isNotEmpty
-                      ? Text(
-                          '${widget.information.title}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: textColor,
-                              fontSize: 16),
-                        )
-                      : Container(),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: widget.information.title.isNotEmpty ? 10 : 0),
-                    child: Text(
-                      '${widget.information.description}',
-                      style: TextStyle(color: textColor),
-                    ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                widget.information.title.isNotEmpty
+                    ? Text(
+                        '${widget.information.title}',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: textColor,
+                            fontSize: 16),
+                      )
+                    : Container(),
+                Container(
+                  margin: EdgeInsets.only(
+                      top: widget.information.title.isNotEmpty ? 10 : 0),
+                  child: Text(
+                    '${widget.information.description}',
+                    style: TextStyle(color: textColor),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           SingleChildScrollView(
