@@ -19,6 +19,9 @@ dependencies:
   async: ^2.1.0
   flutter_bloc: ^0.16.0
   equatable: ^0.2.6
+  package_info: ^0.4.0+4
+  android_intent: ^0.3.0+2
+  url_launcher: ^5.0.3
 
 dev_dependencies:
   flutter_test:

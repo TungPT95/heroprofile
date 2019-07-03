@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/screens/base/state/base_page_state.dart';
+import 'package:hero_profile/widgets/customize_card.dart';
+import 'package:package_info/package_info.dart';
+
+import 'info_card.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -7,30 +11,38 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends BasePageState<AboutPage> {
-  final _shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(13)));
+  PackageInfo _packageInfo;
+  String _versionName = '';
+
+  @override
+  void initState() {
+    super.initState();
+    getVersion();
+  }
+
+  getVersion() async {
+    _packageInfo = await PackageInfo.fromPlatform();
+    setState(() {
+      _versionName = _packageInfo.version;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    double _elevation = 10;
-    Color _shadowColor = Colors.grey[100];
-
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
-        padding: EdgeInsets.only(left: 8, right: 8, bottom: 8, top: 66),
+        padding: EdgeInsets.only(left: 8, right: 8, bottom: 100, top: 66),
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(left: 4, right: 4),
-            child: Material(
-              elevation: _elevation,
-              shadowColor: _shadowColor,
-              shape: _shape,
+            child: CustomizeCard(
+              contentPadding: EdgeInsets.all(8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(right: 8),
                     child: Material(
                       type: MaterialType.card,
                       clipBehavior: Clip.antiAlias,
@@ -46,35 +58,32 @@ class _AboutPageState extends BasePageState<AboutPage> {
                     ),
                   ),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        verticalDirection: VerticalDirection.down,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            'Tung Pham',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
+                    child: Column(
+                      verticalDirection: VerticalDirection.down,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Tung Pham',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            'Jan 06, 1995',
+                            style: TextStyle(color: Colors.black),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 4),
-                            child: Text(
-                              'Jan 06, 1995',
-                              style: TextStyle(color: Colors.black),
-                            ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: Text(
+                            '\"I\'m Flutter, Android Developer. I want to have more and more experiences in mobile development\"',
+                            style: TextStyle(color: Colors.black),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Text(
-                              '\"I\'m Flutter, Android Developer. I want to have more and more experiences in mobile development\"',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -83,206 +92,88 @@ class _AboutPageState extends BasePageState<AboutPage> {
           ),
           Padding(
             padding: EdgeInsets.only(top: 10, left: 4, right: 4),
-            child: Material(
-              shadowColor: _shadowColor,
-              elevation: _elevation,
-              clipBehavior: Clip.antiAlias,
-              shape: _shape,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Row(
-                        children: <Widget>[
-                          Image.asset('assets/images/phone.png',
-                              width: 24, height: 24),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                '+84-39-495-4959',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Row(
-                        children: <Widget>[
-                          Image.asset('assets/images/address.png',
-                              width: 24, height: 24),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                '26/15 Street B3, Tay Thanh Ward. Tan Phu District, HCM City',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Row(
+            child: CustomizeCard(
+              contentPadding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Row(
                       children: <Widget>[
-                        Image.asset('assets/images/gmail.png',
+                        Image.asset('assets/images/phone.png',
                             width: 24, height: 24),
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.only(left: 8.0),
                             child: Text(
-                              'phamthanhtung1995@gmail.com',
+                              '+84-39-495-4959',
                               style: TextStyle(color: Colors.black),
                             ),
                           ),
                         )
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Row(
+                      children: <Widget>[
+                        Image.asset('assets/images/address.png',
+                            width: 24, height: 24),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              '26/15 Street B3, Tay Thanh Ward. Tan Phu District, HCM City',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Image.asset('assets/images/gmail.png',
+                          width: 24, height: 24),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            'phamthanhtung1995@gmail.com',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 15, left: 4, right: 4),
-            child: Material(
-              shadowColor: _shadowColor,
-              elevation: _elevation,
-              clipBehavior: Clip.antiAlias,
-              shape: _shape,
-              child: InkWell(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Image.asset('assets/images/facebook.png',
-                              width: 24, height: 24),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'facebook.com/tungpt.95',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          InfoCard(
+            onTap: () {},
+            content: 'facebook.com/tungpt.95',
+            icon: 'assets/images/facebook.png',
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 15, left: 4, right: 4),
-            child: Material(
-              shadowColor: _shadowColor,
-              elevation: _elevation,
-              clipBehavior: Clip.antiAlias,
-              shape: _shape,
-              child: InkWell(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Image.asset('assets/images/linkedin.png',
-                              width: 24, height: 24),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'linkedin.com/in/tungpt95',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          InfoCard(
+            onTap: () {},
+            content: 'linkedin.com/in/tungpt95',
+            icon: 'assets/images/linkedin.png',
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 15, left: 4, right: 4),
-            child: Material(
-              shadowColor: _shadowColor,
-              elevation: _elevation,
-              clipBehavior: Clip.antiAlias,
-              shape: _shape,
-              child: InkWell(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Image.asset('assets/images/skype.png',
-                              width: 24, height: 24),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'live:phamthanhtung1995',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          InfoCard(
+            onTap: () {},
+            content: 'live:phamthanhtung1995',
+            icon: 'assets/images/skype.png',
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 15, left: 4, right: 4),
-            child: Material(
-              shadowColor: _shadowColor,
-              elevation: _elevation,
-              clipBehavior: Clip.antiAlias,
-              shape: _shape,
-              child: InkWell(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Image.asset('assets/images/github.png',
-                              width: 24, height: 24),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                'github.com/tungpham6195',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          InfoCard(
+            onTap: () {},
+            content: 'github.com/tungpham6195',
+            icon: 'assets/images/github.png',
+          ),
+          InfoCard(
+            content: 'Version: $_versionName',
+            icon: 'assets/images/ic_version.png',
           ),
         ],
       ),
