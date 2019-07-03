@@ -32,8 +32,10 @@ class AvengerInformationApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarIconBrightness: Brightness.dark,
+      statusBarColor: Colors.white,
+    ));
     return BlocProviderTree(
         blocProviders: [
           BlocProvider<CharacterListBloc>(
@@ -47,6 +49,7 @@ class AvengerInformationApp extends StatelessWidget {
             title: title,
             theme: ThemeData.light().copyWith(
               brightness: Brightness.light,
+              primaryColor: Colors.white,
             ),
             home: _home));
   }
