@@ -9,7 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - android_intent (from `.symlinks/plugins/android_intent/ios`)
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `.symlinks/flutter/ios-release`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
 
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
   android_intent:
     :path: ".symlinks/plugins/android_intent/ios"
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: ".symlinks/flutter/ios-release"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   url_launcher:
