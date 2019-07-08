@@ -7,6 +7,7 @@ import 'package:hero_profile/blocs/delegate/app_bloc_delegate.dart';
 import 'package:hero_profile/repository/characters/characters_repos.dart';
 
 import 'screens/home/home_page.dart';
+import 'screens/splash/splash_page.dart';
 
 void main() {
   BlocSupervisor.delegate = AppBlocDelegate();
@@ -17,18 +18,16 @@ class AvengerInformationApp extends StatelessWidget {
   static const String title = 'Hero Profile';
 
 //  final _home = HomePage(title: title);
-  final _home = HomePage();
+//  final _home = HomePage();
 
 //  final _home = ComicsList();
 
-//  final _home = SplashPage(
-//    splashLoadingCallback: (context) {
-//      Navigator.pushReplacement(
-//          context,
-//          MaterialPageRoute(
-//              builder: (context) => HomePage(title: title)));
-//    },
-//  );
+  final _home = SplashPage(
+    splashLoadingCallback: (context) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    },
+  );
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,5 @@
-import 'dart:math' as math;
-
-import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 
 typedef SplashLoadingCallback = void Function(BuildContext context);
 
@@ -42,8 +40,7 @@ class _AvengerSplashLoadingState extends State<AvengerSplashLoading>
 
   @override
   Widget build(BuildContext context) {
-    final sideLength = 60.0;
-    final imageWidth = sideLength * (1 + math.sqrt2);
+    final sideLength = 40.0;
     return AnimatedBuilder(
         animation: controller,
         builder: (context, widget) {
@@ -53,33 +50,9 @@ class _AvengerSplashLoadingState extends State<AvengerSplashLoading>
               child: Stack(
                 alignment: Alignment.center,
                 children: <Widget>[
-                  Center(
-                    child: ClipPath(
-                      clipper: ShapeBorderClipper(
-                          shape: BeveledRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(imageWidth / 3.4))),
-                      child: Container(
-                        height: imageWidth,
-                        width: imageWidth,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: <Color>[
-                              Color(0xFF58060A),
-                              Color(0xFF642B3D),
-                              Color(0xFF543F7A),
-                            ],
-                            stops: <double>[0.2, 0.5, 1],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                   AvengerProgressIndicator(
-                    imagePadding: 50,
                     strokeColor: Colors.transparent,
+                    strokeWidth: 2,
                     sideLength: sideLength,
                     animation: _progressAnimation,
                     imagePath: 'assets/images/ic_loading.png',

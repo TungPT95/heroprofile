@@ -1,5 +1,5 @@
-import 'package:hero_profile/widgets/avenger_splash_loading/avenger_splash_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:hero_profile/widgets/avenger_splash_loading/avenger_splash_loading.dart';
 
 class SplashPage extends StatefulWidget {
   final SplashLoadingCallback splashLoadingCallback;
@@ -17,8 +17,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
-        color: Colors.white,
         height: double.infinity,
         width: double.infinity,
         child: AvengerSplashLoading(
