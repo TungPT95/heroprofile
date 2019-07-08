@@ -1,7 +1,7 @@
-import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_bloc.dart';
-import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_bloc.dart';
+import 'package:hero_profile/blocs/ltr_slide_animation/ltr_slide_animation_event.dart';
 
 abstract class SlideAnimationViewBaseState<T extends StatefulWidget>
     extends State<T> {
@@ -19,7 +19,6 @@ abstract class SlideAnimationViewBaseState<T extends StatefulWidget>
   Widget build(BuildContext context) {
     return BlocProvider<LTRSlideAnimationBloc>(
       builder: (context) => _ltrSlideAnimationBloc,
-      dispose: (context, bloc) => bloc.dispose(),
       child: buildChild(context),
     );
   }

@@ -36,12 +36,11 @@ class AvengerInformationApp extends StatelessWidget {
       statusBarIconBrightness: Brightness.dark,
       statusBarColor: Colors.white,
     ));
-    return BlocProviderTree(
-        blocProviders: [
+    return MultiBlocProvider(
+        providers: [
           BlocProvider<CharacterListBloc>(
             builder: (context) =>
                 CharacterListBloc(repository: CharactersRepos()),
-            dispose: (context, bloc) => bloc.dispose(),
           ),
         ],
         child: MaterialApp(
