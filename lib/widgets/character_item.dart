@@ -4,7 +4,7 @@ import 'package:hero_profile/models/character.dart';
 
 typedef ItemClickListener = void Function(int id);
 
-class CharacterItem extends StatefulWidget {
+class CharacterItem extends StatelessWidget with AppTheme {
   final Character character;
   final double itemHeight;
   final double itemCardHeight;
@@ -38,23 +38,18 @@ class CharacterItem extends StatefulWidget {
   }) : assert(character != null);
 
   @override
-  _CharacterItemState createState() => _CharacterItemState();
-}
-
-class _CharacterItemState extends State<CharacterItem> with AppTheme {
-  @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.itemHeight,
+      height: itemHeight,
       margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
       child: Stack(
         children: <Widget>[
           Positioned(
             child: Container(
               width: MediaQuery.of(context).size.width -
-                  widget.itemPaddingLeft -
-                  widget.itemPaddingRight,
-              height: widget.itemCardHeight,
+                  itemPaddingLeft -
+                  itemPaddingRight,
+              height: itemCardHeight,
               child: Material(
                 clipBehavior: Clip.antiAlias,
                 type: MaterialType.card,
@@ -65,25 +60,25 @@ class _CharacterItemState extends State<CharacterItem> with AppTheme {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      if (widget.itemClickListener != null) {
-                        return widget.itemClickListener(widget.character.id);
+                      if (itemClickListener != null) {
+                        return itemClickListener(character.id);
                       }
                     },
                     child: Container(
                       padding: EdgeInsets.only(
-                          left: widget.contentPaddingLeft,
-                          right: widget.contentPaddingRight),
+                          left: contentPaddingLeft,
+                          right: contentPaddingRight),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            '${widget.character.name}',
+                            '${character.name}',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 18),
                           ),
                           Text(
-                            '${widget.character.series}',
+                            '${character.series}',
                           ),
                           Container(
                             height: 2,
@@ -94,10 +89,10 @@ class _CharacterItemState extends State<CharacterItem> with AppTheme {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                '${widget.character.sex}',
+                                '${character.sex}',
                               ),
                               Text(
-                                '${widget.character.alignment}',
+                                '${character.alignment}',
                               ),
                             ],
                           )
@@ -113,25 +108,25 @@ class _CharacterItemState extends State<CharacterItem> with AppTheme {
             top: 15,
             left: 15,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(widget.avatarSize / 2),
+              borderRadius: BorderRadius.circular(avatarSize / 2),
               child: Material(
                 shape: CircleBorder(
                     side: BorderSide(
                   color: Colors.grey[500],
-                  width: widget.circleBorderWidth,
+                  width: circleBorderWidth,
                 )),
                 child: InkWell(
                   onTap: () {
-                    if (widget.itemClickListener != null) {
-                      return widget.itemClickListener(widget.character.id);
+                    if (itemClickListener != null) {
+                      return itemClickListener(character.id);
                     }
                   },
                   child: FadeInImage.assetNetwork(
-                    width: widget.avatarSize,
-                    height: widget.avatarSize,
-                    placeholder: 'assets/images/ic_app_placeholder.jpg',
-                    image: '${widget.character.avatar}',
+                    width: avatarSize,
+                    height: avatarSize,
+                    placeholder: 'assets/images/ic_image_loading_placeholder.png',
                     fit: BoxFit.cover,
+                    image: '${character.avatar}',
                     fadeInDuration: Duration(seconds: 1),
                     fadeInCurve: Curves.linear,
                   ),

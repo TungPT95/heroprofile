@@ -3,7 +3,7 @@ import 'package:hero_profile/blocs/utils/app_theme.dart';
 
 typedef OnTapCallback = void Function();
 
-class CustomizeCard extends StatefulWidget {
+class CustomizeCard extends StatelessWidget with AppTheme {
   final EdgeInsetsGeometry contentPadding;
   final Widget child;
   final OnTapCallback onTap;
@@ -13,11 +13,6 @@ class CustomizeCard extends StatefulWidget {
         assert(contentPadding != null);
 
   @override
-  _CustomizeCardState createState() => _CustomizeCardState();
-}
-
-class _CustomizeCardState extends State<CustomizeCard> with AppTheme {
-  @override
   Widget build(BuildContext context) {
     return Material(
       type: MaterialType.card,
@@ -26,10 +21,10 @@ class _CustomizeCardState extends State<CustomizeCard> with AppTheme {
       clipBehavior: Clip.antiAlias,
       borderRadius: cardBorderRadius,
       child: InkWell(
-        onTap: widget.onTap,
+        onTap: onTap,
         child: Container(
-          padding: widget.contentPadding,
-          child: widget.child,
+          padding: contentPadding,
+          child: child,
         ),
       ),
     );

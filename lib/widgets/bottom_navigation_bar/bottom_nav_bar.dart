@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -87,7 +85,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
 typedef BottomNavItemClickCallback = void Function(int index, String title);
 
-abstract class BottomNavBaseItem extends StatefulWidget {
+abstract class BottomNavBaseItem extends StatelessWidget {
   final int index;
   final String title;
   final BottomNavItemClickCallback bottomNavItemClickCallback;
@@ -119,26 +117,10 @@ class BottomNavCenterItem extends BottomNavBaseItem {
             bottomNavItemClickCallback: bottomNavItemClickCallback);
 
   @override
-  _BottomNavCenterItemState createState() => _BottomNavCenterItemState();
-}
-
-class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
-  double get height => widget.height;
-
-  String get _title => widget.title;
-
-  bool get _isSelected => widget.isSelected;
-
-  BottomNavItemClickCallback get bottomNavItemClickCallback =>
-      widget.bottomNavItemClickCallback;
-
-  int get index => widget.index;
-
-  @override
   Widget build(BuildContext context) {
     final _border = CircleBorder(
         side: BorderSide(
-            color: _isSelected ? Colors.black : Colors.transparent,
+            color: isSelected ? Colors.black : Colors.transparent,
             width: 1.5));
     return Align(
       alignment: Alignment(0, 1 - 25 / MediaQuery.of(context).size.height),
@@ -153,7 +135,7 @@ class _BottomNavCenterItemState extends State<BottomNavCenterItem> {
           child: InkWell(
             onTap: () {
               return bottomNavItemClickCallback != null
-                  ? bottomNavItemClickCallback(index, _title)
+                  ? bottomNavItemClickCallback(index, title)
                   : () {};
             },
             child: Container(
@@ -192,30 +174,10 @@ class BottomNavItem extends BottomNavBaseItem {
             bottomNavItemClickCallback: bottomNavItemClickCallback);
 
   @override
-  _BottomNavItemState createState() => _BottomNavItemState();
-}
-
-class _BottomNavItemState extends State<BottomNavItem> {
-  IconData get _icon => widget.icon;
-
-  String get _title => widget.title;
-
-  double get _width => widget.width;
-
-  String get _icAsset => widget.icAsset;
-
-  bool get _isSelected => widget.isSelected;
-
-  BottomNavItemClickCallback get bottomNavItemClickCallback =>
-      widget.bottomNavItemClickCallback;
-
-  int get index => widget.index;
-
-  @override
   Widget build(BuildContext context) {
     final _border = CircleBorder(
         side: BorderSide(
-            color: _isSelected ? Colors.black : Colors.transparent,
+            color: isSelected ? Colors.black : Colors.transparent,
             width: 1.5));
     return Expanded(
       flex: 1,
@@ -226,8 +188,8 @@ class _BottomNavItemState extends State<BottomNavItem> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             SizedBox(
-              width: _width,
-              height: _width,
+              width: width,
+              height: width,
               child: Material(
                 clipBehavior: Clip.antiAlias,
                 elevation: 10,
@@ -238,19 +200,19 @@ class _BottomNavItemState extends State<BottomNavItem> {
                   customBorder: _border,
                   onTap: () {
                     return bottomNavItemClickCallback != null
-                        ? bottomNavItemClickCallback(index, _title)
+                        ? bottomNavItemClickCallback(index, title)
                         : () {};
                   },
-                  child: _icon != null
+                  child: icon != null
                       ? Icon(
-                          _icon,
+                    icon,
                           color: Colors.red[900],
                           size: 18,
                         )
                       : Container(
-                          padding: EdgeInsets.all(_width / 4),
+                          padding: EdgeInsets.all(width / 4),
                           child: Image.asset(
-                            _icAsset,
+                            icAsset,
                           ),
                         ),
                 ),
@@ -260,29 +222,5 @@ class _BottomNavItemState extends State<BottomNavItem> {
         ),
       ),
     );
-  }
-}
-
-class NavClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.lineTo(0, size.height);
-    path.lineTo(30, size.height);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width / 2 + 35 + 7, 0);
-    path.arcTo(
-        Rect.fromCircle(center: Offset.zero, radius: 70), 0, pi / 2, false);
-    path.lineTo(size.width / 2, 0.0 + 35 + 7);
-    path.lineTo(size.width / 2 - 35 - 7, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
   }
 }

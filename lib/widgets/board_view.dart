@@ -3,7 +3,7 @@ import 'package:hero_profile/blocs/utils/app_theme.dart';
 
 import 'customize_card.dart';
 
-class BoardView extends StatefulWidget {
+class BoardView extends StatelessWidget with AppTheme {
   final String content;
   final double itemPaddingLeft;
   final double itemPaddingRight;
@@ -19,23 +19,18 @@ class BoardView extends StatefulWidget {
   }) : assert(content != null);
 
   @override
-  _BoardViewState createState() => _BoardViewState();
-}
-
-class _BoardViewState extends State<BoardView> with AppTheme {
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
       child: CustomizeCard(
         contentPadding: EdgeInsets.only(
-          left: widget.itemPaddingLeft,
-          right: widget.itemPaddingRight,
-          top: widget.itemPaddingTop,
-          bottom: widget.itemPaddingBottom,
+          left: itemPaddingLeft,
+          right: itemPaddingRight,
+          top: itemPaddingTop,
+          bottom: itemPaddingBottom,
         ),
         child: Text(
-          '${widget.content}',
+          '$content',
           style: TextStyle(color: textColor),
         ),
       ),

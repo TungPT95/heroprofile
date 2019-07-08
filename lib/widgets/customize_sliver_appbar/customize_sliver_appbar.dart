@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hero_profile/blocs/utils/app_theme.dart';
 
-class CustomizeSliverAppbar extends StatefulWidget {
+class CustomizeSliverAppbar extends StatelessWidget with AppTheme {
   final String title;
   final Color appBarBgColor;
 
@@ -8,25 +9,16 @@ class CustomizeSliverAppbar extends StatefulWidget {
       : assert(title != null);
 
   @override
-  _CustomizeSliverAppbarState createState() => _CustomizeSliverAppbarState();
-}
-
-class _CustomizeSliverAppbarState extends State<CustomizeSliverAppbar> {
-  String get _title => widget.title;
-
-  Color get _appBarBgColor => widget.appBarBgColor;
-
-  @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
       floating: true,
-      backgroundColor: _appBarBgColor,
+      backgroundColor: appBarBgColor,
       flexibleSpace: FlexibleSpaceBar(
           collapseMode: CollapseMode.parallax,
           title: Text(
-            '$_title',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            '$title',
+            style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
           background: Container(

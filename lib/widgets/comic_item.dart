@@ -6,17 +6,12 @@ import 'package:hero_profile/models/comic.dart';
 
 import 'customize_card.dart';
 
-class ComicItem extends StatefulWidget {
+class ComicItem extends StatelessWidget with AppTheme {
   final Comic comic;
 
   ComicItem(this.comic) : assert(comic != null);
 
-  @override
-  _ComicItemState createState() => _ComicItemState();
-}
-
-class _ComicItemState extends State<ComicItem> with AppTheme {
-  Comic get _comic => widget.comic;
+  Comic get _comic => comic;
 
   @override
   Widget build(BuildContext context) {

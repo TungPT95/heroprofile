@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AvengerDrawerHeader extends StatefulWidget {
+
+class AvengerDrawerHeader extends StatelessWidget {
   final String avatar;
   final String title;
   final double circleBorderWidth;
@@ -16,11 +17,6 @@ class AvengerDrawerHeader extends StatefulWidget {
         assert(circleBorderWidth >= 0),
         assert(avatarSize > 0);
 
-  @override
-  _AvengerDrawerHeaderState createState() => _AvengerDrawerHeaderState();
-}
-
-class _AvengerDrawerHeaderState extends State<AvengerDrawerHeader> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,7 +34,7 @@ class _AvengerDrawerHeaderState extends State<AvengerDrawerHeader> {
             children: <Widget>[
               Expanded(
                   child: Text(
-                '${widget.title}',
+                '$title',
                 overflow: TextOverflow.clip,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -54,10 +50,10 @@ class _AvengerDrawerHeaderState extends State<AvengerDrawerHeader> {
                     width: 2,
                   )),
                   child: FadeInImage.assetNetwork(
-                    width: widget.avatarSize,
-                    height: widget.avatarSize,
-                    placeholder: 'assets/images/ic_app_placeholder.png',
-                    image: '${widget.avatar}',
+                    width: avatarSize,
+                    height: avatarSize,
+                    placeholder: 'assets/images/ic_image_loading_placeholder.png',
+                    image: '$avatar',
                     fit: BoxFit.cover,
                     fadeInDuration: Duration(seconds: 1),
                     fadeInCurve: Curves.linear,

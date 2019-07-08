@@ -4,7 +4,7 @@ import 'package:hero_profile/models/information.dart';
 
 import 'customize_card.dart';
 
-class SubInfoItem extends StatefulWidget {
+class SubInfoItem extends StatelessWidget with AppTheme {
   final Information information;
   final double itemElevation;
   final double itemBorderRadius;
@@ -28,24 +28,17 @@ class SubInfoItem extends StatefulWidget {
   }) : assert(information != null);
 
   @override
-  _SubInfoItemState createState() => _SubInfoItemState();
-}
-
-class _SubInfoItemState extends State<SubInfoItem> with AppTheme {
-  bool isShownSubGrid = false;
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 20),
       child: CustomizeCard(
         child: Text(
-          '${widget.information.description}',
+          '${information.description}',
           style: TextStyle(color: textColor),
         ),
         contentPadding: EdgeInsets.only(
-            left: widget.contentPaddingLeft,
-            right: widget.contentPaddingRight,
+            left: contentPaddingLeft,
+            right: contentPaddingRight,
             top: 10,
             bottom: 10),
       ),
