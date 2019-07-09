@@ -2,7 +2,7 @@
 
 ## IOS Screenshots:
 
-<img src="/screenshots/android/src0.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src1.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src2.png" alt="drawing.png" width="150"/> <img src="/screenshots/ios/src3.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src4.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src5.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src6.png" alt="drawing" width="150"/>
+<img src="/screenshots/ios/src0.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src1.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src2.png" alt="drawing.png" width="150"/> <img src="/screenshots/ios/src3.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src4.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src5.png" alt="drawing" width="150"/> <img src="/screenshots/ios/src6.png" alt="drawing" width="150"/>
 
 
 ## Android Screenshots:
