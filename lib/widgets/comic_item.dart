@@ -6,10 +6,13 @@ import 'package:hero_profile/models/comic.dart';
 
 import 'customize_card.dart';
 
+typedef ItemClickCallback = void Function(Comic detail);
+
 class ComicItem extends StatelessWidget with AppTheme {
   final Comic comic;
+  final ItemClickCallback itemClickCallback;
 
-  ComicItem(this.comic) : assert(comic != null);
+  ComicItem(this.comic, {this.itemClickCallback}) : assert(comic != null);
 
   Comic get _comic => comic;
 
@@ -24,7 +27,7 @@ class ComicItem extends StatelessWidget with AppTheme {
       ),
       child: CustomizeCard(
         child: InkWell(
-          onTap: (){},
+          onTap: () => itemClickCallback(comic),
           child: Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -54,7 +57,7 @@ class ComicItem extends StatelessWidget with AppTheme {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        '${_comic.desc}',
+                        '${_comic.shortDesc}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: TextStyle(color: textColor),

@@ -9,6 +9,8 @@ import 'package:hero_profile/repository/comics/comics_repos.dart';
 import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'package:hero_profile/widgets/comic_item.dart';
 
+import 'comic_detail/comic_detail.dart';
+
 class ComicsListPage extends StatefulWidget {
   @override
   _ComicsListPageState createState() => _ComicsListPageState();
@@ -76,7 +78,15 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
                               scale: scale < 1 && scale > wantedPercent
                                   ? scale
                                   : wantedPercent,
-                              child: ComicItem(_list[index]),
+                              child: ComicItem(
+                                _list[index],
+                                itemClickCallback: (detail) => {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ComicDetail(detail)))
+                                    },
+                              ),
                             ),
                           ),
                         );
