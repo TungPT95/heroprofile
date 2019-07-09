@@ -18,10 +18,10 @@ class _AboutPageState extends BasePageState<AboutPage> {
   @override
   void initState() {
     super.initState();
-    getVersion();
+    _getVersion();
   }
 
-  getVersion() async {
+  _getVersion() async {
     _packageInfo = await PackageInfo.fromPlatform();
     setState(() {
       _versionName = _packageInfo.version;
