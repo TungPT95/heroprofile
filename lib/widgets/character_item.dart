@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/character.dart';
 
+import 'customize_card.dart';
+
 typedef ItemClickListener = void Function(int id);
 
 class CharacterItem extends StatelessWidget with AppTheme {
@@ -50,56 +52,44 @@ class CharacterItem extends StatelessWidget with AppTheme {
                   itemPaddingLeft -
                   itemPaddingRight,
               height: itemCardHeight,
-              child: Material(
-                clipBehavior: Clip.antiAlias,
-                type: MaterialType.card,
-                elevation: elevation,
-                shadowColor: shadowColor,
-                borderRadius: cardBorderRadius,
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () {
-                      if (itemClickListener != null) {
-                        return itemClickListener(character.id);
-                      }
-                    },
-                    child: Container(
-                      padding: EdgeInsets.only(
-                          left: contentPaddingLeft,
-                          right: contentPaddingRight),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            '${character.name}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
-                          ),
-                          Text(
-                            '${character.series}',
-                          ),
-                          Container(
-                            height: 2,
-                            width: 15,
-                            color: Colors.black,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                '${character.sex}',
-                              ),
-                              Text(
-                                '${character.alignment}',
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+              child: CustomizeCard(
+                onTap: (){
+                  if (itemClickListener != null) {
+                    return itemClickListener(character.id);
+                  }
+                },
+                contentPadding: EdgeInsets.only(
+                    left: contentPaddingLeft,
+                    right: contentPaddingRight),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      '${character.name}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18),
                     ),
-                  ),
+                    Text(
+                      '${character.series}',
+                    ),
+                    Container(
+                      height: 2,
+                      width: 15,
+                      color: Colors.black,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          '${character.sex}',
+                        ),
+                        Text(
+                          '${character.alignment}',
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),
@@ -107,29 +97,27 @@ class CharacterItem extends StatelessWidget with AppTheme {
           Positioned(
             top: 15,
             left: 15,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(avatarSize / 2),
-              child: Material(
-                shape: CircleBorder(
-                    side: BorderSide(
-                  color: Colors.grey[500],
-                  width: circleBorderWidth,
-                )),
-                child: InkWell(
-                  onTap: () {
-                    if (itemClickListener != null) {
-                      return itemClickListener(character.id);
-                    }
-                  },
-                  child: FadeInImage.assetNetwork(
-                    width: avatarSize,
-                    height: avatarSize,
-                    placeholder: 'assets/images/ic_image_loading_placeholder.png',
-                    fit: BoxFit.cover,
-                    image: '${character.avatar}',
-                    fadeInDuration: Duration(seconds: 1),
-                    fadeInCurve: Curves.linear,
-                  ),
+            child: Material(
+              clipBehavior: Clip.antiAlias,
+              shape: CircleBorder(
+                  side: BorderSide(
+                color: Colors.grey[500],
+                width: circleBorderWidth,
+              )),
+              child: InkWell(
+                onTap: () {
+                  if (itemClickListener != null) {
+                    return itemClickListener(character.id);
+                  }
+                },
+                child: FadeInImage.assetNetwork(
+                  width: avatarSize,
+                  height: avatarSize,
+                  placeholder: 'assets/images/ic_image_loading_placeholder.png',
+                  fit: BoxFit.cover,
+                  image: '${character.avatar}',
+                  fadeInDuration: Duration(seconds: 1),
+                  fadeInCurve: Curves.linear,
                 ),
               ),
             ),
