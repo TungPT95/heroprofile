@@ -91,74 +91,23 @@ class _AboutPageState extends BasePageState<AboutPage> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 10, left: 4, right: 4),
-            child: CustomizeCard(
-              contentPadding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Row(
-                      children: <Widget>[
-                        Image.asset('assets/images/phone.png',
-                            width: 24, height: 24),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              '+84-39-495-4959',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Image.asset('assets/images/address.png',
-                            width: 24, height: 24),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              '26/15 Street B3, Tay Thanh Ward. Tan Phu District, HCM City',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Image.asset('assets/images/gmail.png',
-                          width: 24, height: 24),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            'phamthanhtung1995@gmail.com',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
+          InfoCard(
+            onTap: () => _launchUrl('tel:+84 394 954 959'),
+            content: '+84-39-495-4959',
+            icon: 'assets/images/phone.png',
           ),
           InfoCard(
-            onTap: () => _launchUrl('linkedin.com/in/tungpt95'),
+            onTap: () =>_launchUrl('mailto:phamthanhtung1995@gmail.com'),
+            content: 'phamthanhtung1995@gmail.com',
+            icon: 'assets/images/gmail.png',
+          ),
+          InfoCard(
+            onTap: () => _launchUrl('https://facebook.com/tungpt.95'),
             content: 'facebook.com/tungpt.95',
             icon: 'assets/images/facebook.png',
           ),
           InfoCard(
-            onTap: () => _launchUrl('linkedin.com/in/tungpt95'),
+            onTap: () => _launchUrl('https://linkedin.com/in/tungpt95'),
             content: 'linkedin.com/in/tungpt95',
             icon: 'assets/images/linkedin.png',
           ),
@@ -168,7 +117,7 @@ class _AboutPageState extends BasePageState<AboutPage> {
             icon: 'assets/images/skype.png',
           ),
           InfoCard(
-            onTap: () => _launchUrl('github.com/tungpham6195'),
+            onTap: () => _launchUrl('https://github.com/tungpham6195'),
             content: 'github.com/tungpham6195',
             icon: 'assets/images/github.png',
           ),
@@ -182,7 +131,6 @@ class _AboutPageState extends BasePageState<AboutPage> {
   }
 
   _launchUrl(String url) async {
-    url = 'https://' + url;
     if (await canLaunch(url)) {
       await launch(url);
     } else {
