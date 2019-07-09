@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'package:hero_profile/widgets/customize_card.dart';
 import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'info_card.dart';
 
@@ -152,12 +153,12 @@ class _AboutPageState extends BasePageState<AboutPage> {
             ),
           ),
           InfoCard(
-            onTap: () {},
+            onTap: () => _launchUrl('linkedin.com/in/tungpt95'),
             content: 'facebook.com/tungpt.95',
             icon: 'assets/images/facebook.png',
           ),
           InfoCard(
-            onTap: () {},
+            onTap: () => _launchUrl('linkedin.com/in/tungpt95'),
             content: 'linkedin.com/in/tungpt95',
             icon: 'assets/images/linkedin.png',
           ),
@@ -167,7 +168,7 @@ class _AboutPageState extends BasePageState<AboutPage> {
             icon: 'assets/images/skype.png',
           ),
           InfoCard(
-            onTap: () {},
+            onTap: () => _launchUrl('github.com/tungpham6195'),
             content: 'github.com/tungpham6195',
             icon: 'assets/images/github.png',
           ),
@@ -178,5 +179,14 @@ class _AboutPageState extends BasePageState<AboutPage> {
         ],
       ),
     );
+  }
+
+  _launchUrl(String url) async {
+    url = 'https://' + url;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
