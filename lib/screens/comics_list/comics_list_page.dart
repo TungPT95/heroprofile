@@ -7,9 +7,9 @@ import 'package:hero_profile/blocs/comics_list/comics_list_state.dart';
 import 'package:hero_profile/models/comic.dart';
 import 'package:hero_profile/repository/comics/comics_repos.dart';
 import 'package:hero_profile/screens/base/state/base_page_state.dart';
-import 'package:hero_profile/widgets/comic_item.dart';
 
 import 'comic_detail/comic_detail.dart';
+import 'comic_list/comic_list.dart';
 
 class ComicsListPage extends StatefulWidget {
   @override
@@ -18,8 +18,6 @@ class ComicsListPage extends StatefulWidget {
 
 class _ComicsListPageState extends BasePageState<ComicsListPage> {
   List<Comic> _list = [];
-  PageController _pageController;
-  double _currentPage = 0;
   ComicsListBloc _comicsListBloc;
   Widget _replaceWidget;
 
@@ -27,23 +25,12 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
   void initState() {
     _comicsListBloc = ComicsListBloc(ComicsRepos());
     super.initState();
-
-    _pageController = PageController()
-      ..addListener(() {
-//        debugPrint(_pageController.page.toString());
-//        debugPrint('floor: ${_pageController.page.floor()}');
-        setState(() {
-          _currentPage = _pageController.page;
-        });
-      });
-
     _comicsListBloc.dispatch(OnStart());
   }
 
   @override
   Widget build(BuildContext context) {
-    final halfOfScreenWidth = MediaQuery.of(context).size.width;
-    final wantedPercent = 100 / 100;
+    final wantedPercent = 90 / 100;
 
     return Scaffold(
         backgroundColor: Colors.transparent,
@@ -59,43 +46,12 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
                     top: 56 + 10.0,
                     bottom: 70,
                   ),
-                  child: PageView.builder(
-                    itemBuilder: (context, index) {
-//          debugPrint('animate index: $index');
-//          debugPrint('animate index _currentPage: $_currentPage');
-//          debugPrint('animate _currentPage.floor: ${_currentPage.floor()}');
-//          debugPrint('animate index percent: ${index - _currentPage}');
-//          debugPrint('animate -percent: ${_currentPage - index.abs()}');
-                      final percent = (index - _currentPage).abs();
-                      if (index == _currentPage.floor()) {
-                        final scale = 1 - percent;
-                        final trans = percent * halfOfScreenWidth;
-                        return Opacity(
-                          opacity: 1 - percent,
-                          child: Transform.translate(
-                            offset: Offset(trans, 0),
-                            child: Transform.scale(
-                              scale: scale < 1 && scale > wantedPercent
-                                  ? scale
-                                  : wantedPercent,
-                              child: ComicItem(
-                                _list[index],
-                                itemClickCallback: (detail) => {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ComicDetail(detail)))
-                                    },
-                              ),
-                            ),
-                          ),
-                        );
-                      } else {
-                        return ComicItem(_list[index]);
-                      }
+                  child: ComicList(
+                    items: _list,
+                    itemClickCallback: (detail) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => ComicDetail(detail)));
                     },
-                    controller: _pageController,
-                    itemCount: _list.length,
                   ),
                 );
               }

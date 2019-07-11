@@ -19,11 +19,9 @@ class ComicItem extends StatelessWidget with AppTheme {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      margin: EdgeInsets.only(
         top: 10,
         bottom: 30,
-        right: 40,
-        left: 40,
       ),
       child: CustomizeCard(
         child: InkWell(
