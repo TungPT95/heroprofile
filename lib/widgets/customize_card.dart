@@ -20,9 +20,11 @@ class CustomizeCard extends StatelessWidget with AppTheme {
       shadowColor: shadowColor,
       clipBehavior: Clip.antiAlias,
       borderRadius: cardBorderRadius,
+      color: onTap == null ? Colors.transparent : Colors.white,
       child: InkWell(
         onTap: onTap,
         child: Container(
+          color: onTap == null ? Colors.white : Colors.transparent,
           padding: contentPadding,
           child: child,
         ),
