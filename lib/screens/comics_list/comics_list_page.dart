@@ -11,6 +11,7 @@ import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'comic_detail/comic_detail.dart';
 import 'comic_list/comic_list.dart';
 
+//used for loading data
 class ComicsListPage extends StatefulWidget {
   @override
   _ComicsListPageState createState() => _ComicsListPageState();
@@ -30,8 +31,6 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final wantedPercent = 90 / 100;
-
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: BlocBuilder<BaseEvent, BaseState>(
