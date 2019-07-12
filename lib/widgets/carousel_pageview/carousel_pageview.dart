@@ -16,8 +16,7 @@ class CarouselPageView extends StatefulWidget {
 }
 
 class _CarouselPageViewState extends State<CarouselPageView> {
-  PageController get _pageController =>
-      widget.controller ?? PageController();
+  PageController get _pageController => widget.controller ?? PageController();
 
   ItemBuilder get _itemBuilder => widget.itemBuilder;
 
@@ -65,11 +64,5 @@ class _CarouselPageViewState extends State<CarouselPageView> {
       itemCount: _itemCount,
       controller: _pageController,
     );
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
   }
 }
