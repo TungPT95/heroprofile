@@ -18,7 +18,8 @@ class ComicMovieRepos extends Repository {
     return indexing(<Movie>[
       Movie(
           title: 'Man of Steel (2013)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/85/ManofSteelFinalPoster.jpg/220px-ManofSteelFinalPoster.jpg',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/thumb/8/85/ManofSteelFinalPoster.jpg/220px-ManofSteelFinalPoster.jpg',
           desc: 'Kal-El / Clark Kent, who arrived on Earth '
               'years ago as an infant from Krypton, struggles with why he was sent to Earth. Raised by '
               'his adoptive parents, Jonathan and Martha Kent, Clark adopts the persona "Superman", and '
@@ -34,7 +35,8 @@ class ComicMovieRepos extends Repository {
               'began on August 1, 2011. Man of Steel released in North America on June 14, 2013.'),
       Movie(
           title: 'Batman v Superman: Dawn of Justice (2016)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Batman_v_Superman_poster.jpg/220px-Batman_v_Superman_poster.jpg',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Batman_v_Superman_poster.jpg/220px-Batman_v_Superman_poster.jpg',
           desc: 'Gotham City-based vigilante Batman'
               ' travels to Metropolis to preemptively combat Superman, fearing what would happen if the '
               'latter is kept unchecked, while another threat endangers humankind.'
@@ -64,7 +66,8 @@ class ComicMovieRepos extends Repository {
               'Warner Bros. on March 28, before being included in the Ultimate Edition home video release.'),
       Movie(
           title: 'Suicide Squad (2016)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Suicide_Squad_%28film%29_Poster.png/220px-Suicide_Squad_%28film%29_Poster.png',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Suicide_Squad_%28film%29_Poster.png/220px-Suicide_Squad_%28film%29_Poster.png',
           desc: 'After the death of Superman, a secret government agency '
               'recruits imprisoned supervillains to execute dangerous black ops missions and rescue '
               'the world from a powerful threat, in exchange for clemency.'
@@ -85,7 +88,8 @@ class ComicMovieRepos extends Repository {
               'dossier containing information on future members of the Justice League.'),
       Movie(
           title: 'Wonder Woman (2017)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg',
           desc: 'Diana of Themyscira, an Amazon warrior '
               'who also is the demigoddess daughter of the god Zeus, uses her talents '
               'and abilities in order to help humanity during World War I.'
@@ -101,7 +105,8 @@ class ComicMovieRepos extends Repository {
               'Kingdom, France and Italy. Wonder Woman was released in North America on June 2, 2017.'),
       Movie(
           title: 'Justice League (2017)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/3/31/Justice_League_film_poster.jpg',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/3/31/Justice_League_film_poster.jpg',
           desc: 'Motivated by Superman\'s death at the hands of'
               ' Doomsday, Batman and Wonder Woman assemble a team of metahumans to face a new catastrophic threat.'
               '\n\nIn June 2013, it was reported that Goyer would be writing Justice League as part of a three-film '
@@ -128,7 +133,8 @@ class ComicMovieRepos extends Repository {
               'cut from the film.'),
       Movie(
           title: 'Aquaman (2018)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/3/3a/Aquaman_poster.jpg',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/3/3a/Aquaman_poster.jpg',
           desc: 'Following the events of Justice League, Arthur Curry / '
               'Aquaman must fight to retain the Atlantean throne from opposing threats.'
               '\n\nIn June 2014, Jason Momoa was cast as Arthur Curry / Aquaman. By August, '
@@ -150,7 +156,8 @@ class ComicMovieRepos extends Repository {
               '21, 2017. Aquaman was released in North America on December 21, 2018.'),
       Movie(
           title: 'Shazam! (2019)',
-          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Shazam%21_theatrical_poster.jpg/220px-Shazam%21_theatrical_poster.jpg',
+          imagePath:
+              'https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Shazam%21_theatrical_poster.jpg/220px-Shazam%21_theatrical_poster.jpg',
           desc: 'By speaking "Shazam", a 14-year-old foster child, '
               'Billy Batson, can turn into an adult superhero, courtesy of an ancient wizard. He attempts '
               'to master his powers and defeat the evil forces controlled by Dr. Thaddeus Sivana.'
@@ -184,9 +191,9 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Iron Man (2008)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/7/70/Ironmanposter.JPG',
+              'https://upload.wikimedia.org/wikipedia/en/7/70/Ironmanposter.JPG',
           desc:
-          'Billionaire industrialist Tony Stark builds himself a suit of armor after he is '
+              'Billionaire industrialist Tony Stark builds himself a suit of armor after he is '
               'taken captive by a terrorist organization. Free from his captors, he decides to upgrade '
               'and don his armor in order to hunt down weapons that were sold under the table.'
               '\n\nIn April 2006, Marvel hired Jon Favreau to direct Iron Man, with the writing teams of '
@@ -209,9 +216,9 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'The Incredible Hulk (2008)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg',
           desc:
-          'After being exposed to gamma radiation that causes him to transform into '
+              'After being exposed to gamma radiation that causes him to transform into '
               'the monstrous Hulk, scientist Bruce Banner goes on the run and isolates himself '
               'from his love, Betty Ross. Hunted by the military, Banner seeks to cure himself and '
               'prevent his condition from being weaponized.'
@@ -240,7 +247,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Iron Man 2 (2010)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg',
           desc: 'After Tony Stark reveals himself to be Iron Man, '
               'the U.S. government demands he hand over his technology. Meanwhile, a rival industrialist'
               ' and a Russian scientist conspire to use his own technology against him.'
@@ -273,7 +280,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Thor (2011)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg',
           desc: 'Thor, crown prince of Asgard, is banished to Earth and '
               'stripped of his powers after he reignites a dormant war. As his brother, Loki, plots '
               'to take the throne for himself, Thor must prove himself worthy and reclaim his hammer Mjölnir.'
@@ -307,7 +314,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Captain America: The First Avenger (2011)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg',
           desc: 'In 1942, Steve Rogers is deemed physically unfit to '
               'enlist in the U.S. Army and fight the German Reich in World War II. Recruited for a secret '
               'military operation, he is physically transformed into a super-soldier dubbed Captain '
@@ -327,9 +334,9 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Marvel\'s The Avengers (2012)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg',
           desc:
-          'Nick Fury, the director of S.H.I.E.L.D., gathers the superheroes '
+              'Nick Fury, the director of S.H.I.E.L.D., gathers the superheroes '
               'Iron Man, Thor, Captain America, the Hulk, Black Widow and Hawkeye to fight Thor\'s brother '
               'Loki, who plots to subjugate the Earth.'
               '\n\nZak Penn, who wrote The Incredible Hulk, was hired to write a script for The Avengers in '
@@ -352,7 +359,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Iron Man 3 (2013)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/d/d5/Iron_Man_3_theatrical_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/d/d5/Iron_Man_3_theatrical_poster.jpg',
           desc: 'Tony Stark faces a powerful enemy, the Mandarin, who '
               'attacks and destroys his mansion. Left to his own devices and battling posttraumatic '
               'stress disorder, Stark struggles to get to the bottom of a series of mysterious explosions.'
@@ -379,7 +386,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Thor: The Dark World (2013)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/7/7e/Thor_-_The_Dark_World_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/7/7e/Thor_-_The_Dark_World_poster.jpg',
           desc: 'Thor reunites with astrophysicist Jane '
               'Foster as a series of portals, linking worlds at random, begin to appear. He discovers '
               'that Malekith and his army of Dark Elves have returned after thousands of years, and they '
@@ -406,7 +413,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Captain America: The Winter Soldier (2014)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/e/e8/Captain_America_The_Winter_Soldier.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/e/e8/Captain_America_The_Winter_Soldier.jpg',
           desc: 'Steve Rogers, now working '
               'with S.H.I.E.L.D., teams up with Natasha Romanoff / Black Widow and Sam Wilson / Falcon to '
               'expose a deep conspiracy which involves a mysterious assassin known only as the Winter Soldier.'
@@ -431,7 +438,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Guardians of the Galaxy (2014)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/b/b5/Guardians_of_the_Galaxy_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/b/b5/Guardians_of_the_Galaxy_poster.jpg',
           desc: 'Peter Quill / Star-Lord and a group '
               'of misfits, including Gamora, Rocket, Drax the Destroyer and Groot, fight to keep a '
               'powerful orb from the clutches of the villainous Ronan.'
@@ -456,7 +463,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Avengers: Age of Ultron (2015)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg',
           desc: 'Captain America, Iron Man, Thor, the Hulk, Black Widow, '
               'and Hawkeye must work together as the Avengers to defeat Ultron, a technological enemy bent '
               'on human extinction, while encountering the powerful twins Pietro and Wanda Maximoff, '
@@ -481,7 +488,7 @@ class ComicMovieRepos extends Repository {
       Movie(
           title: 'Ant-Man (2015)',
           imagePath:
-          'https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg',
+              'https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg',
           desc: 'Thief Scott Lang must aid his mentor Dr. Hank Pym in '
               'safeguarding the mystery of the Ant-Man technology, which allows its user to decrease '
               'in size but increase in strength, from various menaces and plot a heist to defend the Earth.'
