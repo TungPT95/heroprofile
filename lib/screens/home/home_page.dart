@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hero_profile/screens/about/about_page.dart';
 import 'package:hero_profile/screens/characters/characters_page.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
+import 'package:hero_profile/screens/movie_list/movie_list_page.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -55,9 +56,7 @@ class _HomePageState extends State<HomePage> {
                     child: Center(child: Text(_title)),
                   ),
                   CharactersPage(),
-                  Container(
-                    child: Center(child: Text(_title)),
-                  ),
+                  MovieListPage(),
                   AboutPage(),
                 ],
               ),
