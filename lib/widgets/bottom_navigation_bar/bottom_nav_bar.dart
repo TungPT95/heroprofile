@@ -63,7 +63,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               isSelected: _currentIndex == 2,
             ),
             BottomNavItem(
-              'Parts',
+              'Movies',
               icAsset: 'assets/images/ic_nav_part.png',
               bottomNavItemClickCallback: _bottomNavItemClickCallback,
               index: 3,
