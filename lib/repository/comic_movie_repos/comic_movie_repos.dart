@@ -7,7 +7,7 @@ class ComicMovieRepos extends Repository {
     final dcMovies = _getDcMovie();
     final marvelMovies = _getMarvelMovie();
 
-    final list = indexing([
+    final list = indexing(<ComicMovie>[
       ComicMovie(comicTitle: 'DC', movies: dcMovies),
       ComicMovie(comicTitle: 'Marvel', movies: marvelMovies),
     ]);
@@ -15,7 +15,7 @@ class ComicMovieRepos extends Repository {
   }
 
   List<Movie> _getDcMovie() {
-    return indexing([
+    return indexing(<Movie>[
       Movie(
           title: 'Man of Steel (2013)',
           imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/85/ManofSteelFinalPoster.jpg/220px-ManofSteelFinalPoster.jpg',
@@ -180,7 +180,7 @@ class ComicMovieRepos extends Repository {
   }
 
   List<Movie> _getMarvelMovie() {
-    return indexing([
+    return indexing(<Movie>[
       Movie(
           title: 'Iron Man (2008)',
           imagePath:
