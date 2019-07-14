@@ -4,5 +4,5 @@ class Movie {
   String desc;
   String imagePath;
 
-  Movie({this.id, this.title, this.desc, this.imagePath});
+  Movie({this.id = -1, this.title = '', this.desc = '', this.imagePath = ''});
 }
