@@ -1,6 +1,9 @@
 import 'package:hero_profile/models/character.dart';
+import 'package:hero_profile/models/comic_movie.dart';
 import 'package:hero_profile/models/feats_info.dart';
 import 'package:hero_profile/models/information.dart';
+import 'package:hero_profile/models/movie.dart';
+
 abstract class Repository {
   indexing(List list) {
     for (dynamic item in list) {
@@ -9,6 +12,10 @@ abstract class Repository {
       } else if (item is FeatsInfo) {
         item.id = list.indexOf(item);
       } else if (item is Character) {
+        item.id = list.indexOf(item);
+      } else if (item is Movie) {
+        item.id = list.indexOf(item);
+      } else if (item is ComicMovie) {
         item.id = list.indexOf(item);
       }
     }
