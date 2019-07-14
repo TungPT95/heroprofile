@@ -176,8 +176,10 @@ class ComicMovieRepos extends Repository {
     return indexing([
       Movie(
           title: 'Iron Man (2008)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/7/70/Ironmanposter.JPG',
           desc:
-              'Billionaire industrialist Tony Stark builds himself a suit of armor after he is '
+          'Billionaire industrialist Tony Stark builds himself a suit of armor after he is '
               'taken captive by a terrorist organization. Free from his captors, he decides to upgrade '
               'and don his armor in order to hunt down weapons that were sold under the table.'
               '\n\nIn April 2006, Marvel hired Jon Favreau to direct Iron Man, with the writing teams of '
@@ -199,8 +201,10 @@ class ComicMovieRepos extends Repository {
               'it was added by an ILM artist as a joke, and Favreau decided to leave it in the film.'),
       Movie(
           title: 'The Incredible Hulk (2008)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg',
           desc:
-              'After being exposed to gamma radiation that causes him to transform into '
+          'After being exposed to gamma radiation that causes him to transform into '
               'the monstrous Hulk, scientist Bruce Banner goes on the run and isolates himself '
               'from his love, Betty Ross. Hunted by the military, Banner seeks to cure himself and '
               'prevent his condition from being weaponized.'
@@ -228,6 +232,8 @@ class ComicMovieRepos extends Repository {
               'an alternate opening of the film, included in the DVD release.'),
       Movie(
           title: 'Iron Man 2 (2010)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg',
           desc: 'After Tony Stark reveals himself to be Iron Man, '
               'the U.S. government demands he hand over his technology. Meanwhile, a rival industrialist'
               ' and a Russian scientist conspire to use his own technology against him.'
@@ -259,6 +265,8 @@ class ComicMovieRepos extends Repository {
               'discovery of Thor\'s hammer in a crater.'),
       Movie(
           title: 'Thor (2011)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg',
           desc: 'Thor, crown prince of Asgard, is banished to Earth and '
               'stripped of his powers after he reignites a dormant war. As his brother, Loki, plots '
               'to take the throne for himself, Thor must prove himself worthy and reclaim his hammer Mjölnir.'
@@ -291,6 +299,8 @@ class ComicMovieRepos extends Repository {
               'screenplay for Thor, and that he was sent pages for the scene after agreeing to appear in The Avengers.'),
       Movie(
           title: 'Captain America: The First Avenger (2011)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg',
           desc: 'In 1942, Steve Rogers is deemed physically unfit to '
               'enlist in the U.S. Army and fight the German Reich in World War II. Recruited for a secret '
               'military operation, he is physically transformed into a super-soldier dubbed Captain '
@@ -309,8 +319,10 @@ class ComicMovieRepos extends Repository {
               'Nick Fury followed by a teaser trailer for Marvel\'s The Avengers after the credits.'),
       Movie(
           title: 'Marvel\'s The Avengers (2012)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg',
           desc:
-              'Nick Fury, the director of S.H.I.E.L.D., gathers the superheroes '
+          'Nick Fury, the director of S.H.I.E.L.D., gathers the superheroes '
               'Iron Man, Thor, Captain America, the Hulk, Black Widow and Hawkeye to fight Thor\'s brother '
               'Loki, who plots to subjugate the Earth.'
               '\n\nZak Penn, who wrote The Incredible Hulk, was hired to write a script for The Avengers in '
@@ -332,6 +344,8 @@ class ComicMovieRepos extends Repository {
               'The supervillain Thanos appears in a mid-credits scene, portrayed by Damion Poitier.'),
       Movie(
           title: 'Iron Man 3 (2013)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/d/d5/Iron_Man_3_theatrical_poster.jpg',
           desc: 'Tony Stark faces a powerful enemy, the Mandarin, who '
               'attacks and destroys his mansion. Left to his own devices and battling posttraumatic '
               'stress disorder, Stark struggles to get to the bottom of a series of mysterious explosions.'
@@ -357,6 +371,8 @@ class ComicMovieRepos extends Repository {
               'spitballed that scene, then I came in and we shot for a couple of hours and laughed."'),
       Movie(
           title: 'Thor: The Dark World (2013)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/7/7e/Thor_-_The_Dark_World_poster.jpg',
           desc: 'Thor reunites with astrophysicist Jane '
               'Foster as a series of portals, linking worlds at random, begin to appear. He discovers '
               'that Malekith and his army of Dark Elves have returned after thousands of years, and they '
@@ -382,6 +398,8 @@ class ComicMovieRepos extends Repository {
               'second unit shooting [for Guardians of the Galaxy]."'),
       Movie(
           title: 'Captain America: The Winter Soldier (2014)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/e/e8/Captain_America_The_Winter_Soldier.jpg',
           desc: 'Steve Rogers, now working '
               'with S.H.I.E.L.D., teams up with Natasha Romanoff / Black Widow and Sam Wilson / Falcon to '
               'expose a deep conspiracy which involves a mysterious assassin known only as the Winter Soldier.'
@@ -405,6 +423,8 @@ class ComicMovieRepos extends Repository {
               'television series set in the MCU.'),
       Movie(
           title: 'Guardians of the Galaxy (2014)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/b/b5/Guardians_of_the_Galaxy_poster.jpg',
           desc: 'Peter Quill / Star-Lord and a group '
               'of misfits, including Gamora, Rocket, Drax the Destroyer and Groot, fight to keep a '
               'powerful orb from the clutches of the villainous Ronan.'
@@ -428,6 +448,8 @@ class ComicMovieRepos extends Repository {
               'S.H.I.E.L.D. episode "T.A.H.I.T.I.".'),
       Movie(
           title: 'Avengers: Age of Ultron (2015)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg',
           desc: 'Captain America, Iron Man, Thor, the Hulk, Black Widow, '
               'and Hawkeye must work together as the Avengers to defeat Ultron, a technological enemy bent '
               'on human extinction, while encountering the powerful twins Pietro and Wanda Maximoff, '
@@ -451,6 +473,8 @@ class ComicMovieRepos extends Repository {
               'Black Panther antagonist, and would subsequently appear in Black Panther.'),
       Movie(
           title: 'Ant-Man (2015)',
+          imagePath:
+          'https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg',
           desc: 'Thief Scott Lang must aid his mentor Dr. Hank Pym in '
               'safeguarding the mystery of the Ant-Man technology, which allows its user to decrease '
               'in size but increase in strength, from various menaces and plot a heist to defend the Earth.'
