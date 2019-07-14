@@ -18,6 +18,7 @@ class ComicMovieRepos extends Repository {
     return indexing([
       Movie(
           title: 'Man of Steel (2013)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/85/ManofSteelFinalPoster.jpg/220px-ManofSteelFinalPoster.jpg',
           desc: 'Kal-El / Clark Kent, who arrived on Earth '
               'years ago as an infant from Krypton, struggles with why he was sent to Earth. Raised by '
               'his adoptive parents, Jonathan and Martha Kent, Clark adopts the persona "Superman", and '
@@ -33,6 +34,7 @@ class ComicMovieRepos extends Repository {
               'began on August 1, 2011. Man of Steel released in North America on June 14, 2013.'),
       Movie(
           title: 'Batman v Superman: Dawn of Justice (2016)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Batman_v_Superman_poster.jpg/220px-Batman_v_Superman_poster.jpg',
           desc: 'Gotham City-based vigilante Batman'
               ' travels to Metropolis to preemptively combat Superman, fearing what would happen if the '
               'latter is kept unchecked, while another threat endangers humankind.'
@@ -62,6 +64,7 @@ class ComicMovieRepos extends Repository {
               'Warner Bros. on March 28, before being included in the Ultimate Edition home video release.'),
       Movie(
           title: 'Suicide Squad (2016)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Suicide_Squad_%28film%29_Poster.png/220px-Suicide_Squad_%28film%29_Poster.png',
           desc: 'After the death of Superman, a secret government agency '
               'recruits imprisoned supervillains to execute dangerous black ops missions and rescue '
               'the world from a powerful threat, in exchange for clemency.'
@@ -82,6 +85,7 @@ class ComicMovieRepos extends Repository {
               'dossier containing information on future members of the Justice League.'),
       Movie(
           title: 'Wonder Woman (2017)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg',
           desc: 'Diana of Themyscira, an Amazon warrior '
               'who also is the demigoddess daughter of the god Zeus, uses her talents '
               'and abilities in order to help humanity during World War I.'
@@ -97,6 +101,7 @@ class ComicMovieRepos extends Repository {
               'Kingdom, France and Italy. Wonder Woman was released in North America on June 2, 2017.'),
       Movie(
           title: 'Justice League (2017)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/3/31/Justice_League_film_poster.jpg',
           desc: 'Motivated by Superman\'s death at the hands of'
               ' Doomsday, Batman and Wonder Woman assemble a team of metahumans to face a new catastrophic threat.'
               '\n\nIn June 2013, it was reported that Goyer would be writing Justice League as part of a three-film '
@@ -123,6 +128,7 @@ class ComicMovieRepos extends Repository {
               'cut from the film.'),
       Movie(
           title: 'Aquaman (2018)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/3/3a/Aquaman_poster.jpg',
           desc: 'Following the events of Justice League, Arthur Curry / '
               'Aquaman must fight to retain the Atlantean throne from opposing threats.'
               '\n\nIn June 2014, Jason Momoa was cast as Arthur Curry / Aquaman. By August, '
@@ -144,6 +150,7 @@ class ComicMovieRepos extends Repository {
               '21, 2017. Aquaman was released in North America on December 21, 2018.'),
       Movie(
           title: 'Shazam! (2019)',
+          imagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Shazam%21_theatrical_poster.jpg/220px-Shazam%21_theatrical_poster.jpg',
           desc: 'By speaking "Shazam", a 14-year-old foster child, '
               'Billy Batson, can turn into an adult superhero, courtesy of an ancient wizard. He attempts '
               'to master his powers and defeat the evil forces controlled by Dr. Thaddeus Sivana.'
