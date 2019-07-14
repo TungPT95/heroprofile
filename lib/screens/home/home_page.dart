@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   int _currentIndex = 2;
-  List<String> _pageTitles = ['Comics', 'Videos', 'Heroes', 'Parts', 'About'];
+  List<String> _pageTitles = ['Comics', 'Videos', 'Heroes', 'Movies', 'About'];
 
   @override
   Widget build(BuildContext context) {
