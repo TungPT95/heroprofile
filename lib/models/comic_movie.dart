@@ -5,5 +5,5 @@ class ComicMovie {
   String comicTitle;
   List<Movie> movies;
 
-  ComicMovie({this.id, this.comicTitle, this.movies});
+  ComicMovie({this.id=-1, this.comicTitle='', this.movies});
 }
