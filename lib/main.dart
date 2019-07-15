@@ -47,6 +47,14 @@ class AvengerInformationApp extends StatelessWidget {
             title: title,
             theme: ThemeData.light().copyWith(
               brightness: Brightness.light,
+              textTheme: TextTheme(
+                title: TextStyle(
+                  color: Colors.black,
+                ),
+                body1: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
               primaryColor: Colors.white,
             ),
             home: _home));

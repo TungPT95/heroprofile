@@ -3,6 +3,7 @@ import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/feats_info.dart';
 
 import 'customize_card.dart';
+import 'themed_text.dart';
 
 class FeatsInfoItem extends StatefulWidget {
   final FeatsInfo featsInfo;
@@ -49,18 +50,17 @@ class _FeatsInfoItemState extends State<FeatsInfoItem> with AppTheme {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
+            ThemedText(
               '${widget.featsInfo.title}',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
                   fontSize: 16),
             ),
             Container(
               margin: EdgeInsets.only(top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: _buildDescriptions(),
+                children: _buildDescriptions(context),
               ),
             ),
           ],
@@ -69,7 +69,7 @@ class _FeatsInfoItemState extends State<FeatsInfoItem> with AppTheme {
     );
   }
 
-  List<Widget> _buildDescriptions() {
+  List<Widget> _buildDescriptions(BuildContext context) {
     List<Widget> list = [];
     for (String item in widget.featsInfo.descs) {
       list.add(Container(
@@ -78,9 +78,8 @@ class _FeatsInfoItemState extends State<FeatsInfoItem> with AppTheme {
                     widget.featsInfo.descs.length - 1
                 ? 5
                 : 0),
-        child: Text(
+        child: ThemedText(
           '-︎ $item',
-          style: TextStyle(color: textColor),
         ),
       ));
     }

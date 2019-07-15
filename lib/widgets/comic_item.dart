@@ -18,6 +18,7 @@ class ComicItem extends StatelessWidget with AppTheme {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData _themeData = Theme.of(context);
     return Container(
       margin: EdgeInsets.only(
         top: 10,
@@ -47,7 +48,7 @@ class ComicItem extends StatelessWidget with AppTheme {
                       Text(
                         _comic.title,
                         style: TextStyle(
-                          color: textColor,
+                          color: _themeData.textTheme.body1.color,
                           fontWeight: FontWeight.bold,
                           fontSize: 17,
                         ),
@@ -58,7 +59,8 @@ class ComicItem extends StatelessWidget with AppTheme {
                         '${_comic.shortDesc}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
-                        style: TextStyle(color: textColor),
+                        style:
+                            TextStyle(color: _themeData.textTheme.body1.color),
                       )
                     ],
                   ),

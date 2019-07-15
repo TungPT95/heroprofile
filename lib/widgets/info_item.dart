@@ -4,6 +4,7 @@ import 'package:hero_profile/models/information.dart';
 import 'package:hero_profile/widgets/sub_info_item.dart';
 
 import 'customize_card.dart';
+import 'themed_text.dart';
 
 class InfoItem extends StatefulWidget {
   final Information information;
@@ -43,14 +44,14 @@ class _InfoItemState extends State<InfoItem> with AppTheme {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 10,right: 10),
+            padding: const EdgeInsets.only(left: 10, right: 10),
             child: CustomizeCard(
               onTap: () => setState(() {
-                    if (widget.information.subInformation != null &&
-                        widget.information.subInformation.isNotEmpty) {
-                      isShownSubInfoList = !isShownSubInfoList;
-                    }
-                  }),
+                if (widget.information.subInformation != null &&
+                    widget.information.subInformation.isNotEmpty) {
+                  isShownSubInfoList = !isShownSubInfoList;
+                }
+              }),
               contentPadding: EdgeInsets.only(
                 left: widget.contentPaddingLeft,
                 right: widget.contentPaddingRight,
@@ -64,20 +65,18 @@ class _InfoItemState extends State<InfoItem> with AppTheme {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     widget.information.title.isNotEmpty
-                        ? Text(
+                        ? ThemedText(
                             '${widget.information.title}',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: textColor,
                                 fontSize: 16),
                           )
                         : Container(),
                     Container(
                       margin: EdgeInsets.only(
                           top: widget.information.title.isNotEmpty ? 10 : 0),
-                      child: Text(
+                      child: ThemedText(
                         '${widget.information.description}',
-                        style: TextStyle(color: textColor),
                       ),
                     ),
                   ],

@@ -3,6 +3,7 @@ import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/information.dart';
 
 import 'customize_card.dart';
+import 'themed_text.dart';
 
 class SubInfoItem extends StatelessWidget with AppTheme {
   final Information information;
@@ -32,9 +33,8 @@ class SubInfoItem extends StatelessWidget with AppTheme {
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 20),
       child: CustomizeCard(
-        child: Text(
+        child: ThemedText(
           '${information.description}',
-          style: TextStyle(color: textColor),
         ),
         contentPadding: EdgeInsets.only(
             left: contentPaddingLeft,

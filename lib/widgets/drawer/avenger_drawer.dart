@@ -24,45 +24,42 @@ class _AvengerDrawerState extends State<AvengerDrawer> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Theme(
-        data: ThemeData.light().copyWith(canvasColor: Colors.transparent),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 2 / 3,
-          child: Card(
-            elevation: 0,
-            color: Colors.white,
-            clipBehavior: Clip.antiAlias,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                width: 1.5,
-                color: Colors.black,
-              ),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 2 / 3,
+        child: Card(
+          elevation: 0,
+          color: Colors.white,
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              width: 1.5,
+              color: Colors.black,
             ),
-            child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                Image.asset(
-                  'assets/images/bg_drawer.jpg',
-                  fit: BoxFit.cover,
-                  alignment: Alignment(-1.5, 0),
-                ),
-                Container(
-                  color: Colors.black.withAlpha(10),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(top: 25, left: 20, right: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: _updateDrawerItem(),
-                    ),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              bottomLeft: Radius.circular(20),
+            ),
+          ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              Image.asset(
+                'assets/images/bg_drawer.jpg',
+                fit: BoxFit.cover,
+                alignment: Alignment(-1.5, 0),
+              ),
+              Container(
+                color: Colors.black.withAlpha(10),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 25, left: 20, right: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: _updateDrawerItem(),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

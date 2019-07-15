@@ -134,7 +134,8 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
         }).toList()),
       );
 
-  List<Widget> _buildDrawerItems(List<CharacterDetailCategory> categories) {
+  List<Widget> _buildDrawerItems(
+      List<CharacterDetailCategory> categories) {
     var list = <Widget>[
       AvengerDrawerHeader(
         avatar: '${widget.character.avatar}',
@@ -145,7 +146,8 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
         title: categories[0].title));
     list.addAll(categories
         .map((item) => AvengerDrawerItem('${item.title}',
-                index: item.id + 1, categoryType: item.categoryType,
+                index: item.id + 1,
+                categoryType: item.categoryType,
                 drawerItemClickListener: (category) {
               _characterInfoBloc
                   .dispatch(DrawerClickEvent(category, title: item.title));

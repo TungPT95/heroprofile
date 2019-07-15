@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/models/character_detail_category.dart';
 
+import '../themed_text.dart';
+
 typedef DrawerItemClickListener = void Function(CategoryType category);
 
 // ignore: must_be_immutable
@@ -54,7 +56,7 @@ class _AvengerDrawerItemState extends State<AvengerDrawerItem> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: <Widget>[
-                Text(
+                ThemedText(
                   '${widget.text}',
                   style: TextStyle(color: _textColor),
                 ),
