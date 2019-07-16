@@ -4,6 +4,7 @@ import 'package:hero_profile/models/comic_movie.dart';
 import 'package:hero_profile/models/movie.dart';
 import 'package:hero_profile/repository/comic_movie_repos/comic_movie_repos.dart';
 import 'package:hero_profile/screens/base/state/base_page_state.dart';
+import 'package:hero_profile/screens/movies/movie_detail/movie_detail_page.dart';
 import 'package:hero_profile/widgets/carousel_pageview/carousel_pageview.dart';
 import 'package:hero_profile/widgets/customize_card.dart';
 
@@ -102,13 +103,25 @@ class _MoviePageViewState extends State<MoviePageView> with AppTheme {
           return Container(
             margin: EdgeInsets.only(top: 10, bottom: 30, left: 5, right: 5),
             child: CustomizeCard(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MovieDetailPage(item);
+                    },
+                  ),
+                );
+              },
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 fit: StackFit.expand,
                 children: <Widget>[
-                  Image.network(
-                    '${item.imagePath}',
-                    fit: BoxFit.cover,
+                  Hero(
+                    tag: item.imagePath,
+                    child: Image.network(
+                      item.imagePath,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,

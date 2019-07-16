@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hero_profile/screens/about/about_page.dart';
 import 'package:hero_profile/screens/characters/characters_page.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
-import 'package:hero_profile/screens/movie_list/movie_list_page.dart';
+import 'package:hero_profile/screens/movies/movie_list/movie_list_page.dart';
 import 'package:hero_profile/widgets/bottom_navigation_bar/bottom_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
