@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/comic_movie.dart';
 import 'package:hero_profile/models/movie.dart';
 import 'package:hero_profile/repository/comic_movie_repos/comic_movie_repos.dart';
@@ -39,28 +38,30 @@ class _MovieListPageState extends BasePageState<MovieListPage> {
         itemBuilder: (context, index) {
           final item = _comicMovies[index];
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Align(
                 alignment: Alignment.center,
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.3,
-                  padding: const EdgeInsets.all(5),
+                  padding: EdgeInsets.all(5),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: theme.accentColor,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Text(
                     '${item.comicTitle}',
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
+                        fontWeight: FontWeight.bold,
+                        color: theme.textTheme.body2.color),
                   ),
                 ),
               ),
               MoviePageView(
                 movies: item.movies,
+                theme: theme,
+                screenSize: screenSize,
               ),
             ],
           );
@@ -73,17 +74,23 @@ class _MovieListPageState extends BasePageState<MovieListPage> {
 
 class MoviePageView extends StatefulWidget {
   final List<Movie> movies;
+  final ThemeData theme;
+  final Size screenSize;
 
-  MoviePageView({this.movies});
+  MoviePageView({this.movies, @required this.theme, @required this.screenSize});
 
   @override
   _MoviePageViewState createState() => _MoviePageViewState();
 }
 
-class _MoviePageViewState extends State<MoviePageView> with AppTheme {
+class _MoviePageViewState extends State<MoviePageView> {
   PageController _pageController;
 
   List<Movie> get _movies => widget.movies;
+
+  ThemeData get _theme => widget.theme;
+
+  Size get _screenSize => widget.screenSize;
 
   @override
   void initState() {
@@ -93,7 +100,7 @@ class _MoviePageViewState extends State<MoviePageView> with AppTheme {
 
   @override
   Widget build(BuildContext context) {
-    final itemHeight = (MediaQuery.of(context).size.height - 76 - 80) * 2.1 / 3;
+    final itemHeight = (_screenSize.height - 76 - 80) * 2.1 / 3;
     return Container(
       height: itemHeight,
       child: CarouselPageView(
@@ -130,7 +137,7 @@ class _MoviePageViewState extends State<MoviePageView> with AppTheme {
                       height: itemHeight * 0.15,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: _theme.primaryColor,
                           border: Border(
                               top: BorderSide(color: Colors.grey, width: 3))),
                       child: Text(
@@ -139,7 +146,8 @@ class _MoviePageViewState extends State<MoviePageView> with AppTheme {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                            color: _theme.textTheme.body1.color,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   )

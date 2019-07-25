@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 
 import 'customize_card.dart';
 import 'themed_text.dart';
 
-class BoardView extends StatelessWidget with AppTheme {
+class BoardView extends StatelessWidget {
   final String content;
   final double itemPaddingLeft;
   final double itemPaddingRight;

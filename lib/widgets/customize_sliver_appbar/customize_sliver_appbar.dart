@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 
 import '../themed_text.dart';
 
-class CustomizeSliverAppbar extends StatelessWidget with AppTheme {
+class CustomizeSliverAppbar extends StatelessWidget {
   final String title;
   final Color appBarBgColor;
 

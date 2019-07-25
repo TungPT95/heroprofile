@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/character.dart';
 
 import 'customize_card.dart';
 
 typedef ItemClickListener = void Function(int id);
 
-class CharacterItem extends StatelessWidget with AppTheme {
+class CharacterItem extends StatelessWidget {
   final Character character;
   final double itemHeight;
   final double itemCardHeight;
@@ -53,22 +52,21 @@ class CharacterItem extends StatelessWidget with AppTheme {
                   itemPaddingRight,
               height: itemCardHeight,
               child: CustomizeCard(
-                onTap: (){
+                onTap: () {
                   if (itemClickListener != null) {
                     return itemClickListener(character.id);
                   }
                 },
                 contentPadding: EdgeInsets.only(
-                    left: contentPaddingLeft,
-                    right: contentPaddingRight),
+                    left: contentPaddingLeft, right: contentPaddingRight),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       '${character.name}',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     Text(
                       '${character.series}',

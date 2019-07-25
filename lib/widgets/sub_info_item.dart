@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/information.dart';
 
 import 'customize_card.dart';
 import 'themed_text.dart';
 
-class SubInfoItem extends StatelessWidget with AppTheme {
+class SubInfoItem extends StatelessWidget {
   final Information information;
   final double itemElevation;
   final double itemBorderRadius;

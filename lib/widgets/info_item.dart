@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/information.dart';
 import 'package:hero_profile/widgets/sub_info_item.dart';
 
@@ -33,7 +32,7 @@ class InfoItem extends StatefulWidget {
   _InfoItemState createState() => _InfoItemState();
 }
 
-class _InfoItemState extends State<InfoItem> with AppTheme {
+class _InfoItemState extends State<InfoItem> {
   bool isShownSubInfoList = false;
 
   @override
@@ -68,8 +67,7 @@ class _InfoItemState extends State<InfoItem> with AppTheme {
                         ? ThemedText(
                             '${widget.information.title}',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
+                                fontWeight: FontWeight.bold, fontSize: 16),
                           )
                         : Container(),
                     Container(

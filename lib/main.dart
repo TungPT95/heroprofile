@@ -55,8 +55,12 @@ class AvengerInformationApp extends StatelessWidget {
                 body1: TextStyle(
                   color: Colors.black,
                 ),
+                body2: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               primaryColor: Colors.white,
+              accentColor: Colors.black,
             ),
             home: _home));
   }

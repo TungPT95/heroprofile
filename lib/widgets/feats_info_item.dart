@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/feats_info.dart';
 
 import 'customize_card.dart';
@@ -32,7 +31,7 @@ class FeatsInfoItem extends StatefulWidget {
   _FeatsInfoItemState createState() => _FeatsInfoItemState();
 }
 
-class _FeatsInfoItemState extends State<FeatsInfoItem> with AppTheme {
+class _FeatsInfoItemState extends State<FeatsInfoItem> {
   bool isShownSubInfoList = true;
 
   @override
@@ -52,9 +51,7 @@ class _FeatsInfoItemState extends State<FeatsInfoItem> with AppTheme {
           children: <Widget>[
             ThemedText(
               '${widget.featsInfo.title}',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Container(
               margin: EdgeInsets.only(top: 10),

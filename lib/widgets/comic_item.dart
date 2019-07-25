@@ -1,14 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/models/comic.dart';
 
 import 'customize_card.dart';
 
 typedef ItemClickCallback = void Function(Comic detail);
 
-class ComicItem extends StatelessWidget with AppTheme {
+class ComicItem extends StatelessWidget {
   final Comic comic;
   final ItemClickCallback itemClickCallback;
 

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hero_profile/blocs/utils/app_theme.dart';
 import 'package:hero_profile/widgets/customize_card.dart';
 import 'package:hero_profile/widgets/themed_text.dart';
 
-class InfoCard extends StatelessWidget with AppTheme {
+class InfoCard extends StatelessWidget {
   final OnTapCallback onTap;
   final String content;
   final String icon;
