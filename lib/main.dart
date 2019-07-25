@@ -46,6 +46,7 @@ class AvengerInformationApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: title,
             theme: ThemeData.light().copyWith(
+              backgroundColor: Colors.white,
               brightness: Brightness.light,
               textTheme: TextTheme(
                 title: TextStyle(

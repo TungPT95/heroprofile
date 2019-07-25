@@ -117,9 +117,9 @@ class _MoviePageViewState extends State<MoviePageView> with AppTheme {
                 fit: StackFit.expand,
                 children: <Widget>[
                   Hero(
-                    tag: item.imagePath,
+                    tag: item.thumbNail,
                     child: Image.network(
-                      item.imagePath,
+                      item.thumbNail,
                       fit: BoxFit.cover,
                     ),
                   ),
