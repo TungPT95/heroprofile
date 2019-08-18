@@ -8,11 +8,9 @@ typedef ItemClickListener = void Function(int id);
 class CharacterItem extends StatelessWidget {
   final Character character;
   final double itemHeight;
-  final double itemCardHeight;
   final double avatarSize;
   final double circleBorderWidth;
   final double itemElevation;
-  final double itemBorderRadius;
   final double contentPaddingLeft;
   final double contentPaddingRight;
   final double itemPaddingLeft;
@@ -20,82 +18,42 @@ class CharacterItem extends StatelessWidget {
   final double itemPaddingTop;
   final double itemPaddingBottom;
   final ItemClickListener itemClickListener;
+  final double screenRatio;
 
-  CharacterItem(
-    this.character, {
-    this.itemClickListener,
-    this.itemHeight = 130,
-    this.itemCardHeight = 120,
-    this.avatarSize = 90,
-    this.circleBorderWidth = 2.5,
-    this.itemElevation = 10,
-    this.itemBorderRadius = 20,
-    this.contentPaddingLeft = 120,
-    this.contentPaddingRight = 50,
-    this.itemPaddingLeft = 10,
-    this.itemPaddingRight = 10,
-    this.itemPaddingTop = 5,
-    this.itemPaddingBottom = 5,
-  }) : assert(character != null);
+  CharacterItem(this.character,
+      {this.itemClickListener,
+      this.itemHeight = 130,
+      this.avatarSize = 90,
+      this.circleBorderWidth = 2.5,
+      this.itemElevation = 10,
+      this.contentPaddingLeft = 15,
+      this.contentPaddingRight = 15,
+      this.itemPaddingLeft = 10,
+      this.itemPaddingRight = 10,
+      this.itemPaddingTop = 5,
+      this.itemPaddingBottom = 5,
+      this.screenRatio = 1})
+      : assert(character != null);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: itemHeight,
-      margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            child: Container(
-              width: MediaQuery.of(context).size.width -
-                  itemPaddingLeft -
-                  itemPaddingRight,
-              height: itemCardHeight,
-              child: CustomizeCard(
-                onTap: () {
-                  if (itemClickListener != null) {
-                    return itemClickListener(character.id);
-                  }
-                },
-                contentPadding: EdgeInsets.only(
-                    left: contentPaddingLeft, right: contentPaddingRight),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      '${character.name}',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                    Text(
-                      '${character.series}',
-                    ),
-                    Container(
-                      height: 2,
-                      width: 15,
-                      color: Colors.black,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          '${character.sex}',
-                        ),
-                        Text(
-                          '${character.alignment}',
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 15,
-            left: 15,
-            child: Material(
+      margin: EdgeInsets.only(
+          left: itemPaddingLeft,
+          right: itemPaddingRight,
+          bottom: itemPaddingBottom),
+      child: CustomizeCard(
+        onTap: () {
+          if (itemClickListener != null) {
+            return itemClickListener(character.id);
+          }
+        },
+        contentPadding: EdgeInsets.only(
+            left: contentPaddingLeft, right: contentPaddingRight),
+        child: Row(
+          children: <Widget>[
+            Material(
               clipBehavior: Clip.antiAlias,
               shape: CircleBorder(
                   side: BorderSide(
@@ -119,8 +77,49 @@ class CharacterItem extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(left: contentPaddingLeft),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      '${character.name}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textScaleFactor: screenRatio,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
+                    Text(
+                      '${character.series}',
+                      textScaleFactor: screenRatio,
+                    ),
+                    Container(
+                      height: 2,
+                      width: 15,
+                      color: Colors.black,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          '${character.sex}',
+                          textScaleFactor: screenRatio,
+                        ),
+                        Text(
+                          '${character.alignment}',
+                          textScaleFactor: screenRatio,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

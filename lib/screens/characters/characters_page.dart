@@ -73,10 +73,21 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
 
   Widget _buildCharacterList(List<Character> list) {
     return SliverPadding(
-      padding: const EdgeInsets.only(top: 76, bottom: 80),
+      padding: EdgeInsets.only(
+          top: scaleHeight(56 + 10.0), bottom: scaleHeight(68 + 10.0)),
       sliver: LTRSlideAnimationList(list
           .map<CharacterItem>((item) => CharacterItem(
                 item,
+                itemHeight: scaleHeight(120),
+                circleBorderWidth: scaleWidth(2.5),
+                avatarSize: scaleWidth(90),
+                itemPaddingTop: scaleHeight(10),
+                itemPaddingLeft: scaleWidth(10),
+                itemPaddingRight: scaleWidth(10),
+                itemPaddingBottom: scaleHeight(10),
+                contentPaddingLeft: scaleWidth(15),
+                contentPaddingRight: scaleWidth(15),
+                screenRatio: screenRatio(),
                 itemClickListener: (id) {
                   Navigator.push(
                     context,
