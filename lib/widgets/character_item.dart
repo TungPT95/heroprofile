@@ -18,7 +18,7 @@ class CharacterItem extends StatelessWidget {
   final double itemPaddingTop;
   final double itemPaddingBottom;
   final ItemClickListener itemClickListener;
-  final double screenRatio;
+  final double textRatio;
 
   CharacterItem(this.character,
       {this.itemClickListener,
@@ -32,7 +32,7 @@ class CharacterItem extends StatelessWidget {
       this.itemPaddingRight = 10,
       this.itemPaddingTop = 5,
       this.itemPaddingBottom = 5,
-      this.screenRatio = 1})
+      this.textRatio = 1})
       : assert(character != null);
 
   @override
@@ -88,13 +88,13 @@ class CharacterItem extends StatelessWidget {
                       '${character.name}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      textScaleFactor: screenRatio,
+                      textScaleFactor: textRatio,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                     ),
                     Text(
                       '${character.series}',
-                      textScaleFactor: screenRatio,
+                      textScaleFactor: textRatio,
                     ),
                     Container(
                       height: 2,
@@ -106,11 +106,11 @@ class CharacterItem extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           '${character.sex}',
-                          textScaleFactor: screenRatio,
+                          textScaleFactor: textRatio,
                         ),
                         Text(
                           '${character.alignment}',
-                          textScaleFactor: screenRatio,
+                          textScaleFactor: textRatio,
                         ),
                       ],
                     )

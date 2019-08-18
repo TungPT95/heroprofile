@@ -64,7 +64,8 @@ class _BottomNavBarState extends BasePageState<BottomNavBar> {
                     bottomNavItemClickCallback: (page, title) {
                       _bloc.dispatch(PageChangeEvent(page, title: title));
                     },
-                    width: scaleWidth(50),
+                    heightRatio: screenHeightRatio(),
+                    widthRatio: screenWidthRatio(),
                     isSelected: (nextPage as PageChangeState).nextPage == 0,
                   ),
                   BottomNavItem(
@@ -73,7 +74,8 @@ class _BottomNavBarState extends BasePageState<BottomNavBar> {
                     bottomNavItemClickCallback: (page, title) {
                       _bloc.dispatch(PageChangeEvent(page, title: title));
                     },
-                    width: scaleWidth(50),
+                    heightRatio: screenHeightRatio(),
+                    widthRatio: screenWidthRatio(),
                     index: 1,
                     isSelected: (nextPage as PageChangeState).nextPage == 1,
                   ),
@@ -82,7 +84,8 @@ class _BottomNavBarState extends BasePageState<BottomNavBar> {
                     bottomNavItemClickCallback: (page, title) {
                       _bloc.dispatch(PageChangeEvent(page, title: title));
                     },
-                    height: scaleHeight(68),
+                    heightRatio: screenHeightRatio(),
+                    widthRatio: screenWidthRatio(),
                     index: 2,
                     isSelected: (nextPage as PageChangeState).nextPage == 2,
                   ),
@@ -92,7 +95,8 @@ class _BottomNavBarState extends BasePageState<BottomNavBar> {
                     bottomNavItemClickCallback: (page, title) {
                       _bloc.dispatch(PageChangeEvent(page, title: title));
                     },
-                    width: scaleWidth(50),
+                    heightRatio: screenHeightRatio(),
+                    widthRatio: screenWidthRatio(),
                     index: 3,
                     isSelected: (nextPage as PageChangeState).nextPage == 3,
                   ),
@@ -102,7 +106,8 @@ class _BottomNavBarState extends BasePageState<BottomNavBar> {
                     bottomNavItemClickCallback: (page, title) {
                       _bloc.dispatch(PageChangeEvent(page, title: title));
                     },
-                    width: scaleWidth(50),
+                    heightRatio: screenHeightRatio(),
+                    widthRatio: screenWidthRatio(),
                     index: 4,
                     isSelected: (nextPage as PageChangeState).nextPage == 4,
                   )
@@ -154,10 +159,14 @@ abstract class BottomNavBaseItem extends StatelessWidget {
 
 class BottomNavCenterItem extends BottomNavBaseItem {
   final double height;
+  final double widthRatio;
+  final double heightRatio;
 
   BottomNavCenterItem(
       {this.height = 68,
       int index = 0,
+      this.widthRatio = 1,
+      this.heightRatio = 1,
       String title,
       bool isSelected = false,
       BottomNavItemClickCallback bottomNavItemClickCallback})
@@ -172,12 +181,13 @@ class BottomNavCenterItem extends BottomNavBaseItem {
   Widget build(BuildContext context) {
     final _border = CircleBorder(
         side: BorderSide(
-            color: isSelected ? Colors.black : Colors.transparent, width: 1.5));
+            color: isSelected ? Colors.black : Colors.transparent,
+            width: 1.5 * widthRatio));
     return Align(
       alignment: Alignment(0, 1 - 25 / MediaQuery.of(context).size.height),
       child: SizedBox(
-        height: height,
-        width: height,
+        height: height * heightRatio,
+        width: height * widthRatio,
         child: Material(
           shape: _border,
           clipBehavior: Clip.antiAlias,
@@ -190,7 +200,7 @@ class BottomNavCenterItem extends BottomNavBaseItem {
                   : () {};
             },
             child: Container(
-              padding: EdgeInsets.all(height / 5),
+              padding: EdgeInsets.all(height * heightRatio / 5),
               child: Image.asset(
                 'assets/images/ic_nav_character.png',
               ),
@@ -206,12 +216,16 @@ class BottomNavItem extends BottomNavBaseItem {
   final IconData icon;
   final double width;
   final String icAsset;
+  final double widthRatio;
+  final double heightRatio;
 
   BottomNavItem(String title,
       // ignore: avoid_init_to_null
       {this.icon = null,
       this.icAsset = '',
       this.width = 50,
+      this.widthRatio = 1,
+      this.heightRatio = 1,
       int index = 0,
       bool isSelected = false,
       BottomNavItemClickCallback bottomNavItemClickCallback})
@@ -228,18 +242,19 @@ class BottomNavItem extends BottomNavBaseItem {
   Widget build(BuildContext context) {
     final _border = CircleBorder(
         side: BorderSide(
-            color: isSelected ? Colors.black : Colors.transparent, width: 1.5));
+            color: isSelected ? Colors.black : Colors.transparent,
+            width: 1.5 * widthRatio));
     return Expanded(
       flex: 1,
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.only(bottom: 10 * heightRatio),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             SizedBox(
-              width: width,
-              height: width,
+              width: width * widthRatio,
+              height: width * heightRatio,
               child: Material(
                 clipBehavior: Clip.antiAlias,
                 elevation: 10,
@@ -257,10 +272,10 @@ class BottomNavItem extends BottomNavBaseItem {
                       ? Icon(
                           icon,
                           color: Colors.red[900],
-                          size: 18,
+                          size: 18 * widthRatio,
                         )
                       : Container(
-                          padding: EdgeInsets.all(width / 4),
+                          padding: EdgeInsets.all(width * heightRatio / 4),
                           child: Image.asset(
                             icAsset,
                           ),

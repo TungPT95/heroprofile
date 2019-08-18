@@ -87,7 +87,7 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
                 itemPaddingBottom: scaleHeight(10),
                 contentPaddingLeft: scaleWidth(15),
                 contentPaddingRight: scaleWidth(15),
-                screenRatio: screenRatio(),
+                textRatio: screenWidthRatio(),
                 itemClickListener: (id) {
                   Navigator.push(
                     context,
