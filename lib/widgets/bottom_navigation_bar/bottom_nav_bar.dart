@@ -1,84 +1,136 @@
 import 'package:flutter/material.dart';
+import 'package:hero_profile/screens/base/state/base_page_state.dart';
+
+import 'bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavBar extends StatefulWidget {
   final BottomNavItemClickCallback bottomNavItemClickCallback;
-  final int currentIndex;
 
-  BottomNavBar({this.currentIndex = 0, this.bottomNavItemClickCallback})
-      : assert(currentIndex >= 0);
+  static Widget create(
+          {BottomNavItemClickCallback bottomNavItemClickCallback}) =>
+      BlocProvider<BtmNavBarBloc>(
+        builder: (c) => BtmNavBarBloc(startIndex: 2),
+        child: BottomNavBar._(
+          bottomNavItemClickCallback: bottomNavItemClickCallback,
+        ),
+      );
+
+  BottomNavBar._({this.bottomNavItemClickCallback});
 
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _BottomNavBarState extends BasePageState<BottomNavBar> {
   BottomNavItemClickCallback get _bottomNavItemClickCallback =>
       widget.bottomNavItemClickCallback;
 
-  int get _currentIndex => widget.currentIndex;
+  BtmNavBarBloc _bloc;
+
+  @override
+  void initState() {
+    _bloc = BlocProvider.of<BtmNavBarBloc>(context);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bloc.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.passthrough,
       children: <Widget>[
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: 35,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[300],
-                  offset: Offset(5, -2),
-                  blurRadius: 15,
-                ),
-              ],
-              color: Colors.white,
-            ),
+        _buildNavBarBackground(),
+        BlocListener<BtmNavBarBloc, dynamic>(
+          listener: (c, state) {
+            if (state is PageChangeState && _bottomNavItemClickCallback != null)
+              _bottomNavItemClickCallback(state.nextPage, state.title);
+          },
+          child: BlocBuilder<BtmNavBarBloc, dynamic>(
+            builder: (c, nextPage) {
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <BottomNavBaseItem>[
+                  BottomNavItem(
+                    'Comics',
+                    icAsset: 'assets/images/ic_nav_comic.png',
+                    index: 0,
+                    bottomNavItemClickCallback: (page, title) {
+                      _bloc.dispatch(PageChangeEvent(page, title: title));
+                    },
+                    width: scaleWidth(50),
+                    isSelected: (nextPage as PageChangeState).nextPage == 0,
+                  ),
+                  BottomNavItem(
+                    'Videos',
+                    icAsset: 'assets/images/ic_nav_video.png',
+                    bottomNavItemClickCallback: (page, title) {
+                      _bloc.dispatch(PageChangeEvent(page, title: title));
+                    },
+                    width: scaleWidth(50),
+                    index: 1,
+                    isSelected: (nextPage as PageChangeState).nextPage == 1,
+                  ),
+                  BottomNavCenterItem(
+                    title: 'Home',
+                    bottomNavItemClickCallback: (page, title) {
+                      _bloc.dispatch(PageChangeEvent(page, title: title));
+                    },
+                    height: scaleHeight(68),
+                    index: 2,
+                    isSelected: (nextPage as PageChangeState).nextPage == 2,
+                  ),
+                  BottomNavItem(
+                    'Movies',
+                    icAsset: 'assets/images/ic_nav_part.png',
+                    bottomNavItemClickCallback: (page, title) {
+                      _bloc.dispatch(PageChangeEvent(page, title: title));
+                    },
+                    width: scaleWidth(50),
+                    index: 3,
+                    isSelected: (nextPage as PageChangeState).nextPage == 3,
+                  ),
+                  BottomNavItem(
+                    'About',
+                    icAsset: 'assets/images/ic_nav_about.png',
+                    bottomNavItemClickCallback: (page, title) {
+                      _bloc.dispatch(PageChangeEvent(page, title: title));
+                    },
+                    width: scaleWidth(50),
+                    index: 4,
+                    isSelected: (nextPage as PageChangeState).nextPage == 4,
+                  )
+                ],
+              );
+            },
           ),
         ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <BottomNavBaseItem>[
-            BottomNavItem(
-              'Comics',
-              icAsset: 'assets/images/ic_nav_comic.png',
-              bottomNavItemClickCallback: _bottomNavItemClickCallback,
-              index: 0,
-              isSelected: _currentIndex == 0,
-            ),
-            BottomNavItem(
-              'Videos',
-              icAsset: 'assets/images/ic_nav_video.png',
-              bottomNavItemClickCallback: _bottomNavItemClickCallback,
-              index: 1,
-              isSelected: _currentIndex == 1,
-            ),
-            BottomNavCenterItem(
-              title: 'Home',
-              bottomNavItemClickCallback: _bottomNavItemClickCallback,
-              index: 2,
-              isSelected: _currentIndex == 2,
-            ),
-            BottomNavItem(
-              'Movies',
-              icAsset: 'assets/images/ic_nav_part.png',
-              bottomNavItemClickCallback: _bottomNavItemClickCallback,
-              index: 3,
-              isSelected: _currentIndex == 3,
-            ),
-            BottomNavItem(
-              'About',
-              icAsset: 'assets/images/ic_nav_about.png',
-              bottomNavItemClickCallback: _bottomNavItemClickCallback,
-              index: 4,
-              isSelected: _currentIndex == 4,
-            )
-          ],
-        ),
       ],
+    );
+  }
+
+  _buildNavBarBackground() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        height: scaleHeight(35),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[300],
+              offset: Offset(5, -2),
+              blurRadius: 15,
+            ),
+          ],
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
@@ -120,8 +172,7 @@ class BottomNavCenterItem extends BottomNavBaseItem {
   Widget build(BuildContext context) {
     final _border = CircleBorder(
         side: BorderSide(
-            color: isSelected ? Colors.black : Colors.transparent,
-            width: 1.5));
+            color: isSelected ? Colors.black : Colors.transparent, width: 1.5));
     return Align(
       alignment: Alignment(0, 1 - 25 / MediaQuery.of(context).size.height),
       child: SizedBox(
@@ -177,8 +228,7 @@ class BottomNavItem extends BottomNavBaseItem {
   Widget build(BuildContext context) {
     final _border = CircleBorder(
         side: BorderSide(
-            color: isSelected ? Colors.black : Colors.transparent,
-            width: 1.5));
+            color: isSelected ? Colors.black : Colors.transparent, width: 1.5));
     return Expanded(
       flex: 1,
       child: Padding(
@@ -205,7 +255,7 @@ class BottomNavItem extends BottomNavBaseItem {
                   },
                   child: icon != null
                       ? Icon(
-                    icon,
+                          icon,
                           color: Colors.red[900],
                           size: 18,
                         )

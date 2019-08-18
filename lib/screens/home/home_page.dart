@@ -67,8 +67,7 @@ class _HomePageState extends BasePageState<HomePage> {
                   AboutPage(),
                 ],
               ),
-              BottomNavBar(
-                currentIndex: _currentIndex,
+              BottomNavBar.create(
                 bottomNavItemClickCallback: (index, title) {
                   _pageController.animateToPage(index,
                       duration: Duration(milliseconds: 100),
@@ -81,7 +80,7 @@ class _HomePageState extends BasePageState<HomePage> {
                 child: Center(
                     child: Text(_title,
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20))),
+                            fontWeight: FontWeight.bold, fontSize: scaleWidth(20)))),
               ),
             ],
           ),
