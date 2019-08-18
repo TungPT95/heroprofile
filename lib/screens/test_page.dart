@@ -79,7 +79,7 @@ class _TestPageState extends State<TestPage> {
                             bottomRight: Radius.circular(30)))),
               ),
             ),
-            BottomNavBar(),
+//            BottomNavBar(),
           ],
         ));
   }
