@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_loading_indicator.dart';
 
-import 'themed_base_state.dart';
-
+import 'package:app_utils/app_utils.dart';
 abstract class BasePageState<T extends StatefulWidget>
-    extends ThemedBaseState<T> {
+    extends BaseState<T> {
   Widget showSliverProgressIndicator() {
     final progress = SliverToBoxAdapter(
         child: Container(
