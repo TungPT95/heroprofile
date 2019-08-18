@@ -52,11 +52,6 @@ class _HomePageState extends BasePageState<HomePage> {
                 scrollDirection: Axis.horizontal,
                 physics: NeverScrollableScrollPhysics(),
                 controller: _pageController,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
-                },
                 children: <Widget>[
                   ComicsListPage(),
                   Container(
@@ -69,14 +64,16 @@ class _HomePageState extends BasePageState<HomePage> {
               ),
               BottomNavBar.create(
                 bottomNavItemClickCallback: (index, title) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
                   _pageController.animateToPage(index,
                       duration: Duration(milliseconds: 100),
                       curve: Curves.linear);
                 },
               ),
               Container(
-                alignment: Alignment.topCenter,
-                height: 56,
+                height: scaleHeight(56),
                 child: Center(
                     child: Text(_title,
                         style: TextStyle(
