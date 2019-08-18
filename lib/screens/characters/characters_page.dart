@@ -26,7 +26,6 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
 
   CharacterListBloc _characterListBloc;
 
-
   @override
   void initState() {
     _characterListBloc = BlocProvider.of<CharacterListBloc>(context);
@@ -39,7 +38,7 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.transparent,
-        body: BlocBuilder<BaseEvent, BaseState>(
+        body: BlocBuilder<CharacterListBloc, BaseState>(
           bloc: _characterListBloc,
           builder: (context, state) {
             Widget _replaceWidget;
@@ -83,9 +82,9 @@ class _CharactersPageState extends BasePageState<CharactersPage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => CharacterInfoPage(
-                            character: item,
-                            repository: item.repository,
-                          ),
+                        character: item,
+                        repository: item.repository,
+                      ),
                     ),
                   );
                 },

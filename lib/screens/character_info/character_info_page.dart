@@ -57,7 +57,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BaseEvent, BaseState>(
+    return BlocBuilder<CharacterInfoBloc, BaseState>(
       bloc: _characterInfoBloc,
       builder: (context, state) {
         Widget _replaceWidget;
@@ -134,8 +134,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
         }).toList()),
       );
 
-  List<Widget> _buildDrawerItems(
-      List<CharacterDetailCategory> categories) {
+  List<Widget> _buildDrawerItems(List<CharacterDetailCategory> categories) {
     var list = <Widget>[
       AvengerDrawerHeader(
         avatar: '${widget.character.avatar}',
@@ -146,8 +145,7 @@ class _CharacterInfoPageState extends BasePageState<CharacterInfoPage> {
         title: categories[0].title));
     list.addAll(categories
         .map((item) => AvengerDrawerItem('${item.title}',
-                index: item.id + 1,
-                categoryType: item.categoryType,
+                index: item.id + 1, categoryType: item.categoryType,
                 drawerItemClickListener: (category) {
               _characterInfoBloc
                   .dispatch(DrawerClickEvent(category, title: item.title));

@@ -33,7 +33,7 @@ class _ComicsListPageState extends BasePageState<ComicsListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.transparent,
-        body: BlocBuilder<BaseEvent, BaseState>(
+        body: BlocBuilder<ComicsListBloc, BaseState>(
             bloc: _comicsListBloc,
             builder: (context, state) {
               if (state is InitialState) {
