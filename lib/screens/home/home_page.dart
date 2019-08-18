@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/screens/about/about_page.dart';
+import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'package:hero_profile/screens/characters/characters_page.dart';
 import 'package:hero_profile/screens/comics_list/comics_list_page.dart';
 import 'package:hero_profile/screens/movies/movie_list/movie_list_page.dart';
@@ -10,19 +11,25 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends BasePageState<HomePage> {
   PageController _pageController;
 
   @override
   void initState() {
-    super.initState();
     _pageController = PageController(
       initialPage: 2,
     );
+    super.initState();
   }
 
   int _currentIndex = 2;
   List<String> _pageTitles = ['Comics', 'Videos', 'Heroes', 'Movies', 'About'];
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
