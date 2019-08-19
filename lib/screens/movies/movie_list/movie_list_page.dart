@@ -34,27 +34,32 @@ class _MovieListPageState extends BasePageState<MovieListPage> {
     return Container(
       color: Colors.transparent,
       child: ListView.builder(
-        padding: const EdgeInsets.only(top: 76, bottom: 80),
+        padding: EdgeInsets.only(
+            top: scaleHeight(56 + 10.0), bottom: scaleHeight(68 + 10.0)),
         itemBuilder: (context, index) {
           final item = _comicMovies[index];
           return Column(
             children: <Widget>[
               Align(
                 alignment: Alignment.center,
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  padding: EdgeInsets.all(5),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: theme.accentColor,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Text(
-                    '${item.comicTitle}',
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: theme.textTheme.body2.color),
+                child: Material(
+                  clipBehavior: Clip.antiAlias,
+                  shape: StadiumBorder(),
+                  color: theme.accentColor,
+                  child: Container(
+                    width: screenSize.width * 0.3,
+                    margin: EdgeInsets.symmetric(
+                        vertical: scaleHeight(5), horizontal: scaleWidth(5)),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${item.comicTitle}',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      textScaleFactor: screenWidthRatio(),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: theme.textTheme.body2.color),
+                    ),
                   ),
                 ),
               ),
@@ -83,14 +88,11 @@ class MoviePageView extends StatefulWidget {
   _MoviePageViewState createState() => _MoviePageViewState();
 }
 
-class _MoviePageViewState extends State<MoviePageView> {
+class _MoviePageViewState extends BasePageState<MoviePageView> {
   PageController _pageController;
 
   List<Movie> get _movies => widget.movies;
 
-  ThemeData get _theme => widget.theme;
-
-  Size get _screenSize => widget.screenSize;
 
   @override
   void initState() {
@@ -100,7 +102,7 @@ class _MoviePageViewState extends State<MoviePageView> {
 
   @override
   Widget build(BuildContext context) {
-    final itemHeight = (_screenSize.height - 76 - 80) * 2.1 / 3;
+    final itemHeight = (screenSize.height - 66 - 78) * 2.1 / 3;
     return Container(
       height: itemHeight,
       child: CarouselPageView(
@@ -108,7 +110,11 @@ class _MoviePageViewState extends State<MoviePageView> {
         itemBuilder: (context, index) {
           final item = _movies[index];
           return Container(
-            margin: EdgeInsets.only(top: 10, bottom: 30, left: 5, right: 5),
+            margin: EdgeInsets.only(
+                top: scaleHeight(10),
+                bottom: scaleHeight(30),
+                left: scaleWidth(5),
+                right: scaleWidth(5)),
             child: CustomizeCard(
               onTap: () {
                 Navigator.of(context).push(
@@ -133,20 +139,22 @@ class _MoviePageViewState extends State<MoviePageView> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: EdgeInsets.symmetric(
+                          vertical: scaleWidth(5), horizontal: scaleHeight(5)),
                       height: itemHeight * 0.15,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: _theme.primaryColor,
+                          color: theme.primaryColor,
                           border: Border(
-                              top: BorderSide(color: Colors.grey, width: 3))),
+                              top: BorderSide(color: Colors.grey, width: scaleHeight(3)))),
                       child: Text(
                         '${item.title}',
                         textAlign: TextAlign.center,
                         maxLines: 2,
+                        textScaleFactor: screenWidthRatio(),
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: _theme.textTheme.body1.color,
+                            color: theme.textTheme.body1.color,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
