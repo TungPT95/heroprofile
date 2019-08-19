@@ -9,6 +9,8 @@ class BoardView extends StatelessWidget {
   final double itemPaddingRight;
   final double itemPaddingTop;
   final double itemPaddingBottom;
+  final double heightRatio;
+  final double widthRatio;
 
   BoardView({
     @required this.content,
@@ -16,6 +18,8 @@ class BoardView extends StatelessWidget {
     this.itemPaddingRight = 15,
     this.itemPaddingTop = 10,
     this.itemPaddingBottom = 10,
+    this.widthRatio = 1,
+    this.heightRatio = 1,
   }) : assert(content != null);
 
   @override
@@ -31,6 +35,7 @@ class BoardView extends StatelessWidget {
         ),
         child: ThemedText(
           '$content',
+          textScaleFactor: widthRatio,
         ),
       ),
     );

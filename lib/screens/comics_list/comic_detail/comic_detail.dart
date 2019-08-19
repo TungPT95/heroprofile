@@ -24,12 +24,15 @@ class _ComicDetailState extends BasePageState<ComicDetail> {
         slivers: <Widget>[
           CustomizeSliverAppbar(
             title: _comic.title,
+            textScaleFactor: screenWidthRatio(),
           ),
           SliverPadding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.symmetric(
+                horizontal: scaleWidth(10), vertical: scaleHeight(10)),
             sliver: SliverToBoxAdapter(
               child: BoardView(
                 content: _comic.fullDesc,
+                widthRatio: screenWidthRatio(),
               ),
             ),
           )

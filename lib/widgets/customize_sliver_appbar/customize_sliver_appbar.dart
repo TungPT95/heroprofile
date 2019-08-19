@@ -5,8 +5,12 @@ import '../themed_text.dart';
 class CustomizeSliverAppbar extends StatelessWidget {
   final String title;
   final Color appBarBgColor;
+  final double textScaleFactor;
 
-  CustomizeSliverAppbar({this.title = '', this.appBarBgColor = Colors.white})
+  CustomizeSliverAppbar(
+      {this.title = '',
+      this.textScaleFactor = 1,
+      this.appBarBgColor = Colors.white})
       : assert(title != null);
 
   @override
@@ -19,6 +23,7 @@ class CustomizeSliverAppbar extends StatelessWidget {
           collapseMode: CollapseMode.parallax,
           title: ThemedText(
             '$title',
+            textScaleFactor: textScaleFactor,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
