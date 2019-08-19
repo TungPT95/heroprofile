@@ -10,8 +10,12 @@ typedef ItemClickCallback = void Function(Comic detail);
 class ComicItem extends StatelessWidget {
   final Comic comic;
   final ItemClickCallback itemClickCallback;
+  final double heightRatio;
+  final double widthRatio;
 
-  ComicItem(this.comic, {this.itemClickCallback}) : assert(comic != null);
+  ComicItem(this.comic,
+      {this.itemClickCallback, this.heightRatio = 1, this.widthRatio = 1})
+      : assert(comic != null);
 
   Comic get _comic => comic;
 
@@ -20,8 +24,8 @@ class ComicItem extends StatelessWidget {
     ThemeData _themeData = Theme.of(context);
     return Container(
       margin: EdgeInsets.only(
-        top: 10,
-        bottom: 30,
+        top: 10 * heightRatio,
+        bottom: 30 * heightRatio,
       ),
       child: CustomizeCard(
         child: InkWell(
@@ -36,16 +40,17 @@ class ComicItem extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomLeft,
                 child: Container(
-                  padding: EdgeInsets.only(left: 8, right: 8),
+                  padding: EdgeInsets.only(
+                      left: 8 * widthRatio, right: 8 * widthRatio),
                   height: MediaQuery.of(context).size.height * 1 / 7.5,
                   color: Colors.white.withOpacity(1),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
                         _comic.title,
+                        textScaleFactor: widthRatio,
                         style: TextStyle(
                           color: _themeData.textTheme.body1.color,
                           fontWeight: FontWeight.bold,
@@ -56,6 +61,7 @@ class ComicItem extends StatelessWidget {
                       ),
                       Text(
                         '${_comic.shortDesc}',
+                        textScaleFactor: widthRatio,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style:

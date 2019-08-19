@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/models/comic.dart';
+import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'package:hero_profile/widgets/carousel_pageview/carousel_pageview.dart';
 import 'package:hero_profile/widgets/comic_item.dart';
 
@@ -14,7 +15,7 @@ class ComicList extends StatefulWidget {
   _ComicListState createState() => _ComicListState();
 }
 
-class _ComicListState extends State<ComicList> {
+class _ComicListState extends BasePageState<ComicList> {
   List<Comic> get _items => widget.items;
 
   ItemClickCallback get _itemClickCallback => widget.itemClickCallback;
@@ -33,6 +34,8 @@ class _ComicListState extends State<ComicList> {
       itemBuilder: (context, index) {
         return ComicItem(
           _items[index],
+          heightRatio: screenHeightRatio(),
+          widthRatio: screenWidthRatio(),
           itemClickCallback: (detail) => _itemClickCallback(detail),
         );
       },
