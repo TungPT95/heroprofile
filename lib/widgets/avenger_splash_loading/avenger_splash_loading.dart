@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hero_profile/screens/base/state/base_page_state.dart';
 import 'package:hero_profile/widgets/avenger_progress_indicator/avenger_progress_indicator.dart';
 
 typedef SplashLoadingCallback = void Function(BuildContext context);
@@ -12,7 +13,7 @@ class AvengerSplashLoading extends StatefulWidget {
   _AvengerSplashLoadingState createState() => _AvengerSplashLoadingState();
 }
 
-class _AvengerSplashLoadingState extends State<AvengerSplashLoading>
+class _AvengerSplashLoadingState extends BasePageState<AvengerSplashLoading>
     with SingleTickerProviderStateMixin {
   SplashLoadingCallback get _splashLoadingCallback =>
       widget.splashLoadingCallback;
@@ -40,7 +41,7 @@ class _AvengerSplashLoadingState extends State<AvengerSplashLoading>
 
   @override
   Widget build(BuildContext context) {
-    final sideLength = 40.0;
+    final sideLength = scaleWidth(40.0);
     return AnimatedBuilder(
         animation: controller,
         builder: (context, widget) {
