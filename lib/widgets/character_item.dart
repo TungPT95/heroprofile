@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hero_profile/models/character.dart';
+import 'package:hero_profile/widgets/hero_dialog/hero_dialog.dart';
 
 import 'customize_card.dart';
 
@@ -48,6 +49,13 @@ class CharacterItem extends StatelessWidget {
           if (itemClickListener != null) {
             return itemClickListener(character.id);
           }
+        },
+        onLongPress: () {
+          showDialog(
+              context: context,
+              builder: (c) {
+                return HeroDialog();
+              });
         },
         contentPadding: EdgeInsets.only(
             left: contentPaddingLeft, right: contentPaddingRight),
