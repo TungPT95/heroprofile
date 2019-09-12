@@ -1,4 +1,4 @@
-package com.flutter.ptt.herosprofile
+package com.flutter.ptt.heroprofile
 
 import android.os.Bundle
 
