@@ -35,7 +35,7 @@
 	  alias: avenger
 	  ```
 	  
-  - create key_store.properties that contains a reference to your keystore:
+  - create key.properties that contains a reference to your keystore:
 	  
 	  ```
 	  storePassword=<store_password>
