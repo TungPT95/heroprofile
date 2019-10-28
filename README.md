@@ -28,7 +28,7 @@
   - generate keystore:
   
 	  ```
-	  keytool -genkey -v -keystore /Users/<user_name>/<project_directory>/android/app/<keystore_file_name>.jks -keyalg RSA -keysize 2048 -validity 10000 -alias <alias_name>
+	  keytool -genkey -v -keystore /Users/<user_name>/<project_directory>/android/app/key_store.jks -keyalg RSA -keysize 2048 -validity 10000 -alias <alias_name>
 	  
 	  keystore password: 4jRYkBDm3qnSRzNt
 	  store password: 4jRYkBDm3qnSRzNt
@@ -41,7 +41,7 @@
 	  storePassword=<store_password>
 	  keyPassword=<keystore_password>
 	  keyAlias=<alias>
-	  storeFile=<keystore_file_name>.jks
+	  storeFile=key_store.jks
 	  ```
 	  
   - config signin gradle:
