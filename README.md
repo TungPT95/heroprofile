@@ -48,7 +48,7 @@
   
 	  ```
 	  def keystoreProperties = new Properties()
-	  def keystorePropertiesFile = rootProject.file('key.properties')
+	  def keystorePropertiesFile = rootProject.file('key_store.properties')
 	  if (keystorePropertiesFile.exists()) {
 	  	keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 	  }
