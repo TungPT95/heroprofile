@@ -59,7 +59,7 @@
 	  		release {
 	  			keyAlias keystoreProperties['keyAlias']
 	  			keyPassword keystoreProperties['keyPassword']
-	  			storeFile file(keystoreProperties['storeFile'])
+	  			storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
 	  			storePassword keystoreProperties['storePassword']
 	  		}
 	  	}
